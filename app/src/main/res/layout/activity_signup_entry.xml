@@ -4,6 +4,89 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/SignupEntryActivityPadding"
     tools:context=".SignupEntryActivity">
+
+
+    <TextView
+        android:id="@+id/tvSignupEntryMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:lineSpacingExtra="12sp"
+        android:text="@string/signup_entry_msg"
+        android:textColor="@color/black1"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etSignupEntryId"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/LoginTextBoxHight"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/square_box"
+        android:ems="10"
+        android:inputType="date"
+        android:lineSpacingExtra="1sp"
+        android:padding="10dp"
+        android:text="@string/id"
+        android:textColor="@color/black1"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSignupEntryMsg" />
+
+    <EditText
+        android:id="@+id/etSignupEntryPw"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/LoginTextBoxHight"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/square_box"
+        android:ems="10"
+        android:inputType="date"
+        android:lineSpacingExtra="1sp"
+        android:padding="10dp"
+        android:text="@string/password"
+        android:textColor="@color/black1"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSignupEntryId" />
+
+    <EditText
+        android:id="@+id/etSignupEntryPwCheck"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/LoginTextBoxHight"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/square_box"
+        android:ems="10"
+        android:inputType="phone"
+        android:lineSpacingExtra="1sp"
+        android:padding="10dp"
+        android:text="@string/password_check"
+        android:textColor="@color/black1"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSignupEntryPw" />
+
+    <TextView
+        android:id="@+id/btnSignupEntryNext"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/LoginTextBoxHight"
+        android:background="@drawable/square_box"
+        android:backgroundTint="@color/white2"
+        android:gravity="center"
+        android:lineSpacingExtra="1sp"
+        android:text="@string/btn_singup"
+        android:textColor="@color/black1"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSignupEntryPwCheck" />
 
 </android.support.constraint.ConstraintLayout>

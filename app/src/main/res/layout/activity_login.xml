@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:padding="@dimen/LoginActivityPadding"
     tools:context=".LoginActivity">
+
     <ImageView
         android:id="@+id/ivLoginLogo"
         android:layout_width="@dimen/LoginActivityLogoSize"
@@ -69,12 +70,11 @@
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:lineSpacingExtra="1sp"
+        android:text="@string/btn_go_singup"
         android:textColor="@color/black1"
         android:textSize="16sp"
-        android:text="@string/btn_singup"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin">
-    </TextView>
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 </android.support.constraint.ConstraintLayout>
