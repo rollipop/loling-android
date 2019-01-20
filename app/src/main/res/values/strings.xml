@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Loling</string>
+    <string name="btn_login">Log-In</string>
+    <string name="btn_singup">회원가입하기</string>
+    <string name="id">ID</string>
+    <string name="pw">PW</string>
 </resources>
