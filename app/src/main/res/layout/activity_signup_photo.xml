@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/SignupPhotoActivityPadding"
+    tools:context=".SignupPhotoActivity">
+
+    <TextView
+        android:id="@+id/tvSignupPhotoMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:lineSpacingExtra="12sp"
+        android:text="@string/signup_photo_msg"
+        android:textColor="@color/black1"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/btnSignupPhotoSelect"
+        android:layout_width="@dimen/SignupPhotoActivityProfileSize"
+        android:layout_height="@dimen/SignupPhotoActivityProfileSize"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSignupPhotoyNext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSignupPhotoMsg"
+        app:srcCompat="@drawable/circle" />
+
+    <TextView
+        android:id="@+id/btnSignupPhotoyNext"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/LoginTextBoxHight"
+        android:background="@drawable/square_box"
+        android:backgroundTint="@color/white2"
+        android:gravity="center"
+        android:lineSpacingExtra="1sp"
+        android:text="@string/btn_singup"
+        android:textColor="@color/black1"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/btnSignupPhotoSelect"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

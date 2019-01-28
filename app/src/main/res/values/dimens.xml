@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="LoginActivityLogoSize">50dp</dimen>
+    <dimen name="LoginActivityPadding">30dp</dimen>
+    <dimen name="LoginTextBoxHight">50dp</dimen>
+
+    <dimen name="SignupPersonalActivityPadding">30dp</dimen>
+
+    <dimen name="SignupEntryActivityPadding">30dp</dimen>
+
+    <dimen name="SignupPhotoActivityProfileSize">150dp</dimen>
+    <dimen name="SignupPhotoActivityPadding">30dp</dimen>
+</resources>
