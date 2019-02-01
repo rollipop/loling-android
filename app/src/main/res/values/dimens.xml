@@ -10,4 +10,20 @@
 
     <dimen name="SignupPhotoActivityProfileSize">150dp</dimen>
     <dimen name="SignupPhotoActivityPadding">30dp</dimen>
+
+    <dimen name="MyPageActivityMarginX">6dp</dimen>
+    <dimen name="MyPageActivityMarginTop">8dp</dimen>
+    <dimen name="MyPageImageButtonSize">40dp</dimen>
+    <dimen name="MyPageImageButtonPadding">10dp</dimen>
+    <dimen name="MyPageLinearLayoutHeight">64dp</dimen>
+    <dimen name="MyPageLinearLayoutMargin">22dp</dimen>
+    <dimen name="MyPageRelativeLayoutPadding">8dp</dimen>
+    <dimen name="MyPageNameSize">20sp</dimen>
+    <dimen name="MyPageBdaySize">16sp</dimen>
+    <dimen name="MyPageTabMarginTop">44dp</dimen>
+    <dimen name="MyPageTabMarginButton">6dp</dimen>
+
+    <dimen name="ItemFriendDayHeight">74dp</dimen>
+    <dimen name="ItemFriendDayMargin">20dp</dimen>
+
 </resources>
