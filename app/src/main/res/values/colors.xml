@@ -13,9 +13,11 @@
     <color name="gray2">#666666</color>
     <color name="gray3">#b6b6b6</color>
 
+    <color name="mainPeachyPink">#fd9389</color>
+    <color name="mainLightPink">#ffeae8</color>
+
     <color name="white0">#fff</color>
     <color name="white1">#f7f7f7</color>
     <color name="white2">#dcdcdc</color>
-
-    <color name="peachy_pink">#fd9389</color>
 </resources>
+

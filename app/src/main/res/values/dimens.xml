@@ -26,4 +26,5 @@
     <dimen name="ItemFriendDayHeight">74dp</dimen>
     <dimen name="ItemFriendDayMargin">20dp</dimen>
 
+    <dimen name="MainSettingFriendSize">40dp</dimen>
 </resources>
