@@ -2,6 +2,7 @@ package mashup.loling
 
 import android.content.Context
 import android.os.Bundle
+<<<<<<< HEAD
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
@@ -16,10 +17,21 @@ class MainActivity : AppCompatActivity() {
     var pageNum = 8
 //    var mainIndicator  = pagerIndicator
 
+=======
+import kotlinx.android.synthetic.main.activity_main.*
+import mashup.loling.Fragment.FriendListFragment
+import mashup.loling.model.FriendItem
+
+class MainActivity : AppCompatActivity() {
+
+
+    var friendItemList = arrayListOf<FriendItem>()
+>>>>>>> Add MyPageActivity, MyPageSettingActivity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+<<<<<<< HEAD
         mContainer = findViewById<View>(R.id.pagerContainer) as PagerContainer
 
 //        val pager = mContainer!!.viewPager
@@ -69,3 +81,12 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+=======
+
+        var fragment: FriendListFragment = FriendListFragment()
+        supportFragmentManager.beginTransaction().add(R.id.frMainFriendList, fragment).commit()
+    }
+
+
+}
+>>>>>>> Add MyPageActivity, MyPageSettingActivity
