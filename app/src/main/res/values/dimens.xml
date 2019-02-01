@@ -10,7 +10,12 @@
 
     <dimen name="SignupPhotoActivityProfileSize">150dp</dimen>
     <dimen name="SignupPhotoActivityPadding">30dp</dimen>
-<<<<<<< HEAD
+
+    <dimen name="MainSettingFriendSize">40dp</dimen>
+    <dimen name="MainLolingRoomY">200dp</dimen>
+    <dimen name="MainLolingRoomX">160dp</dimen>
+    <dimen name="MainLolingRoomY5">205dp</dimen>
+    <dimen name="MainLolingRoomX5">165dp</dimen>
 
     <dimen name="MyPageActivityMarginX">6dp</dimen>
     <dimen name="MyPageActivityMarginTop">8dp</dimen>
@@ -27,7 +32,4 @@
     <dimen name="ItemFriendDayHeight">74dp</dimen>
     <dimen name="ItemFriendDayMargin">20dp</dimen>
 
-=======
-    <dimen name="MainSettingFriendSize">40dp</dimen>
->>>>>>> Add MainActivity
 </resources>

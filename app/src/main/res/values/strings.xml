@@ -15,4 +15,5 @@
     <string name="signup_entry_msg">아이디와 비밀번호를\n입력해주세요</string>
     <string name="signup_photo_msg">프로필 사진을 \n등록해주세요.</string>
     <string name="main_loling_msg">친구에게 \n롤링페이퍼를 써볼까요?</string>
+    <string name="main_birth_friends_msg">곧 생일인 친구들입니다. \n축하해 주세요!</string>
 </resources>

@@ -27,6 +27,7 @@
         <activity android:name=".SignupEntryActivity" />
         <activity android:name=".SignupPhotoActivity" />
         <activity android:name=".MyPageSettingActivity" />
+        <activity android:name=".MyPageActivity" />
     </application>
 
 </manifest>

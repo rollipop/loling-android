@@ -12,9 +12,9 @@
         android:layout_height="@dimen/MainSettingFriendSize"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="13dp"
+        android:src="@drawable/ic_person"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_person" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/ivMainLolingMsg"
@@ -23,24 +23,48 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:lineSpacingExtra="12sp"
+        android:text="@string/main_loling_msg"
         android:textColor="@color/black1"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivMainSettingFriend"
-        tools:text="@string/main_loling_msg" />
+        app:layout_constraintTop_toBottomOf="@+id/ivMainSettingFriend" />
+
+    <mashup.loling.PagerContainer
+        android:id="@+id/pagerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivMainLolingMsg">
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="@dimen/MainLolingRoomX5"
+            android:layout_height="@dimen/MainLolingRoomY5" />
+    </mashup.loling.PagerContainer>
+
+    <mashup.loling.PagerIndicator
+        android:id="@+id/pagerIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pagerContainer" />
 
 
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="80dp"
-        android:background="@drawable/square_box"
-        android:backgroundTint="@color/white2"
+        android:layout_marginTop="62dp"
+        android:background="@color/white2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivMainLolingMsg" />
+        app:layout_constraintTop_toBottomOf="@id/pagerIndicator" />
 
     <TextView
         android:id="@+id/ivMainFriendMsg"
@@ -50,10 +74,9 @@
         android:layout_marginTop="64dp"
         android:layout_marginBottom="30dp"
         android:lineSpacingExtra="12sp"
+        android:text="@string/main_birth_friends_msg"
         android:textColor="@color/black1"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        tools:text="곧 생일인 친구들입니다.
-축하해 주세요!" />
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 </android.support.constraint.ConstraintLayout>
