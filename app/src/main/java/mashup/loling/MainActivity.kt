@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 //            val layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
             if (position == 9) {
-                val view2 = layoutInflater.inflate(R.layout.item_main_loling_room2, container,
+                val view2 = layoutInflater.inflate(R.layout.item_main_loling_room_max, container,
                         false)
                 container.addView(view2)
                 return view2
