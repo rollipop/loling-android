@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,9 +9,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/MyPageActivityMarginStart"
+        android:layout_marginStart="@dimen/MyPageActivityMarginX"
         android:layout_marginTop="@dimen/MyPageActivityMarginTop"
-        android:layout_marginEnd="@dimen/MyPageActivityMarginEnd"
+        android:layout_marginEnd="@dimen/MyPageActivityMarginX"
         android:orientation="horizontal">
 
         <ImageButton
@@ -87,9 +88,9 @@
             android:layout_height="wrap_content"
             android:elevation="1dp"
             app:tabGravity="fill"
-            app:tabIndicatorColor="@color/peachy_pink"
+            app:tabIndicatorColor="@color/mainPeachyPink"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/peachy_pink"
+            app:tabSelectedTextColor="@color/mainPeachyPink"
             app:tabTextColor="@color/black2"/>
 
     </LinearLayout>
@@ -97,8 +98,7 @@
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toTopOf="@+id/tabsMypage">
+        android:layout_height="match_parent">
     </FrameLayout>
 
 </LinearLayout>
