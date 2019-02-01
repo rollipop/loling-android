@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="160dp"
+    android:layout_height="200dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/circle_round10"
+    android:backgroundTint="@color/mainLightPink">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="17dp"
+        android:src="@drawable/circle_round10"
+        android:tint="@color/mainPeachyPink"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvRolingRoomTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:lineSpacingExtra="1sp"
+        android:textColor="@color/black1"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:text="생일축하" />
+
+    <TextView
+        android:background="@drawable/circle_round8"
+        android:backgroundTint="@color/mainPeachyPink"
+        android:id="@+id/tvRolingRoomDday"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginTop="23dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:lineSpacingExtra="1sp"
+        android:textColor="@color/white0"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:text="D-1" />
+
+    <TextView
+        android:id="@+id/tvRolingRoomTarget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:lineSpacingExtra="3sp"
+        android:textColor="@color/black1"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/tvRolingRoomDday"
+        tools:text="소현님에게" />
+
+    <TextView
+        android:id="@+id/tvRolingRoomDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:lineSpacingExtra="1sp"
+        android:textColor="@color/black1"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/tvRolingRoomTarget"
+        tools:text="2019.01.05" />
+
+    <TextView
+        android:id="@+id/tvRolingRoomCountParticipant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:lineSpacingExtra="3sp"
+        android:textColor="@color/black1"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvRolingRoomCountCountParticipant"
+        app:layout_constraintStart_toStartOf="@+id/tvRolingRoomCountCountParticipant"
+        tools:text="29" />
+
+    <TextView
+        android:id="@+id/tvRolingRoomCountCountParticipant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:lineSpacingExtra="1sp"
+        android:textColor="@color/black1"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        tools:text="참여 인원" />
+</android.support.constraint.ConstraintLayout>

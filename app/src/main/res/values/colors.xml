@@ -6,12 +6,19 @@
 
     <color name="black0">#000000</color>
     <color name="black1">#333333</color>
+    <color name="black2">#292929</color>
 
     <color name="gray0">#aaaaaa</color>
     <color name="gray1">#969696</color>
     <color name="gray2">#666666</color>
+    <color name="gray3">#b6b6b6</color>
+
+    <color name="mainPeachyPink">#fd9389</color>
+    <color name="mainLightPink">#ffeae8</color>
 
     <color name="white0">#fff</color>
     <color name="white1">#f7f7f7</color>
     <color name="white2">#dcdcdc</color>
+
 </resources>
+
