@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     android:shape="rectangle">
     <size android:width="35dp" android:height="15dp"/>
     <solid android:color="@color/white2"/>
@@ -7,3 +8,11 @@
     <corners android:radius="8dp"/>
 
 </shape>
+=======
+    android:shape="rectangle" >
+    <solid android:color="#000000" />
+    <corners
+        android:radius="10dp"/>
+
+</shape>
+>>>>>>> Add MainActivity
