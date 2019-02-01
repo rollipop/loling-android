@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/MainLolingRoomX5"
+    android:layout_height="@dimen/MainLolingRoomY5">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="@dimen/MainLolingRoomX"
+        android:layout_height="@dimen/MainLolingRoomY"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/circle_round10"
+        android:backgroundTint="@color/mainPeachyPink"
+        android:elevation="3dp">
+
+        <TextView
+            android:id="@+id/tvRolingRoomCountPapers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="3sp"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:text="29"
+            android:textColor="@color/white0"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/tvRolingRoomFullView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvRolingRoomFullView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="3sp"
+            android:text="전체보기"
+            android:textColor="@color/white0"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRolingRoomCountPapers"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     private var context: Context = this
     var mContainer: PagerContainer? = null
-    var pageNum = 8
+    var pageNum = 10
 //    var mainIndicator  = pagerIndicator
 
 =======
@@ -61,6 +61,13 @@ class MainActivity : AppCompatActivity() {
 
         override fun instantiateItem(container: ViewGroup, position: Int): Any {
 //            val layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+
+            if (position == 9) {
+                val view2 = layoutInflater.inflate(R.layout.item_main_loling_room2, container,
+                        false)
+                container.addView(view2)
+                return view2
+            }
             val view = layoutInflater.inflate(R.layout.item_main_loling_room, container, false)
             container.addView(view)
             return view
