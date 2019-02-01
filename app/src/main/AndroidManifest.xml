@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyPageActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -21,7 +21,7 @@
         <activity android:name=".SignupPersonalActivity" />
         <activity android:name=".SignupEntryActivity" />
         <activity android:name=".SignupPhotoActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MyPageActivity" />
         <activity android:name=".MyPageSettingActivity"></activity>
     </application>
 

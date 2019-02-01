@@ -27,4 +27,8 @@
     <dimen name="ItemFriendDayMargin">20dp</dimen>
 
     <dimen name="MainSettingFriendSize">40dp</dimen>
+    <dimen name="MainLolingRoomY">200dp</dimen>
+    <dimen name="MainLolingRoomX">160dp</dimen>
+    <dimen name="MainLolingRoomY5">205dp</dimen>
+    <dimen name="MainLolingRoomX5">165dp</dimen>
 </resources>

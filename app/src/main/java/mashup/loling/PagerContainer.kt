@@ -1,18 +1,22 @@
 package mashup.loling
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Point
+import android.support.annotation.Px
 import android.support.v4.view.ViewPager
 import android.util.AttributeSet
+import android.view.MotionEvent
 import android.view.View
 import android.widget.FrameLayout
+
 
 class PagerContainer : FrameLayout, ViewPager.OnPageChangeListener {
     var viewPager: ViewPager? = null
     var mNeedsRedrow = false
-
     private val mCrenter = Point()
     private val mInitialTouch = Point()
+    private var mContext: Context? = null
 
     constructor(context: Context) : super(context) {
         init()
@@ -27,19 +31,54 @@ class PagerContainer : FrameLayout, ViewPager.OnPageChangeListener {
     }
 
     private fun init() {
+        //다음에 나올 뷰를 미리 보이게함
         clipChildren = false
-        setLayerType(View.LAYER_TYPE_SOFTWARE,null)
-    }
-    override fun onPageScrollStateChanged(p0: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        mContext = context
+        setLayerType(View.LAYER_TYPE_SOFTWARE, null)
     }
 
-    override fun onPageScrolled(p0: Int, p1: Float, p2: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    @SuppressLint("MissingSuperCall")
+    override fun onFinishInflate() {
+        try {
+            viewPager = getChildAt(0) as ViewPager
+            viewPager!!.setOnPageChangeListener(this)
+        } catch (e: Exception) {
+            throw IllegalStateException("PagerContainer의 하위경로가 ViewPager여야 함")
+        }
+    }
+
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        mCrenter.x = w / 2
+        mCrenter.y = h / 2
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        //ViewPager에서 아직 처리되지 않은 모든 터치
+        // 호출 범위를 벗어난 터치에서 스크롤 실행.
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                mInitialTouch.x = event.x.toInt()
+                mInitialTouch.y = event.y.toInt()
+                event.offsetLocation((mCrenter.x - mInitialTouch.x).toFloat(),
+                        (mCrenter.y - mInitialTouch.y).toFloat())
+            }
+            else -> event.offsetLocation((mCrenter.x - mInitialTouch.x).toFloat(),
+                    (mCrenter.y - mInitialTouch.y).toFloat())
+        }
+
+        return viewPager!!.dispatchTouchEvent(event)
     }
 
     override fun onPageSelected(p0: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val pagerIndicator = PagerIndicator(context)
+        val input: PagerIndicator? = findViewById(R.id.pagerIndicator)
+        input?.selectDot(p0)
+        pagerIndicator.selectDot(p0)
     }
 
+    override fun onPageScrolled(position: Int, p1: Float, @Px p2: Int) {}
+
+    override fun onPageScrollStateChanged(state: Int) {
+        mNeedsRedrow = (state != ViewPager.SCROLL_STATE_IDLE)
+    }
 }
