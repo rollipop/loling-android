@@ -10,4 +10,5 @@
 
     <dimen name="SignupPhotoActivityProfileSize">150dp</dimen>
     <dimen name="SignupPhotoActivityPadding">30dp</dimen>
+    <dimen name="MainSettingFriendSize">40dp</dimen>
 </resources>
