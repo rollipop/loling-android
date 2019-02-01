@@ -2,6 +2,7 @@ package mashup.loling
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import mashup.loling.model.FriendItem
 
 class MainActivity : AppCompatActivity() {
 

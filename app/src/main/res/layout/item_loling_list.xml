@@ -11,7 +11,7 @@
         android:id="@+id/view"
         android:layout_width="4dp"
         android:layout_height="88dp"
-        android:background="@color/peachy_pink"
+        android:background="@color/mainPeachyPink"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,7 +37,7 @@
         android:layout_height="16dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/circle_round8"
-        android:backgroundTint="@color/peachy_pink"
+        android:backgroundTint="@color/mainPeachyPink"
         android:text="D-1"
         android:textAlignment="center"
         android:textColor="@color/white0"
