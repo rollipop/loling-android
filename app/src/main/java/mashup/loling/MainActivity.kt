@@ -2,13 +2,13 @@ package mashup.loling
 
 import android.content.Context
 import android.os.Bundle
-<<<<<<< HEAD
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.activity_main.*
+import mashup.loling.Fragment.FriendListFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,21 +17,13 @@ class MainActivity : AppCompatActivity() {
     var pageNum = 10
 //    var mainIndicator  = pagerIndicator
 
-=======
-import kotlinx.android.synthetic.main.activity_main.*
-import mashup.loling.Fragment.FriendListFragment
-import mashup.loling.model.FriendItem
-
-class MainActivity : AppCompatActivity() {
-
-
-    var friendItemList = arrayListOf<FriendItem>()
->>>>>>> Add MyPageActivity, MyPageSettingActivity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-<<<<<<< HEAD
+        val fragment: FriendListFragment = FriendListFragment()
+        supportFragmentManager.beginTransaction().add(R.id.frMainFriendList, fragment).commit()
+ 
         mContainer = findViewById<View>(R.id.pagerContainer) as PagerContainer
 
 //        val pager = mContainer!!.viewPager
@@ -39,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         val adapter = MainPageAdepter()
 
         pager.setAdapter(adapter);
+
         //필요한 경우 또는 호출기는 표시할 추가 페이지가 하나뿐입니다.
         // 최소 몇 페이지 이상 볼 수 있도록 설정
         pager.setOffscreenPageLimit(adapter.getCount());
@@ -88,12 +81,3 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
-=======
-
-        var fragment: FriendListFragment = FriendListFragment()
-        supportFragmentManager.beginTransaction().add(R.id.frMainFriendList, fragment).commit()
-    }
-
-
-}
->>>>>>> Add MyPageActivity, MyPageSettingActivity
