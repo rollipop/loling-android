@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".drawpaper.LoadImageActivity" />
+        <activity android:name=".drawpaper.DrawPaperActivity" />
+        <activity android:name=".room.AuthorListDetailActivity" />
+        <activity android:name=".room.AuthorListActivity" />
+        <activity android:name=".room.SelectTargetActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +25,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignupPersonalActivity" />
         <activity android:name=".SignupEntryActivity" />
-        <activity android:name=".SignupPhotoActivity"></activity>
+        <activity android:name=".SignupPhotoActivity" />
     </application>
 
 </manifest>
