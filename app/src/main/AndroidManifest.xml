@@ -30,11 +30,6 @@
         <activity android:name=".SignupEntryActivity" />
         <activity android:name=".SignupPhotoActivity" />
         <activity android:name=".MyPageSettingActivity" />
-<<<<<<< HEAD
-        <activity android:name=".MyPageActivity" />
-=======
-        <activity android:name=".SelectFriendActivity"/>
->>>>>>> solve error
     </application>
 
 </manifest>
