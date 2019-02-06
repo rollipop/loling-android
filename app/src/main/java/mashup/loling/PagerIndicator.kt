@@ -17,7 +17,6 @@ class PagerIndicator : LinearLayout {
     private var size = 0
     private var imageDot: MutableList<ImageView> = mutableListOf()
 
-    //
     // 2.5dp 를 픽셀 단위로 바꿉니다.
     private val temp = TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP, 2.5f, resources.displayMetrics)
@@ -31,7 +30,6 @@ class PagerIndicator : LinearLayout {
 
         mContext = context
     }
-
     /**
      * 기본 점 생성
      * @param count 점의 갯수
@@ -52,7 +50,6 @@ class PagerIndicator : LinearLayout {
             imageDot.add(ImageView(mContext).apply { setPadding(temp.toInt(), 0, temp.toInt(), 0) })
 
             this.addView(imageDot[i])
-            Log.e("1231233  ", "" + position + "f " + imageDot[i])
         }
 
         //인덱스 선택
@@ -64,12 +61,8 @@ class PagerIndicator : LinearLayout {
      * @param position
      */
     fun selectDot(position: Int) {
-        Log.e("1231233  ", "d  " + position)
         if (position < 0) return
         for (i: Int in imageDot.indices) {
-
-            Log.e("1231233  ", "" + imageDot.indices + "" + position + "f " + imageDot[i])
-
             if (i == position) {
                 imageDot[i].setImageResource(mSelectCircle)
             } else {

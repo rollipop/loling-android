@@ -25,6 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
+        <activity android:name=".MyPageActivity" />
         <activity android:name=".SignupPersonalActivity" />
         <activity android:name=".SignupEntryActivity" />
         <activity android:name=".SignupPhotoActivity" />

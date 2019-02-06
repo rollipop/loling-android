@@ -1,6 +1,7 @@
 package mashup.loling
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
@@ -21,12 +22,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val fragment: FriendListFragment = FriendListFragment()
+        val fragment = FriendListFragment()
         supportFragmentManager.beginTransaction().add(R.id.frMainFriendList, fragment).commit()
  
         mContainer = findViewById<View>(R.id.pagerContainer) as PagerContainer
 
-//        val pager = mContainer!!.viewPager
         val pager = mContainer!!.viewPager as ViewPager
         val adapter = MainPageAdepter()
 
@@ -37,31 +37,37 @@ class MainActivity : AppCompatActivity() {
         pager.setOffscreenPageLimit(adapter.getCount());
         //페이지 간의 마진
         pager.setPageMargin(20);
-
         //If hardware acceleration is enabled, you should also remove
         // clipping on the pager for its children.
         pager.setClipChildren(false);
         indicator(pager.currentItem)
 
+
+        btnMainSettingFriend.setOnClickListener {
+            val intent = Intent(context,MyPageActivity()::class.java)
+            startActivity(intent)
+        }
     }
 
     fun indicator(currentItem: Int) {
         pagerIndicator?.createDotPanel(pageNum, R.drawable.indicator_dot_off, R.drawable
                 .indicator_dot_on, currentItem)
     }
+    fun indicator2(currentItem: Int) {
+        pagerIndicator?.selectDot(currentItem)
+}
 
     private inner class MainPageAdepter : PagerAdapter() {
 
         override fun instantiateItem(container: ViewGroup, position: Int): Any {
-//            val layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-
             if (position == 9) {
-                val view2 = layoutInflater.inflate(R.layout.item_main_loling_room_max, container,
-                        false)
+                val view2 = layoutInflater.inflate(R.layout.item_main_loling_room_max
+                        , container, false)
                 container.addView(view2)
                 return view2
             }
-            val view = layoutInflater.inflate(R.layout.item_main_loling_room, container, false)
+            val view = layoutInflater.inflate(R.layout.item_main_loling_room, container
+                    , false)
             container.addView(view)
             return view
         }
@@ -77,7 +83,6 @@ class MainActivity : AppCompatActivity() {
         override fun getCount(): Int {
             return pageNum
         }
-
     }
 
 }

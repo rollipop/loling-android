@@ -1,15 +1,18 @@
 package mashup.loling
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.graphics.Point
 import android.support.annotation.Px
 import android.support.v4.view.ViewPager
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
 import android.widget.FrameLayout
-
+import kotlinx.android.synthetic.main.activity_main.*
 
 class PagerContainer : FrameLayout, ViewPager.OnPageChangeListener {
     var viewPager: ViewPager? = null
@@ -70,10 +73,6 @@ class PagerContainer : FrameLayout, ViewPager.OnPageChangeListener {
     }
 
     override fun onPageSelected(p0: Int) {
-        val pagerIndicator = PagerIndicator(context)
-        val input: PagerIndicator? = findViewById(R.id.pagerIndicator)
-        input?.selectDot(p0)
-        pagerIndicator.selectDot(p0)
     }
 
     override fun onPageScrolled(position: Int, p1: Float, @Px p2: Int) {}

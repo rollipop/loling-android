@@ -44,11 +44,11 @@ class MyPageActivity : AppCompatActivity() {
             }
         })
         //톱니바퀴
-        btnMypageSetting.setOnClickListener(View.OnClickListener {
+        btnMypageSetting.setOnClickListener {
             val intent = Intent(this, MyPageSettingActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_in_left)
-        })
+        }
     }
 
     internal inner class PagerAdapter : FragmentStatePagerAdapter {

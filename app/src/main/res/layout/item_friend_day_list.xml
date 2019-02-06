@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/ivFriendItemLogo"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/ItemFriendDayListLogo"
+        android:layout_height="@dimen/ItemFriendDayListLogo"
         android:src="@drawable/circle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,10 +20,10 @@
         android:id="@+id/tvFriendItemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="@dimen/ItemFriendDayMargin"
         android:text="조영은"
         android:textColor="@color/black1"
-        android:textSize="20dp"
+        android:textSize="@dimen/TEXT_SIZE18"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/ivFriendItemLogo"
         app:layout_constraintTop_toTopOf="@+id/ivFriendItemLogo" />
@@ -32,16 +32,17 @@
     <TextView
         android:id="@+id/tvFriendItemDday"
         android:layout_width="wrap_content"
-        android:layout_height="16dp"
+        android:layout_height="@dimen/ItemDdayBoxY"
         android:layout_marginTop="5dp"
         android:background="@drawable/circle_round8"
         android:backgroundTint="@color/white2"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
+        android:lineSpacingExtra="1sp"
+        android:paddingStart="@dimen/ItemDdayBoxPadding"
+        android:paddingEnd="@dimen/ItemDdayBoxPadding"
         android:text="D-11"
         android:textAlignment="center"
         android:textColor="@color/black1"
-        android:textSize="12dp"
+        android:textSize="@dimen/TEXT_SIZE12"
         app:layout_constraintBottom_toBottomOf="@+id/ivFriendItemLogo"
         app:layout_constraintStart_toStartOf="@+id/tvFriendItemName"
         app:layout_constraintTop_toBottomOf="@+id/tvFriendItemName" />
@@ -61,22 +62,19 @@
         android:id="@+id/btnFriendItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="2dp"
-        android:tint="@color/gray0"
         android:background="@drawable/circle"
         android:src="@drawable/ic_chevron_right"
+        android:tint="@color/gray0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/View"
         android:background="@color/white2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-
 
 </android.support.constraint.ConstraintLayout>

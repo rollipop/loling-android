@@ -11,8 +11,8 @@ class MyPageSettingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mypage_setting)
 
-        btnMypageSettingClose.setOnClickListener(View.OnClickListener {
+        btnMypageSettingClose.setOnClickListener {
             finish()
-        })
+        }
     }
 }
