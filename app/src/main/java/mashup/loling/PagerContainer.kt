@@ -40,7 +40,6 @@ class PagerContainer : FrameLayout, ViewPager.OnPageChangeListener {
         setLayerType(View.LAYER_TYPE_SOFTWARE, null)
     }
 
-    @SuppressLint("MissingSuperCall")
     override fun onFinishInflate() {
         try {
             viewPager = getChildAt(0) as ViewPager
@@ -48,6 +47,7 @@ class PagerContainer : FrameLayout, ViewPager.OnPageChangeListener {
         } catch (e: Exception) {
             throw IllegalStateException("PagerContainer의 하위경로가 ViewPager여야 함")
         }
+        return super.onFinishInflate()
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {

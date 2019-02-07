@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import kotlinx.android.synthetic.main.item_friend_day_list.view.*
 import mashup.loling.model.FriendItem
 import mashup.loling.R
 
@@ -13,15 +14,9 @@ class FriendItemAdapter(var items : ArrayList<FriendItem>) : RecyclerView.Adapte
     public class ViewHolder : RecyclerView.ViewHolder{
         constructor(itemView: View) : super(itemView)
 
-        var friendItemName : TextView
-        var friendItemBday : TextView
-        var friendItemDday : TextView
-
-        init {
-            friendItemName = itemView.findViewById(R.id.tvFriendItemName) as TextView
-            friendItemBday = itemView.findViewById(R.id.tvFriendItemBday) as TextView
-            friendItemDday = itemView.findViewById(R.id.tvFriendItemDday) as TextView
-        }
+        var friendItemName : TextView = itemView.tvFriendItemName
+        var friendItemBday : TextView = itemView.tvFriendItemBday
+        var friendItemDday : TextView = itemView.tvFriendItemDday
 
     }
 
