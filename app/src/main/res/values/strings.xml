@@ -23,4 +23,16 @@
     <string name="friendList">친구목록</string>
     <string name="writtenLoling">작성한 롤링</string>
     <string name="receiveLiling">받은 롤링</string>
+
+    <string name="btn_okay">Okay</string>
+    <string name="btn_cancel">Cancel</string>
+
+    <string name="create_room_ps_type_the_anniversary_date">Please set the date for %s.</string>
+    <string name="create_room_paper_will_be_sent_at_the_midnight">Paper will be sent at the midnight.</string>
+    <string name="create_room_btn_create_loling">Create Loling</string>
+    <string name="create_room_click_here_to_select_date">Click here to select date</string>
+    <string name="create_room_room_already_existed_for_psname_at_psdate">Loling is already existed for %s at %s.\nWould you create new Loling or join to existed Loling?</string>
+    <string name="create_room_create_new">Create new</string>
+    <string name="create_room_join_existed">Join</string>
+
 </resources>
