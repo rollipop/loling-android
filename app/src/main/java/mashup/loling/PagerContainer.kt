@@ -6,38 +6,31 @@ import android.support.annotation.Px
 import android.support.v4.view.ViewPager
 import android.util.AttributeSet
 import android.view.MotionEvent
-import android.view.View
 import android.widget.FrameLayout
 
 class PagerContainer : FrameLayout, ViewPager.OnPageChangeListener {
     var viewPager: ViewPager? = null
-    var mNeedsRedrow = false
     private val mCenter = Point()
     private val mInitialTouch = Point()
 
-    constructor(context: Context) : super(context) {
-        init()
-    }
+    private var mIndicatorView: PagerIndicator? = null
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        init()
-    }
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle)
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
-        init()
-    }
-
-    private fun init() {
+    init {
         //다음에 나올 뷰를 미리 보이게함
         clipChildren = false
-        setLayerType(View.LAYER_TYPE_SOFTWARE, null)
     }
 
     override fun onFinishInflate() {
-        try {
-            viewPager = getChildAt(0) as ViewPager
-            viewPager!!.setOnPageChangeListener(this)
-        } catch (e: Exception) {
+        val maybeViewPager = getChildAt(0)
+        if(maybeViewPager is ViewPager) {
+            viewPager = maybeViewPager
+            viewPager!!.clearOnPageChangeListeners()
+            viewPager!!.addOnPageChangeListener(this)
+        } else {
             throw IllegalStateException("The root child of PagerContainer must be a ViewPager")
         }
         return super.onFinishInflate()
@@ -49,8 +42,8 @@ class PagerContainer : FrameLayout, ViewPager.OnPageChangeListener {
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        //ViewPager에서 아직 처리되지 않은 모든 터치
-        // 호출 범위를 벗어난 터치에서 스크롤 실행.
+        /* ViewPager 외부에서(FrameLayout 안에서) 터치 및 드래그 했을 때에도
+           ViewPager가 스와이핑 될 수 있도록 터치 이벤트 좌표를 옮겨주는 코드 */
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
                 mInitialTouch.x = event.x.toInt()
@@ -65,12 +58,13 @@ class PagerContainer : FrameLayout, ViewPager.OnPageChangeListener {
         return viewPager!!.dispatchTouchEvent(event)
     }
 
+    fun setIndicator(pagerIndicator: PagerIndicator) {
+        this.mIndicatorView = pagerIndicator
+    }
+
     override fun onPageSelected(p0: Int) {
+        mIndicatorView?.selectDot(p0)
     }
-
     override fun onPageScrolled(position: Int, p1: Float, @Px p2: Int) {}
-
-    override fun onPageScrollStateChanged(state: Int) {
-        mNeedsRedrow = (state != ViewPager.SCROLL_STATE_IDLE)
-    }
+    override fun onPageScrollStateChanged(state: Int) {}
 }

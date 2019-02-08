@@ -14,7 +14,6 @@ import mashup.loling.Fragment.FriendListFragment
 class MainActivity : AppCompatActivity() {
 
     private var context: Context = this
-    var mContainer: PagerContainer? = null
     var pageNum = 10
 //    var mainIndicator  = pagerIndicator
 
@@ -24,38 +23,29 @@ class MainActivity : AppCompatActivity() {
 
         val fragment = FriendListFragment()
         supportFragmentManager.beginTransaction().add(R.id.frMainFriendList, fragment).commit()
- 
-        mContainer = findViewById<View>(R.id.pagerContainer) as PagerContainer
 
-        val pager = mContainer!!.viewPager as ViewPager
+        val pager = pagerContainer.viewPager as ViewPager
         val adapter = MainPageAdepter()
 
-        pager.setAdapter(adapter);
+        pager.adapter = adapter
 
         //필요한 경우 또는 호출기는 표시할 추가 페이지가 하나뿐입니다.
         // 최소 몇 페이지 이상 볼 수 있도록 설정
-        pager.setOffscreenPageLimit(adapter.getCount());
+        pager.offscreenPageLimit = adapter.count
         //페이지 간의 마진
-        pager.setPageMargin(20);
+        pager.pageMargin = 20
         //If hardware acceleration is enabled, you should also remove
         // clipping on the pager for its children.
-        pager.setClipChildren(false);
-        indicator(pager.currentItem)
-
+        pager.clipChildren = false
+        pagerIndicator?.createDotPanel(pageNum, R.drawable.indicator_dot_off, R.drawable
+                .indicator_dot_on, pager.currentItem)
+        pagerContainer.setIndicator(pagerIndicator)
 
         btnMainSettingFriend.setOnClickListener {
             val intent = Intent(context,MyPageActivity()::class.java)
             startActivity(intent)
         }
     }
-
-    fun indicator(currentItem: Int) {
-        pagerIndicator?.createDotPanel(pageNum, R.drawable.indicator_dot_off, R.drawable
-                .indicator_dot_on, currentItem)
-    }
-    fun indicator2(currentItem: Int) {
-        pagerIndicator?.selectDot(currentItem)
-}
 
     private inner class MainPageAdepter : PagerAdapter() {
 
