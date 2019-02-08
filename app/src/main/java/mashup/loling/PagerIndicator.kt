@@ -22,12 +22,10 @@ class PagerIndicator : LinearLayout {
             TypedValue.COMPLEX_UNIT_DIP, 2.5f, resources.displayMetrics)
 
     constructor(context: Context?) : super(context) {
-
         mContext = context
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-
         mContext = context
     }
     /**
