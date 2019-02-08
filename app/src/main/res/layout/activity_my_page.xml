@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/MyPageActivityMarginX"
+        android:layout_marginTop="@dimen/MyPageActivityMarginTop"
+        android:layout_marginEnd="@dimen/MyPageActivityMarginX"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnMypageSetting"
+            android:layout_width="@dimen/MyPageImageButtonSize"
+            android:layout_height="@dimen/MyPageImageButtonSize"
+            android:background="@null"
+            android:padding="@dimen/MyPageImageButtonPadding"
+            android:tint="@color/gray3"
+            app:srcCompat="@drawable/ic_settings" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="@dimen/MyPageImageButtonSize"
+            android:layout_height="@dimen/MyPageImageButtonSize"
+            android:layout_alignParentEnd="true"
+            android:background="@null"
+            android:gravity="end"
+            android:tint="@color/gray3"
+            app:srcCompat="@drawable/ic_close" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/MyPageLinearLayoutHeight"
+        android:layout_marginStart="@dimen/MyPageLinearLayoutMargin"
+        android:layout_marginTop="@dimen/MyPageLinearLayoutMargin"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivMypageLogo"
+            android:layout_width="@dimen/MyPageLinearLayoutHeight"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/circle" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/MyPageRelativeLayoutPadding"
+            android:paddingBottom="@dimen/MyPageRelativeLayoutPadding">
+
+            <TextView
+                android:id="@+id/tvMypageName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:lineSpacingExtra="16sp"
+                android:text="박소현"
+                android:textColor="@color/black2"
+                android:textSize="@dimen/MyPageNameSize"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMypageBday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:lineSpacingExtra="2sp"
+                android:text="1990.01.23"
+                android:textColor="@color/black1"
+                android:textSize="@dimen/MyPageBdaySize" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/MyPageTabMarginTop"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/tvTabFirendListSum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="12sp"
+                android:textColor="@color/mainPeachyPink"
+                android:textSize="@dimen/TEXT_SIZE24"
+                android:text="16"/>
+
+            <TextView
+                android:id="@+id/tvTabWrittenSum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="12sp"
+                android:textColor="@color/black2"
+                android:textSize="@dimen/TEXT_SIZE24"
+                android:text="4"/>
+
+            <TextView
+                android:id="@+id/tvTabReceivedSum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="12sp"
+                android:textColor="@color/black2"
+                android:textSize="24sp"
+                android:text="11"/>
+        </LinearLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabsMypage"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_gravity="top"
+            android:elevation="1dp"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/mainPeachyPink"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/mainPeachyPink"
+            app:tabTextColor="@color/black2" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vpMyPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</LinearLayout>

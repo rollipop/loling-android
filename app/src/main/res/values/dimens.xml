@@ -1,13 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="ItemFriendDayHeight">74dp</dimen>
+    <dimen name="ItemFriendDayListLogo">48dp</dimen>
+    <dimen name="ItemFriendDayMargin">20dp</dimen>
+
+    <dimen name="ItemDdayBoxPadding">10dp</dimen>
+    <dimen name="ItemDdayBoxY">16dp</dimen>
+
     <dimen name="LoginActivityLogoSize">50dp</dimen>
     <dimen name="LoginActivityPadding">30dp</dimen>
-    <dimen name="LoginTextBoxHight">50dp</dimen>
 
-    <dimen name="SignupPersonalActivityPadding">30dp</dimen>
+    <dimen name="LoginTextBoxHight">50dp</dimen>
+    <dimen name="LoginItemMarginX">16dp</dimen>
+
+    <dimen name="LolingItemViewX">4dp</dimen>
+    <dimen name="LolingRoomCircle">10dp</dimen>
+    <dimen name="LolingRoomCricleMarginX">20dp</dimen>
+    <dimen name="LolingRoomCricleMarginY">18dp</dimen>
+    <dimen name="LolingRoomDdayMarginTop">20dp</dimen>
+    <dimen name="LolingRoomTextMarginTop">9dp</dimen>
+    <dimen name="LolingMarn16">16dp</dimen>
+
+    <dimen name="MainLolingRoomY">200dp</dimen>
+    <dimen name="MainLolingRoomX">160dp</dimen>
+    <dimen name="MainLolingRoomY5">205dp</dimen>
+    <dimen name="MainLolingRoomX5">165dp</dimen>
+    <dimen name="MainLolingMsgMarnBottom">40dp</dimen>
+    <dimen name="MainLolingMarnTop64">64dp</dimen>
+
+    <dimen name="MainSettingFriendSize">40dp</dimen>
+
+    <dimen name="MyPageActivityMarginX">6dp</dimen>
+    <dimen name="MyPageActivityMarginTop">8dp</dimen>
+    <dimen name="MyPageBdaySize">14sp</dimen>
+    <dimen name="MyPageImageButtonSize">40dp</dimen>
+    <dimen name="MyPageImageButtonPadding">10dp</dimen>
+    <dimen name="MyPageLinearLayoutHeight">64dp</dimen>
+    <dimen name="MyPageLinearLayoutMargin">22dp</dimen>
+    <dimen name="MyPageNameSize">20sp</dimen>
+    <dimen name="MyPageRelativeLayoutPadding">8dp</dimen>
+    <dimen name="MyPageTabMarginTop">44dp</dimen>
+    <dimen name="MyPageTabMarginButton">6dp</dimen>
+
+    <dimen name="MyPageSettingMarginX">20dp</dimen>
+    <dimen name="MyPageSettingCloseBtn">18dp</dimen>
+    <dimen name="MyPageSettingBoxY">56dp</dimen>
+
+    <dimen name="MainActivityMarginX">20dp</dimen>
 
     <dimen name="SignupEntryActivityPadding">30dp</dimen>
-
-    <dimen name="SignupPhotoActivityProfileSize">150dp</dimen>
+    <dimen name="SignupPersonalActivityPadding">30dp</dimen>
     <dimen name="SignupPhotoActivityPadding">30dp</dimen>
+    <dimen name="SignupPhotoActivityProfileSize">150dp</dimen>
+
+    <dimen name="TEXT_SIZE12">12sp</dimen>
+    <dimen name="TEXT_SIZE16">16sp</dimen>
+    <dimen name="TEXT_SIZE18">18sp</dimen>
+    <dimen name="TEXT_SIZE20">20sp</dimen>
+    <dimen name="TEXT_SIZE24">24sp</dimen>
+    <dimen name="View">1dp</dimen>
 </resources>

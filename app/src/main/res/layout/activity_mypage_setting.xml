@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white0">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/MyPageSettingBoxY">
+
+            <TextView
+                android:id="@+id/tvMypageSettingClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mypage_setting_close"
+                android:textColor="@color/black1"
+                android:textSize="@dimen/TEXT_SIZE18"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btnMypageSettingClose"
+                android:layout_width="@dimen/MyPageSettingCloseBtn"
+                android:layout_height="@dimen/MyPageSettingCloseBtn"
+                android:layout_marginEnd="@dimen/MyPageSettingMarginX"
+                android:background="@null"
+                android:src="@drawable/ic_close"
+                android:tint="@color/gray0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white0">
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/View"
+            android:background="@color/white2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvMypageSettingCtrl"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/MyPageSettingBoxY"
+            android:layout_marginStart="@dimen/MyPageSettingMarginX"
+            android:gravity="center"
+            android:text="@string/mypage_setting_ctrl"
+            android:textColor="@color/black0"
+            android:textSize="@dimen/TEXT_SIZE16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnMypageSettingCtrl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/MyPageSettingMarginX"
+            android:background="@drawable/circle"
+            android:src="@drawable/ic_chevron_right"
+            android:tint="@color/gray0"
+            app:layout_constraintBottom_toBottomOf="@id/tvMypageSettingCtrl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvMypageSettingCtrl" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/View"
+            android:background="@color/white2"
+            app:layout_constraintTop_toBottomOf="@+id/tvMypageSettingCtrl" />
+
+        <TextView
+            android:id="@+id/tvMypageSettingNoti"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/MyPageSettingBoxY"
+            android:layout_marginStart="@dimen/MyPageSettingMarginX"
+            android:gravity="center"
+            android:text="@string/mypage_setting_noti"
+            android:textColor="@color/black0"
+            android:textSize="@dimen/TEXT_SIZE16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view2" />
+
+        <ImageButton
+            android:id="@+id/btnMypageSettingNoti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/MyPageSettingMarginX"
+            android:background="@drawable/circle"
+            android:src="@drawable/ic_chevron_right"
+            android:tint="@color/gray0"
+            app:layout_constraintBottom_toBottomOf="@id/tvMypageSettingNoti"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvMypageSettingNoti" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/View"
+            android:background="@color/white2"
+            app:layout_constraintTop_toBottomOf="@+id/tvMypageSettingNoti" />
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>

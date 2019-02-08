@@ -14,6 +14,8 @@
         <activity android:name=".room.AuthorListDetailActivity" />
         <activity android:name=".room.AuthorListActivity" />
         <activity android:name=".room.SelectTargetActivity" />
+        <activity android:name=".SelectFriendActivity" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,9 +25,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
+        <activity android:name=".MyPageActivity" />
         <activity android:name=".SignupPersonalActivity" />
         <activity android:name=".SignupEntryActivity" />
         <activity android:name=".SignupPhotoActivity" />
+        <activity android:name=".MyPageSettingActivity" />
     </application>
 
 </manifest>

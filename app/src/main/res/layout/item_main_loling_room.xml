@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/MainLolingRoomX5"
+    android:layout_height="@dimen/MainLolingRoomY5">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="@dimen/MainLolingRoomX"
+        android:layout_height="@dimen/MainLolingRoomY"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/circle_round10"
+        android:backgroundTint="@color/mainLightPink"
+        android:elevation="5dp">
+
+        <ImageView
+            android:id="@+id/ivLolingRoomCircle"
+            android:layout_width="@dimen/LolingRoomCircle"
+            android:layout_height="@dimen/LolingRoomCircle"
+            android:layout_marginStart="@dimen/LolingRoomCricleMarginX"
+            android:layout_marginTop="@dimen/LolingRoomCricleMarginY"
+            android:src="@drawable/circle_round10"
+            android:tint="@color/mainPeachyPink"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvLolingRoomTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:lineSpacingExtra="1sp"
+            android:text="생일축하"
+            android:textColor="@color/black1"
+            android:textSize="@dimen/TEXT_SIZE12"
+            app:layout_constraintBottom_toBottomOf="@+id/ivLolingRoomCircle"
+            app:layout_constraintStart_toEndOf="@+id/ivLolingRoomCircle"
+            app:layout_constraintTop_toTopOf="@+id/ivLolingRoomCircle"
+            tools:text="생일축하" />
+
+        <TextView
+            android:id="@+id/tvLolingRoomDday"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/ItemDdayBoxY"
+            android:layout_marginTop="@dimen/LolingRoomDdayMarginTop"
+            android:background="@drawable/circle_round8"
+            android:backgroundTint="@color/mainPeachyPink"
+            android:lineSpacingExtra="1sp"
+            android:paddingLeft="@dimen/ItemDdayBoxPadding"
+            android:paddingRight="@dimen/ItemDdayBoxPadding"
+            android:text="D-1"
+            android:textColor="@color/white0"
+            android:textSize="@dimen/TEXT_SIZE12"
+            app:layout_constraintStart_toStartOf="@+id/ivLolingRoomCircle"
+            app:layout_constraintTop_toBottomOf="@+id/ivLolingRoomCircle" />
+
+
+        <TextView
+            android:id="@+id/tvLolingRoomTarget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/LolingRoomTextMarginTop"
+            android:lineSpacingExtra="3sp"
+            android:text="소현님에게"
+            android:textColor="@color/black1"
+            android:textSize="@dimen/TEXT_SIZE18"
+            app:layout_constraintStart_toStartOf="@+id/ivLolingRoomCircle"
+            app:layout_constraintTop_toBottomOf="@+id/tvLolingRoomDday" />
+
+        <TextView
+            android:id="@+id/tvLolingRoomDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/LolingRoomTextMarginTop"
+            android:lineSpacingExtra="1sp"
+            android:text="2019.01.05"
+            android:textColor="@color/black1"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/ivLolingRoomCircle"
+            app:layout_constraintTop_toBottomOf="@+id/tvLolingRoomTarget" />
+
+        <TextView
+            android:id="@+id/tvLolingRoomCountParticipant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:lineSpacingExtra="3sp"
+            android:text="29"
+            android:textColor="@color/black1"
+            android:textSize="@dimen/TEXT_SIZE24"
+            app:layout_constraintBottom_toTopOf="@+id/LolingRoomCountParticipant"
+            app:layout_constraintStart_toStartOf="@+id/LolingRoomCountParticipant" />
+
+        <TextView
+            android:id="@+id/LolingRoomCountParticipant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/LolingMarn16"
+            android:lineSpacingExtra="1sp"
+            android:text="@string/loling_room_count_participant"
+            android:textColor="@color/black1"
+            android:textSize="@dimen/TEXT_SIZE12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/ivLolingRoomCircle" />
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>

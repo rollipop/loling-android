@@ -1,19 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        android:layout_height="match_parent">
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".MainActivity">
 
-</android.support.constraint.ConstraintLayout>
+            <ImageView
+                android:id="@+id/btnMainSettingFriend"
+                android:layout_width="@dimen/MainSettingFriendSize"
+                android:layout_height="@dimen/MainSettingFriendSize"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="13dp"
+                android:src="@drawable/ic_person"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ivMainLolingMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/MainActivityMarginX"
+                android:layout_marginTop="@dimen/LolingMarn16"
+                android:lineSpacingExtra="12sp"
+                android:text="@string/main_loling_msg"
+                android:textColor="@color/black1"
+                android:textSize="@dimen/TEXT_SIZE24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnMainSettingFriend" />
+
+            <mashup.loling.PagerContainer
+                android:id="@+id/pagerContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/MainActivityMarginX"
+                android:layout_marginTop="@dimen/MainLolingMsgMarnBottom"
+                android:layout_marginEnd="@dimen/MainActivityMarginX"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivMainLolingMsg">
+
+                <android.support.v4.view.ViewPager
+                    android:layout_width="@dimen/MainLolingRoomX5"
+                    android:layout_height="@dimen/MainLolingRoomY5"/>
+            </mashup.loling.PagerContainer>
+
+            <mashup.loling.PagerIndicator
+                android:id="@+id/pagerIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/LolingMarn16"
+                app:layout_constraintBottom_toTopOf="@+id/view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pagerContainer" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/View"
+                android:layout_marginTop="@dimen/MainLolingMsgMarnBottom"
+                android:background="@color/white2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pagerIndicator" />
+
+            <TextView
+                android:id="@+id/ivMainFriendMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/MainActivityMarginX"
+                android:layout_marginTop="@dimen/MainLolingMarnTop64"
+                android:lineSpacingExtra="12sp"
+                android:text="@string/main_birth_friends_msg"
+                android:textColor="@color/black1"
+                android:textSize="@dimen/TEXT_SIZE24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <FrameLayout
+                android:id="@+id/frMainFriendList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/MainLolingMsgMarnBottom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivMainFriendMsg" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>
