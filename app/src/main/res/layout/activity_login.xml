@@ -1,80 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/LoginActivityPadding"
-    tools:context=".LoginActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/ivLoginLogo"
-        android:layout_width="@dimen/LoginActivityLogoSize"
-        android:layout_height="@dimen/LoginActivityLogoSize"
-        android:layout_marginTop="160dp"
-        android:src="@drawable/circle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etLoginID"
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="userViewModel"
+            type="mashup.loling.user.viewmodel.UserViewModel"/>
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/square_box"
-        android:padding="10dp"
-        android:text="@string/id"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivLoginLogo" />
+        android:layout_height="match_parent"
+        android:padding="@dimen/LoginActivityPadding"
+        tools:context=".user.view.LoginActivity">
 
-    <EditText
-        android:id="@+id/etLoginPW"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/square_box"
-        android:ems="10"
-        android:padding="10dp"
-        android:text="@string/pw"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etLoginID" />
+        <ImageView
+            android:id="@+id/ivLoginLogo"
+            android:layout_width="@dimen/LoginActivityLogoSize"
+            android:layout_height="@dimen/LoginActivityLogoSize"
+            android:layout_marginTop="160dp"
+            android:src="@drawable/circle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/square_box"
-        android:backgroundTint="@color/white2"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:lineSpacingExtra="1sp"
-        android:text="@string/btn_login"
-        android:textColor="@color/black1"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etLoginPW" />
+        <EditText
+            android:id="@+id/etLoginID"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/square_box"
+            android:padding="10dp"
+            android:text="@string/id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivLoginLogo" />
 
-    <TextView
-        android:id="@+id/btnLoginSignup"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/square_box"
-        android:backgroundTint="@color/white2"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:lineSpacingExtra="1sp"
-        android:text="@string/btn_go_singup"
-        android:textColor="@color/black1"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
-</android.support.constraint.ConstraintLayout>
+        <EditText
+            android:id="@+id/etLoginPW"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/square_box"
+            android:ems="10"
+            android:padding="10dp"
+            android:text="@string/pw"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etLoginID" />
+
+
+        <TextView
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/square_box"
+            android:backgroundTint="@color/white2"
+            android:clickable="true"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:lineSpacingExtra="1sp"
+            android:text="@string/btn_login"
+            android:textColor="@color/black1"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etLoginPW" />
+
+        <TextView
+            android:id="@+id/btnLoginSignup"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/square_box"
+            android:backgroundTint="@color/white2"
+            android:clickable="true"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:lineSpacingExtra="1sp"
+            android:text="@string/btn_go_singup"
+            android:textColor="@color/black1"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+    </android.support.constraint.ConstraintLayout>
+</layout>
