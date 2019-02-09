@@ -1,13 +1,18 @@
 package mashup.loling
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import mashup.loling.Fragment.FriendListFragment
 
@@ -73,6 +78,23 @@ class MainActivity : AppCompatActivity() {
         override fun getCount(): Int {
             return pageNum
         }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        //address permission
+        val permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
+        if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "연락처 권한 주어져 있음.", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(this, "연락처 권한 없음.", Toast.LENGTH_LONG).show()
+
+            //if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.RECEIVE_SMS)) {
+            //    Toast.makeText(this, "SMS 권한 설명 필요함", Toast.LENGTH_LONG).show();
+            //} else {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_CONTACTS), 1)
+            //}
+        }
+
     }
 
 }
