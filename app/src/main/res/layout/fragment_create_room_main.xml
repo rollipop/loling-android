@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".room.CreateRoomMainFragment">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="250dp" />
+
+    <TextView
+        android:id="@+id/tvNameAndText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="28sp"
+        android:layout_marginStart="@dimen/create_room_title_text_margin"
+        android:layout_marginEnd="@dimen/create_room_title_text_margin"
+        android:layout_marginTop="@dimen/create_room_main_text_margin"
+        android:text="@string/create_room_ps_type_the_anniversary_date"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="@string/create_room_paper_will_be_sent_at_the_midnight"
+        android:layout_marginTop="@dimen/create_room_main_text_margin" />
+
+    <TextView
+        android:id="@+id/tvRoomDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:background="@drawable/textview_bottom_border_black"
+        android:layout_marginStart="72dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginTop="@dimen/create_room_main_text_margin"
+        android:hint="@string/create_room_click_here_to_select_date"
+        android:layout_marginBottom="40dp"/>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:textColor="@color/white0"
+        android:text="@string/create_room_btn_create_loling"
+        android:background="@color/colorPrimary"/>
+
+</LinearLayout>

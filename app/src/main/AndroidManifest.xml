@@ -11,6 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".room.CreateRoomActivity"
+                  android:theme="@style/Theme.CustomDialogActivity" />
         <activity android:name=".drawpaper.LoadImageActivity" />
         <activity android:name=".drawpaper.DrawPaperActivity" />
         <activity android:name=".room.AuthorListDetailActivity" />
