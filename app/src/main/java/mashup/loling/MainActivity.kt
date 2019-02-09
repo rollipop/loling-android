@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
 
     private var context: Context = this
     var pageNum = 10
+//  var mainIndicator  = pagerIndicator
+    private val READ_CONTACTS_PERMISSIONS_REQUEST = 1
 
     //    val view = window.decorView
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +36,8 @@ class MainActivity : AppCompatActivity() {
         setDecorView(decorView)
 
         faBtnMain.setImageResource(R.drawable.ic_add)
+        contactPermissionCheck()
+
         val fragment = FriendListFragment()
         supportFragmentManager.beginTransaction().add(R.id.frMainFriendList, fragment).commit()
 
@@ -102,21 +106,32 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        //address permission
-        val permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
-        if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "연락처 권한 주어져 있음.", Toast.LENGTH_LONG).show()
-        } else {
-            Toast.makeText(this, "연락처 권한 없음.", Toast.LENGTH_LONG).show()
+    fun contactPermissionCheck(){
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
+                != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "권한 없음", Toast.LENGTH_LONG).show()
 
-            //if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.RECEIVE_SMS)) {
-            //    Toast.makeText(this, "SMS 권한 설명 필요함", Toast.LENGTH_LONG).show();
-            //} else {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_CONTACTS), 1)
-            //}
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                            Manifest.permission.READ_CONTACTS)) {
+
+            }
+
+            ActivityCompat.requestPermissions(this,
+                    arrayOf(Manifest.permission.READ_CONTACTS),
+                    READ_CONTACTS_PERMISSIONS_REQUEST)
+
         }
-
     }
 
+    override fun onRequestPermissionsResult(requestCode: Int,
+                                            permissions: Array<String>, grantResults: IntArray) {
+        when (requestCode) {
+            READ_CONTACTS_PERMISSIONS_REQUEST -> {
+                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                } else {
+                }
+                return
+            }
+        }
+    }
 }
