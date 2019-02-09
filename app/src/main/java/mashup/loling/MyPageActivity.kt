@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_my_page.*
+import kotlinx.android.synthetic.main.activity_mypage_setting.*
 import mashup.loling.Fragment.FriendListFragment
 import mashup.loling.Fragment.ReceivedListFragment
 import mashup.loling.Fragment.WrittenListFragment
@@ -48,6 +49,12 @@ class MyPageActivity : AppCompatActivity() {
             startActivity(intent)
             overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_in_left)
         }
+
+        btnMypageClose.setOnClickListener {
+            finish()
+        }
+
+
     }
 
     internal inner class PagerAdapter : FragmentStatePagerAdapter {
