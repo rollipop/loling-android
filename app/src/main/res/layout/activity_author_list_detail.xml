@@ -4,7 +4,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white0"
+    android:background="@color/mainLightPink"
     tools:context=".room.AuthorListDetailActivity">
+
+
+    <ImageButton
+        android:id="@+id/btnAuthorListDetailClose"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
+        android:background="@null"
+        android:src="@drawable/ic_close"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnAuthorListDetailShare"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="6dp"
+        android:background="@null"
+        android:src="@drawable/ic_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <mashup.loling.PagerContainer
+        android:id="@+id/authorListPageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toTopOf="@id/tvAuthorListDetailPage"
+        app:layout_constraintTop_toBottomOf="@id/btnAuthorListDetailShare">
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="@dimen/AuthorListDetailRoomX"
+            android:layout_height="@dimen/AuthorListDetailRoomY"
+            android:layout_gravity="center" />
+
+    </mashup.loling.PagerContainer>
+
+    <TextView
+        android:id="@+id/tvAuthorListDetailPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="16dp"
+        android:lineSpacingExtra="2sp"
+        android:text="1"
+        android:textColor="@color/black0"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvAuthorListDetailPageMax"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAuthorListDetailPageMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="2sp"
+        android:textColor="@color/black0"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/tvAuthorListDetailPage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvAuthorListDetailPage"
+        tools:text="/7" />
 
 </android.support.constraint.ConstraintLayout>
