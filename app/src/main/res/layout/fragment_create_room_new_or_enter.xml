@@ -30,6 +30,7 @@
 
         <!-- Create new -->
         <LinearLayout
+            android:id="@+id/btnCreateNewLoling"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -50,6 +51,7 @@
 
         <!-- Join existed -->
         <LinearLayout
+            android:id="@+id/btnJoinExistedLoling"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

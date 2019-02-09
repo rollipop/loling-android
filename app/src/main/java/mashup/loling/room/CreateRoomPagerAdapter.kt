@@ -4,11 +4,11 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 
-class CreateRoomPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm) {
+class CreateRoomPagerAdapter(fm: FragmentManager?, createRoomMethods : CreateRoomActivity.Companion.ICreateRoomMethods) : FragmentPagerAdapter(fm) {
 
-    private val item0CalendarFragment = CreateRoomCalendarFragment.newInstance()
-    private val item1MainFragment = CreateRoomMainFragment.newInstance()
-    private val item2NewOrEnterFragment = CreateRoomNewOrEnterFragment.newInstance()
+    private val item0CalendarFragment = CreateRoomCalendarFragment.newInstance(createRoomMethods)
+    private val item1MainFragment = CreateRoomMainFragment.newInstance(createRoomMethods)
+    private val item2NewOrEnterFragment = CreateRoomNewOrEnterFragment.newInstance(createRoomMethods)
 
     override fun getItem(p0: Int): Fragment {
         return when(p0) {
@@ -20,7 +20,7 @@ class CreateRoomPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm) {
     }
 
     override fun getCount(): Int {
-        return 3    //only 3 item
+        return 3    //only 3 items
     }
 
 }
