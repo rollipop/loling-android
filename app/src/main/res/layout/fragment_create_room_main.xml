@@ -8,14 +8,14 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="250dp" />
+        android:layout_height="200dp" />
 
     <TextView
         android:id="@+id/tvNameAndText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="28sp"
+        android:textSize="24sp"
         android:layout_marginStart="@dimen/create_room_title_text_margin"
         android:layout_marginEnd="@dimen/create_room_title_text_margin"
         android:layout_marginTop="@dimen/create_room_main_text_margin"
@@ -40,13 +40,20 @@
         android:layout_marginTop="@dimen/create_room_main_text_margin"
         android:hint="@string/create_room_click_here_to_select_date"
         android:layout_marginBottom="40dp"/>
-    
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
     <TextView
+        android:id="@+id/btnCreateLoling"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:gravity="center"
         android:textColor="@color/white0"
         android:text="@string/create_room_btn_create_loling"
-        android:background="@color/colorPrimary"/>
+        android:background="@drawable/button_background_color"
+        android:enabled="false"/>
 
 </LinearLayout>

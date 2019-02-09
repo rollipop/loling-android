@@ -5,11 +5,10 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_create_room_new_or_enter.view.*
 
 import mashup.loling.R
 
-class CreateRoomNewOrEnterFragment : Fragment() {
+class CreateRoomExistedLolingListFragment : Fragment() {
 
     lateinit var createRoomMethods: CreateRoomActivity.Companion.ICreateRoomMethods
 
@@ -20,24 +19,15 @@ class CreateRoomNewOrEnterFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_create_room_new_or_enter, container, false)
-
-        view.btnCreateNewLoling.setOnClickListener { createRoomMethods.onCreateNewLolingClicked() }
-        view.btnJoinExistedLoling.setOnClickListener { createRoomMethods.onJoinExitedLolingClicked() }
-
-        return view
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_create_room_existed_loling_list, container, false)
     }
 
+
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @return A new instance of fragment CreateRoomNewOrEnterFragment.
-         */
         @JvmStatic
         fun newInstance(createRoomMethods: CreateRoomActivity.Companion.ICreateRoomMethods) =
-                CreateRoomNewOrEnterFragment().apply {
+                CreateRoomExistedLolingListFragment().apply {
                     this.createRoomMethods = createRoomMethods
                 }
     }

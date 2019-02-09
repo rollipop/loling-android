@@ -60,6 +60,8 @@
     <dimen name="TEXT_SIZE24">24sp</dimen>
     <dimen name="View">1dp</dimen>
 
+    <dimen name="create_room_window_max_width">350dp</dimen>    <!-- DatePicker view's max width is probably 350dp -->
+    <dimen name="create_room_window_max_height">600dp</dimen>
     <dimen name="create_room_main_text_margin">13dp</dimen>
     <dimen name="create_room_title_text_margin">40dp</dimen>
     <dimen name="FloatingActionButton">56dp</dimen>
