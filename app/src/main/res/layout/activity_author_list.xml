@@ -6,12 +6,170 @@
     android:layout_height="match_parent"
     tools:context=".room.AuthorListActivity">
 
+    <ImageButton
+        android:id="@+id/btnAuthorListClose"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
+        android:background="@null"
+        android:src="@drawable/ic_close"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnAuthorListShare"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="6dp"
+        android:background="@null"
+        android:src="@drawable/ic_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAuthorListPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="3sp"
+        android:textColor="@color/black0"
+        android:textSize="@dimen/TEXT_SIZE18"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAuthorListClose"
+        app:layout_constraintEnd_toStartOf="@id/authorListNameLoling"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnAuthorListClose"
+        tools:text="소현" />
+
+    <TextView
+        android:id="@+id/authorListNameLoling"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="3sp"
+        android:text="@string/author_List_Loling"
+        android:textColor="@color/black0"
+        android:textSize="@dimen/TEXT_SIZE18"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAuthorListPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvAuthorListPersonName"
+        app:layout_constraintTop_toTopOf="@+id/tvAuthorListPersonName" />
+
+    <TextView
+        android:id="@+id/authorListAnyDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:lineSpacingExtra="1sp"
+        android:text="@string/any_day"
+        android:textColor="@color/gray2"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/authorListNameLoling" />
+
+    <TextView
+        android:id="@+id/tvAuthorListAnyDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:lineSpacingExtra="3sp"
+        android:textColor="@color/black0"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/authorListAnyDay"
+        app:layout_constraintStart_toStartOf="@+id/authorListAnyDay"
+        app:layout_constraintTop_toBottomOf="@+id/authorListAnyDay"
+        tools:text="2019.02.28" />
+
+    <TextView
+        android:id="@+id/tvAuthorListAnyDday"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/ItemDdayBoxY"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/circle_round8"
+        android:backgroundTint="@color/mainPeachyPink"
+        android:lineSpacingExtra="1sp"
+        android:paddingStart="@dimen/ItemDdayBoxPadding"
+        android:paddingEnd="@dimen/ItemDdayBoxPadding"
+        android:textAlignment="center"
+        android:textColor="@color/white0"
+        android:textSize="@dimen/TEXT_SIZE12"
+        app:layout_constraintEnd_toEndOf="@+id/authorListAnyDay"
+        app:layout_constraintStart_toStartOf="@+id/authorListAnyDay"
+        app:layout_constraintTop_toBottomOf="@+id/tvAuthorListAnyDay"
+        tools:text="D-1" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvAuthorList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/authorListAnyView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAuthorListAnyDday"
+        app:layout_constraintVertical_bias="0.0"/>
+
+    <View
+        android:id="@+id/authorListAnyView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/View"
+        android:background="@color/white2"
+        app:layout_constraintBottom_toBottomOf="@+id/faBtnWrite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/faBtnWrite" />
+
+    <TextView
+        android:id="@+id/authorListAnyDayParticipant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/AuthorListActivityMargin"
+        android:lineSpacingExtra="2sp"
+        android:text="@string/chong"
+        android:textColor="@color/black0"
+        android:textSize="@dimen/TEXT_SIZE16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvAuthorListAnyDayParticipant"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/authorListAnyView" />
+
+    <TextView
+        android:id="@+id/tvAuthorListAnyDayParticipant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:lineSpacingExtra="2sp"
+        android:textColor="@color/peachy_pink"
+        android:textSize="@dimen/TEXT_SIZE16"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/authorListAnyDayParticipant2"
+        app:layout_constraintStart_toEndOf="@id/authorListAnyDayParticipant"
+        app:layout_constraintTop_toTopOf="@id/authorListAnyView"
+        tools:text="7" />
+
+    <TextView
+        android:id="@+id/authorListAnyDayParticipant2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:lineSpacingExtra="2sp"
+        android:text="@string/author_loling_room_count_participant"
+        android:textColor="@color/black0"
+        android:textSize="@dimen/TEXT_SIZE16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvAuthorListAnyDayParticipant"
+        app:layout_constraintTop_toTopOf="@id/authorListAnyView" />
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/faBtnWrite"
         android:layout_width="@dimen/FloatingActionButton"
         android:layout_height="@dimen/FloatingActionButton"
-        android:layout_marginBottom="@dimen/MainActivityMarginX"
         android:layout_marginEnd="@dimen/MainActivityMarginX"
+        android:layout_marginBottom="@dimen/MainActivityMarginX"
         android:clickable="true"
         android:elevation="5dp"
         app:backgroundTint="@color/teal"

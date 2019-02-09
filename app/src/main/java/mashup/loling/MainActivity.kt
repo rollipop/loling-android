@@ -4,6 +4,8 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
@@ -21,11 +23,13 @@ class MainActivity : AppCompatActivity() {
 
     private var context: Context = this
     var pageNum = 10
-//    var mainIndicator  = pagerIndicator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val view = window.decorView
+        setDecorView(view)
 
         faBtnMain.setImageResource(R.drawable.ic_add)
         val fragment = FriendListFragment()
@@ -53,6 +57,16 @@ class MainActivity : AppCompatActivity() {
         btnMainSettingFriend.setOnClickListener {
             val intent = Intent(context,MyPageActivity()::class.java)
             startActivity(intent)
+        }
+    }
+
+    private fun setDecorView(view : View) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            view.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            window.statusBarColor = Color.WHITE
+        } else if (Build.VERSION.SDK_INT >= 21) {
+            // 21 버전 이상일
+            window.statusBarColor = Color.GRAY
         }
     }
 

@@ -7,7 +7,7 @@
     android:paddingBottom="4dp">
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/itemLolingView"
         android:layout_width="@dimen/LolingItemViewX"
         android:layout_height="match_parent"
         android:background="@color/mainPeachyPink"
@@ -25,7 +25,7 @@
         android:textSize="@dimen/TEXT_SIZE18"
         android:textStyle="bold"
         app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintStart_toEndOf="@+id/itemLolingView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/tvLolingItemDday"/>
 
