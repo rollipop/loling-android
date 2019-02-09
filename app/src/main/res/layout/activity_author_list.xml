@@ -6,4 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".room.AuthorListActivity">
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/faBtnWrite"
+        android:layout_width="@dimen/FloatingActionButton"
+        android:layout_height="@dimen/FloatingActionButton"
+        android:layout_marginBottom="@dimen/MainActivityMarginX"
+        android:layout_marginEnd="@dimen/MainActivityMarginX"
+        android:clickable="true"
+        android:elevation="5dp"
+        app:backgroundTint="@color/teal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>

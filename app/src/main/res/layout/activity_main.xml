@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -51,7 +51,7 @@
 
                 <android.support.v4.view.ViewPager
                     android:layout_width="@dimen/MainLolingRoomX5"
-                    android:layout_height="@dimen/MainLolingRoomY5"/>
+                    android:layout_height="@dimen/MainLolingRoomY5" />
             </mashup.loling.PagerContainer>
 
             <mashup.loling.PagerIndicator
@@ -96,6 +96,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ivMainFriendMsg" />
 
+
         </android.support.constraint.ConstraintLayout>
     </android.support.v4.widget.NestedScrollView>
-</LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/faBtnMain"
+        android:layout_width="@dimen/FloatingActionButton"
+        android:layout_height="@dimen/FloatingActionButton"
+        android:layout_marginBottom="@dimen/MainActivityMarginX"
+        android:layout_marginEnd="@dimen/MainActivityMarginX"
+        android:clickable="true"
+        android:elevation="5dp"
+        app:backgroundTint="@color/teal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</android.support.constraint.ConstraintLayout>

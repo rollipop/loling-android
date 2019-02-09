@@ -15,6 +15,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import mashup.loling.Fragment.FriendListFragment
+import mashup.loling.room.SelectFriendActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        faBtnMain.setImageResource(R.drawable.ic_add)
         val fragment = FriendListFragment()
         supportFragmentManager.beginTransaction().add(R.id.frMainFriendList, fragment).commit()
 
@@ -34,10 +36,8 @@ class MainActivity : AppCompatActivity() {
 
         pager.adapter = adapter
 
-        //필요한 경우 또는 호출기는 표시할 추가 페이지가 하나뿐입니다.
         // 최소 몇 페이지 이상 볼 수 있도록 설정
         pager.offscreenPageLimit = adapter.count
-        //페이지 간의 마진
         pager.pageMargin = 20
         //If hardware acceleration is enabled, you should also remove
         // clipping on the pager for its children.
@@ -46,6 +46,10 @@ class MainActivity : AppCompatActivity() {
                 .indicator_dot_on, pager.currentItem)
         pagerContainer.setIndicator(pagerIndicator)
 
+        faBtnMain.setOnClickListener {
+            val intent = Intent(context,SelectFriendActivity()::class.java)
+            startActivity(intent)
+        }
         btnMainSettingFriend.setOnClickListener {
             val intent = Intent(context,MyPageActivity()::class.java)
             startActivity(intent)

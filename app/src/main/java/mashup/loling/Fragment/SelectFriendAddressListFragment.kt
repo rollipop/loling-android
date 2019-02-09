@@ -9,9 +9,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import mashup.loling.Adapter.SelectFriendAddressItemAdapter
-import mashup.loling.model.FriendItem
 import mashup.loling.R
+import mashup.loling.model.FriendItem
 import java.util.HashMap
+import kotlin.collections.ArrayList
+import kotlin.collections.Map
 
 class SelectFriendAddressListFragment : Fragment {
     constructor() : super()
@@ -22,8 +24,9 @@ class SelectFriendAddressListFragment : Fragment {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         //get contract
-        var dataList = ArrayList<Map<String, String>>()
-        val c = context!!.contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null
+        val dataList = ArrayList<Map<String, String>>()
+        val c = context!!.contentResolver.query(ContactsContract.Contacts.CONTENT_URI
+                , null, null, null
                 , ContactsContract.Contacts.DISPLAY_NAME_PRIMARY)
 
         while (c.moveToNext()) {
@@ -66,9 +69,9 @@ class SelectFriendAddressListFragment : Fragment {
 
     fun makeFriendList(dataList: ArrayList<Map<String, String>>) {//연락처에서가져와 처리
 
-        for (i in 0..dataList.size-1) {
+        for (i in 0..dataList.size - 1) {
 
-            friends.add(FriendItem(dataList[i]["name"].toString(),"","",dataList[i]["phone"].toString()))
+            friends.add(FriendItem(dataList[i]["name"].toString(), "", "", dataList[i]["phone"].toString()))
         }
 
     }
