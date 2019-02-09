@@ -24,14 +24,14 @@ class MainActivity : AppCompatActivity() {
 
     private var context: Context = this
     var pageNum = 10
-//    var mainIndicator  = pagerIndicator
 
     //    val view = window.decorView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setDecorView()
+        val decorView = window.decorView
+        setDecorView(decorView)
 
         faBtnMain.setImageResource(R.drawable.ic_add)
         val fragment = FriendListFragment()
@@ -62,7 +62,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setDecorView() {
+    private fun setDecorView(view : View) {
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             view.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             window.statusBarColor = Color.WHITE

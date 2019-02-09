@@ -60,13 +60,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/LolingMarn16"
-                app:layout_constraintBottom_toTopOf="@+id/view"
+                app:layout_constraintBottom_toTopOf="@+id/mainView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pagerContainer" />
 
             <View
-                android:id="@+id/view"
+                android:id="@+id/mainView"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/View"
                 android:layout_marginTop="@dimen/MainLolingMsgMarnBottom"
@@ -86,7 +86,7 @@
                 android:textColor="@color/black1"
                 android:textSize="@dimen/TEXT_SIZE24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view" />
+                app:layout_constraintTop_toBottomOf="@+id/mainView" />
 
             <FrameLayout
                 android:id="@+id/frMainFriendList"

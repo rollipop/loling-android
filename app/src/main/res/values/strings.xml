@@ -34,5 +34,10 @@
     <string name="create_room_room_already_existed_for_psname_at_psdate">Loling is already existed for %s at %s.\nWould you create new Loling or join to existed Loling?</string>
     <string name="create_room_create_new">Create new</string>
     <string name="create_room_join_existed">Join</string>
+    <string name="any_day">기념일 날짜</string>
+    <string name="author_loling_room_count_participant">명 참여</string>
+    <string name="chong">총</string>
+    <string name="author_List_Loling">님의 롤링페이퍼</string>
+    <string name="write_completion">작성완료</string>
 
 </resources>
