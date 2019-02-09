@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white0"
     android:padding="@dimen/SignupPhotoActivityPadding"
     tools:context=".SignupPhotoActivity">
 
@@ -45,9 +46,9 @@
         android:text="@string/btn_singup"
         android:textColor="@color/black1"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/btnSignupPhotoSelect"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSignupPhotoSelect" />
 
 </android.support.constraint.ConstraintLayout>
