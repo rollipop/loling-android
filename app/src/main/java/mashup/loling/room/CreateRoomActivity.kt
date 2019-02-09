@@ -63,6 +63,8 @@ class CreateRoomActivity : AppCompatActivity() {
         createRoomViewPager.adapter = CreateRoomPagerAdapter(supportFragmentManager, createRoomMethods)
         createRoomViewPager.currentItem = 1
 
+        ivClose.setOnClickListener { finish() }
+
     }
 
     companion object {
