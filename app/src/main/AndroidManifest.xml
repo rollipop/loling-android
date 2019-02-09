@@ -15,8 +15,7 @@
         <activity android:name=".drawpaper.DrawPaperActivity" />
         <activity android:name=".room.AuthorListDetailActivity" />
         <activity android:name=".room.AuthorListActivity" />
-        <activity android:name=".room.SelectTargetActivity" />
-        <activity android:name=".SelectFriendActivity" />
+        <activity android:name=".room.SelectFriendActivity" />
 
         <activity android:name=".MainActivity">
             <intent-filter>
