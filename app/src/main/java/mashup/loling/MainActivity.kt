@@ -4,6 +4,8 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
@@ -17,15 +19,19 @@ import kotlinx.android.synthetic.main.activity_main.*
 import mashup.loling.Fragment.FriendListFragment
 import mashup.loling.room.SelectFriendActivity
 
+
 class MainActivity : AppCompatActivity() {
 
     private var context: Context = this
     var pageNum = 10
 //    var mainIndicator  = pagerIndicator
 
+    //    val view = window.decorView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        setDecorView()
 
         faBtnMain.setImageResource(R.drawable.ic_add)
         val fragment = FriendListFragment()
@@ -47,12 +53,22 @@ class MainActivity : AppCompatActivity() {
         pagerContainer.setIndicator(pagerIndicator)
 
         faBtnMain.setOnClickListener {
-            val intent = Intent(context,SelectFriendActivity()::class.java)
+            val intent = Intent(context, SelectFriendActivity()::class.java)
             startActivity(intent)
         }
         btnMainSettingFriend.setOnClickListener {
-            val intent = Intent(context,MyPageActivity()::class.java)
+            val intent = Intent(context, MyPageActivity()::class.java)
             startActivity(intent)
+        }
+    }
+
+    private fun setDecorView() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            view.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            window.statusBarColor = Color.WHITE
+        } else if (Build.VERSION.SDK_INT >= 21) {
+            // 21 버전 이상일
+            window.statusBarColor = Color.GRAY
         }
     }
 
@@ -82,6 +98,7 @@ class MainActivity : AppCompatActivity() {
         override fun getCount(): Int {
             return pageNum
         }
+
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

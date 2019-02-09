@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white0"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -96,9 +97,9 @@
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:lineSpacingExtra="12sp"
+                android:text="16"
                 android:textColor="@color/mainPeachyPink"
-                android:textSize="@dimen/TEXT_SIZE24"
-                android:text="16"/>
+                android:textSize="@dimen/TEXT_SIZE24" />
 
             <TextView
                 android:id="@+id/tvTabWrittenSum"
@@ -107,9 +108,9 @@
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:lineSpacingExtra="12sp"
+                android:text="4"
                 android:textColor="@color/black2"
-                android:textSize="@dimen/TEXT_SIZE24"
-                android:text="4"/>
+                android:textSize="@dimen/TEXT_SIZE24" />
 
             <TextView
                 android:id="@+id/tvTabReceivedSum"
@@ -118,9 +119,9 @@
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:lineSpacingExtra="12sp"
+                android:text="11"
                 android:textColor="@color/black2"
-                android:textSize="24sp"
-                android:text="11"/>
+                android:textSize="24sp" />
         </LinearLayout>
 
         <android.support.design.widget.TabLayout
