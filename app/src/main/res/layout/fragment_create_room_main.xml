@@ -8,14 +8,14 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="250dp" />
+        android:layout_height="200dp" />
 
     <TextView
         android:id="@+id/tvNameAndText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="28sp"
+        android:textSize="24sp"
         android:layout_marginStart="@dimen/create_room_title_text_margin"
         android:layout_marginEnd="@dimen/create_room_title_text_margin"
         android:layout_marginTop="@dimen/create_room_main_text_margin"

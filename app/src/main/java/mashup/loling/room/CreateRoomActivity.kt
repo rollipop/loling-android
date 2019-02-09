@@ -2,6 +2,7 @@ package mashup.loling.room
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.WindowManager
 import kotlinx.android.synthetic.main.activity_create_room.*
 import mashup.loling.R
@@ -50,7 +51,7 @@ class CreateRoomActivity : AppCompatActivity() {
         }
 
         override fun onExistedLolingItemClicked(lolingId: Int) {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            createRoomViewPager.currentItem = EXISTED_LOLING_LIST_FRAGMENT
         }
 
     }
@@ -58,7 +59,16 @@ class CreateRoomActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_room)
-        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT)
+
+        // if window size is over the 350x500 dp, set size 350x500 dp. if smaller, set match_parent
+        val dm = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(dm)
+        val maxWidthPx = resources.getDimensionPixelSize(R.dimen.create_room_window_max_width)
+        val maxHeightPx = resources.getDimensionPixelSize(R.dimen.create_room_window_max_height)
+
+        window.setLayout(
+                if(dm.widthPixels > maxWidthPx) maxWidthPx else WindowManager.LayoutParams.MATCH_PARENT,
+                if(dm.heightPixels > maxHeightPx) maxHeightPx else WindowManager.LayoutParams.MATCH_PARENT)
 
         createRoomViewPager.adapter = CreateRoomPagerAdapter(supportFragmentManager, createRoomMethods)
         createRoomViewPager.currentItem = 1
