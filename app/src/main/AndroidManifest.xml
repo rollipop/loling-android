@@ -15,11 +15,11 @@
                   android:theme="@style/Theme.CustomDialogActivity" />
         <activity android:name=".drawpaper.LoadImageActivity" />
         <activity android:name=".drawpaper.DrawPaperActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".room.AuthorListDetailActivity" />
         <activity android:name=".room.AuthorListActivity" />
         <activity android:name=".room.SelectFriendActivity" />
 
-        <activity android:name=".room.AuthorListDetailActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

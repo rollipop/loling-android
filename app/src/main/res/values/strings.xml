@@ -20,7 +20,9 @@
     <string name="signup_personal_msg">이름과 \n생년월일을 적어주세요</string>
     <string name="signup_entry_msg">아이디와 비밀번호를\n입력해주세요</string>
     <string name="signup_photo_msg">프로필 사진을 \n등록해주세요.</string>
+    <string name="friend">친구</string>
     <string name="friendList">친구목록</string>
+    <string name="phone_num">연락처</string>
     <string name="writtenLoling">작성한 롤링</string>
     <string name="receiveLiling">받은 롤링</string>
 

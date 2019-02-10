@@ -21,10 +21,10 @@ class SelectFriendActivity : AppCompatActivity() {
 
 
         val tabs = findViewById<TabLayout>(R.id.tabsSelectFriend)
-        tabs.addTab(tabs.newTab().setText("친구"))
-        tabs.addTab(tabs.newTab().setText("연락처"))
+        tabs.addTab(tabs.newTab().setText(R.string.friend))
+        tabs.addTab(tabs.newTab().setText(R.string.phone_num))
 
-        var pager = findViewById<ViewPager>(R.id.vpSelectFriend)
+        val pager = findViewById<ViewPager>(R.id.vpSelectFriend)
         val adapter = PagerAdapter(supportFragmentManager,tabs.tabCount)
         pager.adapter = adapter
         pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
@@ -35,29 +35,22 @@ class SelectFriendActivity : AppCompatActivity() {
             override fun onTabUnselected(p0: TabLayout.Tab?) {
             }
             override fun onTabSelected(p0: TabLayout.Tab?) {
-                pager.setCurrentItem(tabs.selectedTabPosition)
+                pager.currentItem = tabs.selectedTabPosition
             }
         })
 
-
-
-
     }
 
-    internal inner class PagerAdapter : FragmentStatePagerAdapter {
-        var mNumOfTabs: Int
-        constructor(fm: FragmentManager?, mNumOfTabs: Int) : super(fm) {
-            this.mNumOfTabs = mNumOfTabs
-        }
+    internal inner class PagerAdapter(fm: FragmentManager?, private var mNumOfTabs: Int) : FragmentStatePagerAdapter(fm) {
         override fun getItem(position: Int): Fragment {
-            when (position) {
+            return when (position) {
                 0 -> {
-                    return friendFrag
+                    friendFrag
                 }
                 1 -> {
-                    return addressFrag
+                    addressFrag
                 }
-                else -> return friendFrag
+                else -> friendFrag
             }
         }
         override fun getCount(): Int {

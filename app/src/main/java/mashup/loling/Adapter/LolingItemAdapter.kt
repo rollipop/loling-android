@@ -1,6 +1,8 @@
 package mashup.loling.Adapter
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -47,16 +49,16 @@ class LolingItemAdapter(var items : ArrayList<FriendItem>) : RecyclerView.Adapte
         viewHolder.friendItemBday.text = item.friendItemBday
         viewHolder.friendItemDday.text = item.friendItemDday
 
-        viewHolder.btnDelete.setOnClickListener (object : View.OnClickListener{
-            override fun onClick(v: View?) {
-                var builder = AlertDialog.Builder(v!!.context)
-                var mView = LayoutInflater.from(v.context)
-                        .inflate(R.layout.dialog_delete_list, papa, false)
-                builder.setView(mView)
-                var dialog = builder.create()
-                dialog.show()
-            }
-        })
+        viewHolder.btnDelete.setOnClickListener { v ->
+            var builder = AlertDialog.Builder(v!!.context)
+            var mView = LayoutInflater.from(v.context)
+                    .inflate(R.layout.dialog_delete_list, papa, false)
+            builder.setView(mView)
+            var dialog = builder.create()
+            dialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog.show()
+
+        }
 
     }
 
