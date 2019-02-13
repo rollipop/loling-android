@@ -82,6 +82,15 @@ class CreateRoomActivity : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+        when(createRoomViewPager.currentItem) {
+            PAGE_CALENDAR -> createRoomViewPager.currentItem = PAGE_MAIN
+            PAGE_EXISTED_CHK -> createRoomViewPager.currentItem = PAGE_MAIN
+            PAGE_EXISTED_LOLING_LIST -> createRoomViewPager.currentItem = PAGE_EXISTED_CHK
+            else -> super.onBackPressed()
+        }
+    }
+
     companion object {
         interface ICreateRoomMethods {
             fun onSelectRoomTextClicked()
