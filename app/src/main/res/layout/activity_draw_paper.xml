@@ -7,4 +7,49 @@
     android:background="@color/white0"
     tools:context=".drawpaper.DrawPaperActivity">
 
+    <!-- Drawing area -->
+    <FrameLayout
+        android:id="@+id/drawArea"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Drawing area control panel -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </LinearLayout>
+
+    <!-- Component control panel -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </LinearLayout>
+
+
+    <!-- Add component panel -->
+    <LinearLayout
+        android:id="@+id/pnAddComponent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </LinearLayout>
+
+    <!-- Color selector panel -->
+    <LinearLayout
+        android:id="@+id/pnColorSelector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
