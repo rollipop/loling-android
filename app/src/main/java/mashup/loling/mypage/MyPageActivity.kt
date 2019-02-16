@@ -1,4 +1,4 @@
-package mashup.loling
+package mashup.loling.mypage
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,10 +8,10 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_my_page.*
-import kotlinx.android.synthetic.main.activity_mypage_setting.*
-import mashup.loling.Fragment.FriendListFragment
-import mashup.loling.Fragment.ReceivedListFragment
-import mashup.loling.Fragment.WrittenListFragment
+import mashup.loling.R
+import mashup.loling.fagment.FriendListFragment
+import mashup.loling.fagment.ReceivedListFragment
+import mashup.loling.fagment.WrittenListFragment
 
 class MyPageActivity : AppCompatActivity() {
     val friendFrag = FriendListFragment()

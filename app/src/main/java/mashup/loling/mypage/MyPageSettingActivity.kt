@@ -1,9 +1,9 @@
-package mashup.loling
+package mashup.loling.mypage
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import kotlinx.android.synthetic.main.activity_mypage_setting.*
+import mashup.loling.R
 
 class MyPageSettingActivity : AppCompatActivity() {
 

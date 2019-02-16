@@ -1,4 +1,4 @@
-package mashup.loling.room
+package mashup.loling.room.view
 
 import android.content.Context
 import android.content.Intent
@@ -6,10 +6,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_author_list.*
-import mashup.loling.Adapter.AuthorListItemAdapter
 import mashup.loling.R
-import mashup.loling.drawpaper.DrawPaperActivity
+import mashup.loling.drawpaper.view.DrawPaperActivity
 import mashup.loling.model.Paper
+import mashup.loling.Adapter.AuthorListItemAdapter
 import java.util.*
 
 class AuthorListActivity : AppCompatActivity() {
@@ -33,7 +33,7 @@ class AuthorListActivity : AppCompatActivity() {
 
         faBtnWrite.setImageResource(R.drawable.ic_add)
         faBtnWrite.setOnClickListener{
-            val intent = Intent(context,DrawPaperActivity()::class.java)
+            val intent = Intent(context, DrawPaperActivity()::class.java)
             startActivity(intent)
         }
     }

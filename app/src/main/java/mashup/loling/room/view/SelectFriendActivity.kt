@@ -1,4 +1,4 @@
-package mashup.loling.room
+package mashup.loling.room.view
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -7,9 +7,9 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
-import mashup.loling.Fragment.SelectFriendAddressListFragment
-import mashup.loling.Fragment.SelectFriendListFragment
 import mashup.loling.R
+import mashup.loling.fagment.SelectFriendAddressListFragment
+import mashup.loling.fagment.SelectFriendListFragment
 
 class SelectFriendActivity : AppCompatActivity() {
     val friendFrag = SelectFriendListFragment()

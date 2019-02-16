@@ -1,13 +1,13 @@
-package mashup.loling
+package mashup.loling.drawpaper.view
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import mashup.loling.R
 
-class SignupPersonalActivity : AppCompatActivity() {
+class LoadImageActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_signup_personal)
-
+        setContentView(R.layout.activity_load_image)
     }
 }

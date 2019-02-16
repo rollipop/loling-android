@@ -15,7 +15,4 @@ class UserRepository {
         return userRemoteData.login(id, pw)
     }
 
-
-
-
 }

@@ -1,4 +1,4 @@
-package mashup.loling
+package mashup.loling.main
 
 import android.Manifest
 import android.content.Context
@@ -16,18 +16,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-import mashup.loling.Fragment.FriendListFragment
-import mashup.loling.room.SelectFriendActivity
+import mashup.loling.fagment.FriendListFragment
+import mashup.loling.R
+import mashup.loling.mypage.MyPageActivity
+import mashup.loling.room.view.SelectFriendActivity
 
 
 class MainActivity : AppCompatActivity() {
 
     private var context: Context = this
     var pageNum = 10
-//  var mainIndicator  = pagerIndicator
     private val READ_CONTACTS_PERMISSIONS_REQUEST = 1
 
-    //    val view = window.decorView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -52,8 +52,7 @@ class MainActivity : AppCompatActivity() {
         //If hardware acceleration is enabled, you should also remove
         // clipping on the pager for its children.
         pager.clipChildren = false
-        pagerIndicator?.createDotPanel(pageNum, R.drawable.indicator_dot_off, R.drawable
-                .indicator_dot_on, pager.currentItem)
+        pagerIndicator?.createDotPanel(pageNum, R.drawable.indicator_dot_off, R.drawable.indicator_dot_on, pager.currentItem)
         pagerContainer.setIndicator(pagerIndicator)
 
         faBtnMain.setOnClickListener {

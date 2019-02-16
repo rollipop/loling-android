@@ -1,12 +1,13 @@
-package mashup.loling
+package mashup.loling.drawpaper.view
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import mashup.loling.R
 
-class SignupPhotoActivity : AppCompatActivity() {
+class DrawPaperActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_signup_photo)
+        setContentView(R.layout.activity_draw_paper)
     }
 }

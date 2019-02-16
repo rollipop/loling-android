@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white0"
     android:padding="@dimen/SignupPhotoActivityPadding"
-    tools:context=".SignupPhotoActivity">
+    tools:context=".user.view.SignupPhotoActivity">
 
     <TextView
         android:id="@+id/tvSignupPhotoMsg"

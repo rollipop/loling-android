@@ -1,4 +1,4 @@
-package mashup.loling.Fragment
+package mashup.loling.fagment
 
 import android.os.Bundle
 import android.provider.ContactsContract
@@ -64,7 +64,6 @@ class SelectFriendAddressListFragment : Fragment {
         }
 
         return root
-
     }
 
     fun makeFriendList(dataList: ArrayList<Map<String, String>>) {//연락처에서가져와 처리

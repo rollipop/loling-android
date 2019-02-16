@@ -1,4 +1,4 @@
-package mashup.loling.Fragment
+package mashup.loling.fagment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

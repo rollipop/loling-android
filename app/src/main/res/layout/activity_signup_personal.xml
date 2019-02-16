@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white0"
     android:padding="@dimen/SignupPersonalActivityPadding"
-    tools:context=".SignupPersonalActivity">
+    tools:context=".user.view.SignupPersonalActivity">
 
 
     <TextView

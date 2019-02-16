@@ -1,4 +1,4 @@
-package mashup.loling.room
+package mashup.loling.room.view
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -6,12 +6,13 @@ import android.util.DisplayMetrics
 import android.view.View
 import android.view.WindowManager
 import kotlinx.android.synthetic.main.activity_create_room.*
-import kotlinx.android.synthetic.main.fragment_create_room_main.view.*
+import kotlinx.android.synthetic.main.layout_create_room_main.view.*
 import mashup.loling.R
-import mashup.loling.room.CreateRoomPagerAdapter.Companion.PAGE_CALENDAR
-import mashup.loling.room.CreateRoomPagerAdapter.Companion.PAGE_EXISTED_CHK
-import mashup.loling.room.CreateRoomPagerAdapter.Companion.PAGE_EXISTED_LOLING_LIST
-import mashup.loling.room.CreateRoomPagerAdapter.Companion.PAGE_MAIN
+import mashup.loling.Adapter.CreateRoomPagerAdapter
+import mashup.loling.Adapter.CreateRoomPagerAdapter.Companion.PAGE_CALENDAR
+import mashup.loling.Adapter.CreateRoomPagerAdapter.Companion.PAGE_EXISTED_CHK
+import mashup.loling.Adapter.CreateRoomPagerAdapter.Companion.PAGE_EXISTED_LOLING_LIST
+import mashup.loling.Adapter.CreateRoomPagerAdapter.Companion.PAGE_MAIN
 import java.text.SimpleDateFormat
 import java.util.*
 
