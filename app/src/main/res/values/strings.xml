@@ -20,7 +20,9 @@
     <string name="signup_personal_msg">이름과 \n생년월일을 적어주세요</string>
     <string name="signup_entry_msg">아이디와 비밀번호를\n입력해주세요</string>
     <string name="signup_photo_msg">프로필 사진을 \n등록해주세요.</string>
+    <string name="friend">친구</string>
     <string name="friendList">친구목록</string>
+    <string name="phone_num">연락처</string>
     <string name="writtenLoling">작성한 롤링</string>
     <string name="receiveLiling">받은 롤링</string>
 
@@ -34,5 +36,10 @@
     <string name="create_room_room_already_existed_for_psname_at_psdate">Loling is already existed for %s at %s.\nWould you create new Loling or join to existed Loling?</string>
     <string name="create_room_create_new">Create new</string>
     <string name="create_room_join_existed">Join</string>
+    <string name="any_day">기념일 날짜</string>
+    <string name="author_loling_room_count_participant">명 참여</string>
+    <string name="chong">총</string>
+    <string name="author_List_Loling">님의 롤링페이퍼</string>
+    <string name="write_completion">작성완료</string>
 
 </resources>

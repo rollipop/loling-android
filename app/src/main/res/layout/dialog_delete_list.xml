@@ -1,58 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="320dp"
-    android:layout_height="wrap_content"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/square_dialog">
+    android:layout_width="320dp"
+    android:layout_height="250dp"
+    android:background="@drawable/circle_round10"
+    android:backgroundTint="@color/white0"
+    >
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="66dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="66dp"
         android:text="삭제하시겠습니까?"
+        android:layout_margin="100dp"
         android:textColor="@color/black0"
         android:textSize="24sp"
-        android:lineSpacingExtra="8sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutDialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayoutDialog"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_marginTop="88dp"
         android:orientation="horizontal"
+        android:weightSum="8"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <Button
             android:id="@+id/btnDeleteCancel"
-            android:layout_width="120dp"
-            android:layout_height="48dp"
-            android:background="@drawable/square_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:background="@drawable/bottom_left_round10"
             android:backgroundTint="@color/gray1"
-            android:text="취소"
-            android:textSize="16sp"
             android:lineSpacingExtra="2sp"
-            android:textColor="@color/white0" />
+            android:text="취소"
+            android:textColor="@color/white0"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/btnDeleteDelete"
-            android:layout_width="200dp"
-            android:layout_height="48dp"
-            android:background="@drawable/square_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:background="@drawable/bottom_right_round10"
             android:backgroundTint="@color/teal"
-            android:text="삭제하기"
-            android:textSize="16sp"
             android:lineSpacingExtra="2sp"
-            android:textColor="@color/white0" />
-
+            android:text="삭제하기"
+            android:textColor="@color/white0"
+            android:textSize="16sp" />
     </LinearLayout>
 
 

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_marginStart="@dimen/AuthorListActivityMargin"
+    android:layout_marginEnd="@dimen/AuthorListActivityMargin">
+
+    <TextView
+        android:id="@+id/tvAuthorListItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/AuthorListActivityMargin"
+        android:lineSpacingExtra="2sp"
+        android:textColor="@color/black0"
+        android:textSize="@dimen/TEXT_SIZE16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="상희" />
+
+    <TextView
+        android:id="@+id/tvAuthorListItemDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/AuthorListActivityMargin"
+        android:lineSpacingExtra="2sp"
+        android:textColor="@color/gray2"
+        android:textSize="@dimen/TEXT_SIZE14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        tools:text="18.12.19 05:43" />
+
+    <View
+        android:id="@+id/authorListItemView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/View"
+        android:background="@color/white2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

@@ -8,7 +8,7 @@
     android:paddingBottom="4dp">
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/itemLolingView"
         android:layout_width="@dimen/LolingItemViewX"
         android:layout_height="match_parent"
         android:background="@color/mainPeachyPink"
@@ -26,7 +26,7 @@
         android:textSize="@dimen/TEXT_SIZE18"
         android:textStyle="bold"
         app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintStart_toEndOf="@+id/itemLolingView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/tvLolingItemDday"/>
 
@@ -62,13 +62,15 @@
         app:layout_constraintTop_toTopOf="@+id/tvLolingItemDday" />
 
     <ImageButton
-        android:id="@+id/btnLolingMore"
-        android:layout_width="12dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/btnLolingDelete"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="7.4dp"
+        android:tint="@color/gray0"
         android:layout_gravity="center_vertical"
         android:layout_marginEnd="@dimen/LoginItemMarginX"
         android:background="@null"
-        android:src="@drawable/ic_more_vert"
+        android:src="@drawable/ic_close"
         android:lineSpacingExtra="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

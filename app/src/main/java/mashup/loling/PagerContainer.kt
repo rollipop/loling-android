@@ -6,7 +6,12 @@ import android.support.annotation.Px
 import android.support.v4.view.ViewPager
 import android.util.AttributeSet
 import android.view.MotionEvent
+import android.view.View
 import android.widget.FrameLayout
+import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_author_list_detail.view.*
+import mashup.loling.R.id.tvAuthorListDetailPage
+import org.w3c.dom.Text
 
 class PagerContainer : FrameLayout, ViewPager.OnPageChangeListener {
     var viewPager: ViewPager? = null
@@ -64,6 +69,9 @@ class PagerContainer : FrameLayout, ViewPager.OnPageChangeListener {
 
     override fun onPageSelected(p0: Int) {
         mIndicatorView?.selectDot(p0)
+
+        val parentView = parent as View
+        parentView.tvAuthorListDetailPage?.text = (p0+1).toString()
     }
     override fun onPageScrolled(position: Int, p1: Float, @Px p2: Int) {}
     override fun onPageScrollStateChanged(state: Int) {}

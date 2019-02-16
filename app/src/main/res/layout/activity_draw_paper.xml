@@ -20,6 +20,31 @@
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageButton
+            android:id="@+id/btnDrawPagerClose"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/DrawPagerActivityMargin"
+            android:layout_marginTop="8dp"
+            android:background="@null"
+            android:src="@drawable/ic_close"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/btnDrawPagerSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/DrawPagerActivityMargin"
+            android:clickable="true"
+            android:text="@string/write_completion"
+            android:lineSpacingExtra="2sp"
+            android:textColor="@color/gray2"
+            android:textSize="@dimen/TEXT_SIZE16"
+            app:layout_constraintBottom_toBottomOf="@id/btnDrawPagerClose"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnDrawPagerClose" />
+
     </LinearLayout>
 
     <!-- Component control panel -->
@@ -39,6 +64,29 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/btnDrawPagerCamera"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="@dimen/DrawPagerActivityMargin"
+            android:src="@drawable/ic_person"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnDrawPagerText"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/btnDrawPagerText"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="@dimen/DrawPagerActivityMargin"
+            android:src="@drawable/ic_more_vert"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnDrawPagerCamera" />
 
     </LinearLayout>
 

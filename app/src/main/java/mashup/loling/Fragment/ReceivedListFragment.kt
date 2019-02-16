@@ -7,6 +7,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.recyclerview.view.*
+import mashup.loling.Adapter.FriendItemAdapter
 import mashup.loling.Adapter.LolingItemAdapter
 import mashup.loling.model.FriendItem
 import mashup.loling.R
@@ -18,12 +20,11 @@ class ReceivedListFragment : Fragment {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.recyclerview, container, false)
 
-        val recyclerView = root.findViewById<RecyclerView>(R.id.recyclerView)
-        if(recyclerView != null) {
-            recyclerView.layoutManager = LinearLayoutManager(context)//this.context/getContext()
-            makeFriendList()
-            recyclerView.adapter = LolingItemAdapter(friends)
-        }
+        root.recyclerView.layoutManager = LinearLayoutManager(context)
+        root.recyclerView.isNestedScrollingEnabled = false
+        makeFriendList()
+        root.recyclerView.adapter = LolingItemAdapter(friends)
+
         return root
     }
 

@@ -65,4 +65,11 @@
     <dimen name="create_room_main_text_margin">13dp</dimen>
     <dimen name="create_room_title_text_margin">40dp</dimen>
     <dimen name="FloatingActionButton">56dp</dimen>
+    <dimen name="AuthorListActivityMargin">20dp</dimen>
+    <dimen name="TEXT_SIZE14">14sp</dimen>
+    <dimen name="DrawPagerActivityMargin">20dp</dimen>
+    <dimen name="AuthorListDetailRoomY">500dp</dimen>
+    <dimen name="AuthorListDetailRoomX">300dp</dimen>
+    <dimen name="AuthorListDetailRoomYs">490dp</dimen>
+    <dimen name="AuthorListDetailRoomXs">290dp</dimen>
 </resources>
