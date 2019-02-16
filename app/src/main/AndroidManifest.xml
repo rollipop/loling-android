@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mashup.loling">
 
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -11,15 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".room.view.CreateRoomActivity"
-                  android:theme="@style/Theme.CustomDialogActivity" />
+        <activity
+            android:name=".room.view.CreateRoomActivity"
+            android:theme="@style/Theme.CustomDialogActivity" />
         <activity android:name=".drawpaper.view.LoadImageActivity" />
         <activity android:name=".drawpaper.view.DrawPaperActivity" />
         <activity android:name=".room.view.AuthorListDetailActivity" />
         <activity android:name=".room.view.AuthorListActivity" />
         <activity android:name=".room.view.SelectFriendActivity" />
-
-        <activity android:name=".main.MainActivity">
+        <activity android:name=".main.MainActivity"/>
+        <activity android:name=".room.view.ReceivedPaperListActivity"
+            android:configChanges="orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -33,6 +35,7 @@
         <activity android:name=".user.view.SignupEntryActivity" />
         <activity android:name=".user.view.SignupPhotoActivity" />
         <activity android:name=".mypage.MyPageSettingActivity" />
+        <activity android:name=".room.view.ReceivedPaperRoomActivity" />
     </application>
 
 </manifest>
