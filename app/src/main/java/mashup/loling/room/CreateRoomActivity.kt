@@ -3,42 +3,47 @@ package mashup.loling.room
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.view.View
 import android.view.WindowManager
 import kotlinx.android.synthetic.main.activity_create_room.*
+import kotlinx.android.synthetic.main.fragment_create_room_main.view.*
 import mashup.loling.R
+import mashup.loling.room.CreateRoomPagerAdapter.Companion.PAGE_CALENDAR
+import mashup.loling.room.CreateRoomPagerAdapter.Companion.PAGE_EXISTED_CHK
+import mashup.loling.room.CreateRoomPagerAdapter.Companion.PAGE_EXISTED_LOLING_LIST
+import mashup.loling.room.CreateRoomPagerAdapter.Companion.PAGE_MAIN
+import java.text.SimpleDateFormat
 import java.util.*
 
 class CreateRoomActivity : AppCompatActivity() {
 
-    private val CALENDAR_FRAGMENT = 0
-    private val MAIN_FRAGMENT = 1
-    private val EXISTED_CHK_FRAGMENT = 2
-    private val EXISTED_LOLING_LIST_FRAGMENT = 3
+    var selectedDate: Date = Date()
 
     val createRoomMethods = object : ICreateRoomMethods {
         override fun onSelectRoomTextClicked() {
-            createRoomViewPager.currentItem = CALENDAR_FRAGMENT
+            createRoomViewPager.currentItem = PAGE_CALENDAR
         }
 
         override fun onDateSelectedFromCal(date: Date) {
-            val adapter = createRoomViewPager.adapter as CreateRoomPagerAdapter
-            (adapter.getItem(MAIN_FRAGMENT) as CreateRoomMainFragment).setDateAndText(date)
-            createRoomViewPager.currentItem = MAIN_FRAGMENT
+            selectedDate = date
+            (createRoomViewPager.getTag(createRoomViewPager.hashCode() + PAGE_MAIN) as View).btnCreateLoling.isEnabled = true
+            (createRoomViewPager.getTag(createRoomViewPager.hashCode() + PAGE_MAIN) as View).tvRoomDate.text = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(selectedDate)
+            createRoomViewPager.currentItem = PAGE_MAIN
         }
 
         override fun onCancelFromCal() {
-            createRoomViewPager.currentItem = MAIN_FRAGMENT
+            createRoomViewPager.currentItem = PAGE_MAIN
         }
 
-        override fun onCreateLolingButtonClicked(date: Date) {
+        override fun onCreateLolingButtonClicked() {
             // Check whether loling for selected user/date is already existed or not
             TODO("not implemented check loling existed + create new loling or join existed")
-            if(false) { //this should be executed as async
+            if (false) { //this should be executed as async
                 // open new loling activity
                 onCreateNewLolingClicked()
             } else {
                 // show newLoling or joinExisted
-                createRoomViewPager.currentItem = EXISTED_CHK_FRAGMENT
+                createRoomViewPager.currentItem = PAGE_EXISTED_CHK
             }
         }
 
@@ -51,9 +56,8 @@ class CreateRoomActivity : AppCompatActivity() {
         }
 
         override fun onExistedLolingItemClicked(lolingId: Int) {
-            createRoomViewPager.currentItem = EXISTED_LOLING_LIST_FRAGMENT
+            createRoomViewPager.currentItem = PAGE_EXISTED_LOLING_LIST
         }
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,11 +74,21 @@ class CreateRoomActivity : AppCompatActivity() {
                 if(dm.widthPixels > maxWidthPx) maxWidthPx else WindowManager.LayoutParams.MATCH_PARENT,
                 if(dm.heightPixels > maxHeightPx) maxHeightPx else WindowManager.LayoutParams.MATCH_PARENT)
 
-        createRoomViewPager.adapter = CreateRoomPagerAdapter(supportFragmentManager, createRoomMethods)
-        createRoomViewPager.currentItem = 1
+        createRoomViewPager.adapter = CreateRoomPagerAdapter(this, createRoomMethods)
+        createRoomViewPager.offscreenPageLimit = (createRoomViewPager.adapter as CreateRoomPagerAdapter).count
+        createRoomViewPager.currentItem = PAGE_MAIN
 
         ivClose.setOnClickListener { finish() }
 
+    }
+
+    override fun onBackPressed() {
+        when(createRoomViewPager.currentItem) {
+            PAGE_CALENDAR -> createRoomViewPager.currentItem = PAGE_MAIN
+            PAGE_EXISTED_CHK -> createRoomViewPager.currentItem = PAGE_MAIN
+            PAGE_EXISTED_LOLING_LIST -> createRoomViewPager.currentItem = PAGE_EXISTED_CHK
+            else -> super.onBackPressed()
+        }
     }
 
     companion object {
@@ -82,7 +96,7 @@ class CreateRoomActivity : AppCompatActivity() {
             fun onSelectRoomTextClicked()
             fun onDateSelectedFromCal(date: Date)
             fun onCancelFromCal()
-            fun onCreateLolingButtonClicked(date: Date)
+            fun onCreateLolingButtonClicked()
             fun onCreateNewLolingClicked()
             fun onJoinExitedLolingClicked()
             fun onExistedLolingItemClicked(lolingId: Int)
