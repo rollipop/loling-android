@@ -1,8 +1,8 @@
 package mashup.loling.main
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_paper_noti.*
 import mashup.loling.R
 import mashup.loling.room.view.ReceivedPaperListActivity

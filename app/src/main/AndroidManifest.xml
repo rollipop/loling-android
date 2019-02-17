@@ -37,7 +37,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".mypage.MyPageActivity" />
-        <activity android:name=".user.view.LoginActivity" />
+        <activity android:name=".user.view.LoginActivityDataBinding" />
         <activity android:name=".user.view.SignupPersonalActivity" />
         <activity android:name=".user.view.SignupEntryActivity" />
         <activity android:name=".user.view.SignupPhotoActivity" />

@@ -8,7 +8,6 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
@@ -16,18 +15,18 @@ import android.support.v4.app.NotificationCompat
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import mashup.loling.BaseActivity
 import mashup.loling.R
 import mashup.loling.fagment.FriendListFragment
 import mashup.loling.mypage.MyPageActivity
 import mashup.loling.room.view.SelectFriendActivity
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private var context: Context = this
     var pageNum = 10
@@ -37,8 +36,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val decorView = window.decorView
-        setDecorView(decorView)
 
         faBtnMain.setImageResource(R.drawable.ic_add)
         contactPermissionCheck()
@@ -100,17 +97,6 @@ class MainActivity : AppCompatActivity() {
         mNotificationManager.notify(0, mBuilder.build())
     }
 
-    private fun setDecorView(view : View) {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            view.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-            window.statusBarColor = Color.WHITE
-        } else if (Build.VERSION.SDK_INT >= 21) {
-            // 21 버전 이상일
-            window.statusBarColor = Color.GRAY
-        }
-    }
-
     private inner class MainPageAdepter : PagerAdapter() {
 
         override fun instantiateItem(container: ViewGroup, position: Int): Any {
@@ -140,7 +126,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun contactPermissionCheck(){
+    private fun contactPermissionCheck(){
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
                 != PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(this, "권한 없음", Toast.LENGTH_LONG).show()

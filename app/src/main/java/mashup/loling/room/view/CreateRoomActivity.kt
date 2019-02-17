@@ -1,6 +1,5 @@
 package mashup.loling.room.view
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.View
@@ -13,10 +12,11 @@ import mashup.loling.Adapter.CreateRoomPagerAdapter.Companion.PAGE_CALENDAR
 import mashup.loling.Adapter.CreateRoomPagerAdapter.Companion.PAGE_EXISTED_CHK
 import mashup.loling.Adapter.CreateRoomPagerAdapter.Companion.PAGE_EXISTED_LOLING_LIST
 import mashup.loling.Adapter.CreateRoomPagerAdapter.Companion.PAGE_MAIN
+import mashup.loling.BaseActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
-class CreateRoomActivity : AppCompatActivity() {
+class CreateRoomActivity : BaseActivity() {
 
     var selectedDate: Date = Date()
 

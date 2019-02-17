@@ -2,7 +2,6 @@ package mashup.loling.room.view
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_author_list.*
@@ -10,9 +9,10 @@ import mashup.loling.R
 import mashup.loling.drawpaper.view.DrawPaperActivity
 import mashup.loling.model.Paper
 import mashup.loling.Adapter.AuthorListItemAdapter
+import mashup.loling.BaseActivity
 import java.util.*
 
-class AuthorListActivity : AppCompatActivity() {
+class AuthorListActivity : BaseActivity() {
 
     private var context: Context = this
     val weterList: ArrayList<Paper> = ArrayList()
