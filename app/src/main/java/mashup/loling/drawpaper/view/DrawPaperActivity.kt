@@ -112,8 +112,6 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
                     lParam.topMargin = originTop + dMove.y.toInt()
                     it.view.layoutParams = lParam
 
-                    Log.v("JUJIN", "dist $originScale $dDist, deg $originRotation $dDeg")
-
                     // 뷰 확대축소/회전(2개 손가락일 경우에만)
                     if(pointerCnt > 1) {
                         if (dDist.isNaN() || dDist == 0f) dDist = 1f
