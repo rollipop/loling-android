@@ -8,6 +8,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
@@ -85,9 +86,10 @@ class MainActivity : BaseActivity() {
                 .FLAG_UPDATE_CURRENT)
 
         val mBuilder = NotificationCompat.Builder(this, "22")
-                .setSmallIcon(R.drawable.circle)
+                .setSmallIcon(R.drawable.indicator_dot_on)
                 .setContentTitle("축하합니다! 롤링페이퍼가 도착했습니다.")
                 .setContentText("롤링페이퍼 보러가기!")
+                .setLargeIcon(BitmapFactory.decodeResource(resources,R.drawable.test))
                 .setOngoing(true)
                 .setDefaults(Notification.DEFAULT_VIBRATE)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)

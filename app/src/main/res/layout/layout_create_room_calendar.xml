@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="0dp"
+    android:layout_marginBottom="60dp"
+    android:orientation="vertical"
+    android:backgroundTint="@color/white0"
+    android:background="@drawable/circle_round10">
 
     <DatePicker
         android:id="@+id/calSelectDate"
@@ -24,18 +29,20 @@
             android:id="@+id/btnCancel"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="3"
             android:gravity="center"
-            android:background="@color/gray2"
+            android:backgroundTint="@color/gray1"
+            android:background="@drawable/bottom_left_round10"
             android:textColor="@color/white0"
             android:text="@string/btn_cancel"/>
         <TextView
             android:id="@+id/btnOkay"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="5"
             android:gravity="center"
-            android:background="@drawable/button_background_color"
+            android:backgroundTint="@color/teal"
+            android:background="@drawable/bottom_right_round10"
             android:textColor="@color/white0"
             android:text="@string/btn_okay"/>
     </LinearLayout>
