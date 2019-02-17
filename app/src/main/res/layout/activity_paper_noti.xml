@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#36020202"
+    tools:context=".main.PaperNotiActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/circle_round20"
+        android:backgroundTint="@color/white0">
+
+        <TextView
+            android:id="@+id/tvPaperNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="12sp"
+            android:text="축하합니다!
+롤링페이퍼가 도착했습니다."
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/ivPaperNotification"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <ImageView
+            android:id="@+id/ivPaperNotification"
+            android:layout_width="200dp"
+            android:layout_height="240dp"
+            android:background="@null"
+            android:src="@drawable/circle"
+            android:tint="@color/mainPeachyPink"
+            app:layout_constraintBottom_toTopOf="@id/btnPagerNotification"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPaperNotification"
+            tools:layout_editor_absoluteY="95dp" />
+
+        <TextView
+            android:id="@+id/btnPagerNotification"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bottom_round20"
+            android:backgroundTint="@color/teal"
+            android:gravity="center"
+            android:lineSpacingExtra="2sp"
+            android:text="롤링페이퍼 보러가기"
+            android:textColor="@color/white0"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</LinearLayout>
