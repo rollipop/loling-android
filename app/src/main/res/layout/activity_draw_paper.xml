@@ -8,7 +8,7 @@
     tools:context=".drawpaper.view.DrawPaperActivity">
 
     <!-- Drawing area -->
-    <FrameLayout
+    <RelativeLayout
         android:id="@+id/drawArea"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -21,29 +21,30 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/btnDrawPagerClose"
+            android:id="@+id/btnDrawPaperClose"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginStart="@dimen/DrawPagerActivityMargin"
+            android:layout_marginStart="@dimen/DrawPaperActivityMargin"
             android:layout_marginTop="8dp"
             android:background="@null"
-            android:src="@drawable/ic_close"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:src="@drawable/ic_close" />
+
+        <!-- space -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
 
         <TextView
-            android:id="@+id/btnDrawPagerSave"
+            android:id="@+id/btnDrawPaperSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/DrawPagerActivityMargin"
+            android:layout_marginEnd="@dimen/DrawPaperActivityMargin"
             android:clickable="true"
             android:text="@string/write_completion"
             android:lineSpacingExtra="2sp"
             android:textColor="@color/gray2"
-            android:textSize="@dimen/TEXT_SIZE16"
-            app:layout_constraintBottom_toBottomOf="@id/btnDrawPagerClose"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/btnDrawPagerClose" />
+            android:textSize="@dimen/TEXT_SIZE16" />
 
     </LinearLayout>
 
@@ -66,27 +67,26 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageView
-            android:id="@+id/btnDrawPagerCamera"
+            android:id="@+id/btnDrawPaperCamera"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="@dimen/DrawPagerActivityMargin"
-            android:src="@drawable/ic_person"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btnDrawPagerText"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_marginBottom="@dimen/DrawPaperActivityMargin"
+            android:src="@drawable/ic_person" />
+
+        <!-- space -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
 
         <ImageView
-            android:id="@+id/btnDrawPagerText"
+            android:id="@+id/btnDrawPaperText"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="10dp"
-            android:layout_marginBottom="@dimen/DrawPagerActivityMargin"
-            android:src="@drawable/ic_more_vert"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/btnDrawPagerCamera" />
+            android:layout_marginBottom="@dimen/DrawPaperActivityMargin"
+            android:src="@drawable/ic_more_vert" />
 
     </LinearLayout>
 
