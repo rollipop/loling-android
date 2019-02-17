@@ -6,7 +6,7 @@ import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
-import android.support.v4.view.ViewPager
+import kotlinx.android.synthetic.main.activity_select_friend.*
 import mashup.loling.R
 import mashup.loling.fagment.SelectFriendAddressListFragment
 import mashup.loling.fagment.SelectFriendListFragment
@@ -19,12 +19,11 @@ class SelectFriendActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_friend)
 
-
-        val tabs = findViewById<TabLayout>(R.id.tabsSelectFriend)
+        val tabs = tabsSelectFriend
         tabs.addTab(tabs.newTab().setText(R.string.friend))
         tabs.addTab(tabs.newTab().setText(R.string.phone_num))
 
-        val pager = findViewById<ViewPager>(R.id.vpSelectFriend)
+        val pager = vpSelectFriend
         val adapter = PagerAdapter(supportFragmentManager,tabs.tabCount)
         pager.adapter = adapter
         pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
@@ -38,6 +37,8 @@ class SelectFriendActivity : AppCompatActivity() {
                 pager.currentItem = tabs.selectedTabPosition
             }
         })
+
+
 
     }
 
