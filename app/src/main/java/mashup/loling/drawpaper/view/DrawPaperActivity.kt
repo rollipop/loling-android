@@ -76,6 +76,9 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
                     val lParam: RelativeLayout.LayoutParams = it.view.layoutParams as RelativeLayout.LayoutParams
                     originLeft = lParam.leftMargin
                     originTop = lParam.topMargin
+                    
+                    // 선택된 뷰 맨 앞으로
+                    it.view.bringToFront()
                 }
 
             }
