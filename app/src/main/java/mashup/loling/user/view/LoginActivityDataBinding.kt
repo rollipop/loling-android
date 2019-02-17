@@ -10,7 +10,7 @@ import mashup.loling.user.viewmodel.UserViewModel
 import mashup.loling.user.viewmodel.UserViewModelFactory
 
 
-class LoginActivity : BaseActivity<ActivityLoginBinding>() {
+class LoginActivityDataBinding : DataBindingBaseActivity<ActivityLoginBinding>() {
     private val mDisposable : CompositeDisposable = CompositeDisposable()
     private lateinit var userViewModel : UserViewModel
     override val layoutResourceId: Int = R.layout.activity_login

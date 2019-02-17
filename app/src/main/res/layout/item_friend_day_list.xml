@@ -11,6 +11,7 @@
         android:id="@+id/ivFriendItemLogo"
         android:layout_width="@dimen/ItemFriendDayListLogo"
         android:layout_height="@dimen/ItemFriendDayListLogo"
+        android:tint="@color/mainPeachyPink"
         android:src="@drawable/circle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

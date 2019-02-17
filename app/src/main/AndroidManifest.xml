@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mashup.loling">
 
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -11,14 +12,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".room.view.CreateRoomActivity"
-                  android:theme="@style/Theme.CustomDialogActivity" />
+        <activity
+            android:name=".room.view.CreateRoomActivity"
+            android:theme="@style/Theme.CustomDialogActivity" />
         <activity android:name=".drawpaper.view.LoadImageActivity" />
         <activity android:name=".drawpaper.view.DrawPaperActivity" />
         <activity android:name=".room.view.AuthorListDetailActivity" />
         <activity android:name=".room.view.AuthorListActivity" />
         <activity android:name=".room.view.SelectFriendActivity" />
-
+        <activity
+            android:name=".room.view.ReceivedPaperListActivity"
+            android:configChanges="orientation"
+            android:parentActivityName=".main.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".main.MainActivity" />
+        </activity>
         <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,11 +37,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".mypage.MyPageActivity" />
-        <activity android:name=".user.view.LoginActivity" />
+        <activity android:name=".user.view.LoginActivityDataBinding" />
         <activity android:name=".user.view.SignupPersonalActivity" />
         <activity android:name=".user.view.SignupEntryActivity" />
         <activity android:name=".user.view.SignupPhotoActivity" />
         <activity android:name=".mypage.MyPageSettingActivity" />
+        <activity android:name=".room.view.ReceivedPaperRoomActivity" />
+        <activity android:name=".main.PaperNotiActivity"
+            android:theme="@style/Theme.AppCompat.Translucent"/>
     </application>
 
 </manifest>

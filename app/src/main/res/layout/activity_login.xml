@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:padding="@dimen/LoginActivityPadding"
         android:background="@color/white0"
-        tools:context=".user.view.LoginActivity">
+        tools:context=".user.view.LoginActivityDataBinding">
 
         <ImageView
             android:id="@+id/ivLoginLogo"
