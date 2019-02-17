@@ -3,17 +3,17 @@ package mashup.loling.room.view
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_recive_paper_list.*
 import kotlinx.android.synthetic.main.item_receive_paper_sender.*
+import mashup.loling.BaseActivity
 import mashup.loling.R
 import mashup.loling.room.ReceivedPage
 import mashup.loling.room.RecivedPaperAdapter
 import mashup.loling.user.User
 
 
-class ReceivedPaperListActivity : AppCompatActivity() {
+class ReceivedPaperListActivity : BaseActivity() {
     private var reciverList = arrayListOf(
             ReceivedPage("유정", Uri.EMPTY),
             ReceivedPage("주지니",Uri.EMPTY),
