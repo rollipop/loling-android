@@ -1,18 +1,28 @@
 package mashup.loling.drawpaper.view
 
+import android.app.Activity
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.PointF
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
+import android.view.View
+import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_draw_paper.*
 import mashup.loling.R
 import mashup.loling.drawpaper.Component
+import kotlin.math.roundToInt
 
 class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
+    private val REQUEST_CODE_GET_IMAGE = 100
+
     override fun onComponentSelected(component: Component) {
         selectedComponent = component
     }
@@ -30,13 +40,15 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
     }
 
     private fun btnDrawPaperCameraClicked() {
-        // Todo : send implicit intent(camera or image)
+        val imgIntent = Intent(Intent.ACTION_PICK)
+        imgIntent.type = "image/*"
+        startActivityForResult(imgIntent, REQUEST_CODE_GET_IMAGE)
     }
 
     private fun btnDrawPaperTextClicked() {
         val newComponent = Component(TextView(this), Component.Companion.ComponentType.TEXT, this)
         // test data
-        (newComponent.view as TextView).text = "TEST TEXT"
+        (newComponent.view as TextView).text = "Hello"
         (newComponent.view as TextView).textSize = 90f
         (newComponent.view as TextView).setBackgroundColor(Color.BLUE)
         addComponent(newComponent)
@@ -44,10 +56,48 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
         Log.v(DrawPaperActivity::class.java.simpleName, "New Text Component Added!!")
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        when(requestCode) {
+            REQUEST_CODE_GET_IMAGE -> {
+                if(resultCode == Activity.RESULT_OK && data != null && data.data != null) {
+                    val imgUri = data.data
+                    val inputStream = contentResolver.openInputStream(imgUri!!)
+
+                    val bitmap = BitmapFactory.decodeStream(inputStream)
+
+                    // 이미지 가로세로 다시 계산 (적절한 크기)
+                    var bWidth = bitmap.width
+                    var bHeight = bitmap.height
+                    var toWidth = drawArea.width/2
+                    var scale = toWidth / bWidth.toFloat()
+                    var toHeight = (bHeight * scale).roundToInt()
+
+                    val resizedBmp = Bitmap.createScaledBitmap(bitmap, toWidth, toHeight,  true)
+
+                    val newComponent = Component(ImageView(this), Component.Companion.ComponentType.IMAGE, this)
+                    (newComponent.view as ImageView).setImageBitmap(resizedBmp)
+                    newComponent.view.scaleType = ImageView.ScaleType.FIT_XY
+                    addComponent(newComponent)
+
+                    Log.v(DrawPaperActivity::class.java.simpleName, "New Image Component Added!!")
+                }
+            }
+        }
+    }
+
     /** 새로운 꾸미기 컴포넌트를 추가한다 */
     private fun addComponent(newComponent: Component) {
         componentList.add(newComponent)
         drawArea.addView(newComponent.view)
+
+        val lParams = newComponent.view.layoutParams as RelativeLayout.LayoutParams
+        lParams.width = RelativeLayout.LayoutParams.WRAP_CONTENT
+        lParams.height = RelativeLayout.LayoutParams.WRAP_CONTENT
+        newComponent.view.layoutParams = lParams
+        newComponent.view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+        lParams.leftMargin = drawArea.width/2 - newComponent.view.measuredWidth/2
+        lParams.topMargin = drawArea.height/2 - newComponent.view.measuredHeight/2
+        newComponent.view.layoutParams = lParams
     }
 
     // variables for position
