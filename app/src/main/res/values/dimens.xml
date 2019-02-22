@@ -42,8 +42,8 @@
     <dimen name="MyPageTabMarginTop">44dp</dimen>
     <dimen name="MyPageTabMarginButton">6dp</dimen>
 
-    <dimen name="MyPageSettingMarginX">20dp</dimen>
-    <dimen name="MyPageSettingCloseBtn">18dp</dimen>
+    <dimen name="MyPageSettingMarginX">10dp</dimen>
+    <dimen name="MyPageSettingCloseBtn">40dp</dimen>
     <dimen name="MyPageSettingBoxY">56dp</dimen>
 
     <dimen name="MainActivityMarginX">20dp</dimen>
@@ -67,9 +67,11 @@
     <dimen name="FloatingActionButton">56dp</dimen>
     <dimen name="AuthorListActivityMargin">20dp</dimen>
     <dimen name="TEXT_SIZE14">14sp</dimen>
-    <dimen name="DrawPagerActivityMargin">20dp</dimen>
+    <dimen name="DrawPaperActivityMargin">8dp</dimen>
     <dimen name="AuthorListDetailRoomY">500dp</dimen>
     <dimen name="AuthorListDetailRoomX">300dp</dimen>
     <dimen name="AuthorListDetailRoomYs">490dp</dimen>
     <dimen name="AuthorListDetailRoomXs">290dp</dimen>
+
+    <dimen name="draw_paper_panel_height">48dp</dimen>
 </resources>

@@ -5,14 +5,15 @@ import android.util.DisplayMetrics
 import android.view.View
 import android.view.WindowManager
 import kotlinx.android.synthetic.main.activity_create_room.*
+import kotlinx.android.synthetic.main.layout_create_room_main.*
 import kotlinx.android.synthetic.main.layout_create_room_main.view.*
-import mashup.loling.R
 import mashup.loling.Adapter.CreateRoomPagerAdapter
 import mashup.loling.Adapter.CreateRoomPagerAdapter.Companion.PAGE_CALENDAR
 import mashup.loling.Adapter.CreateRoomPagerAdapter.Companion.PAGE_EXISTED_CHK
 import mashup.loling.Adapter.CreateRoomPagerAdapter.Companion.PAGE_EXISTED_LOLING_LIST
 import mashup.loling.Adapter.CreateRoomPagerAdapter.Companion.PAGE_MAIN
 import mashup.loling.BaseActivity
+import mashup.loling.R
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -37,7 +38,7 @@ class CreateRoomActivity : BaseActivity() {
         }
 
         override fun onCreateLolingButtonClicked() {
-            // Check whether loling for selected user/date is already existed or not
+            // Check whether loling for selected user/date is already existed or not\
             TODO("not implemented check loling existed + create new loling or join existed")
             if (false) { //this should be executed as async
                 // open new loling activity
@@ -72,10 +73,12 @@ class CreateRoomActivity : BaseActivity() {
         val maxHeightPx = resources.getDimensionPixelSize(R.dimen.create_room_window_max_height)
 
         window.setLayout(
-                if(dm.widthPixels > maxWidthPx) maxWidthPx else WindowManager.LayoutParams.MATCH_PARENT,
-                if(dm.heightPixels > maxHeightPx) maxHeightPx else WindowManager.LayoutParams.MATCH_PARENT)
+                if (dm.widthPixels > maxWidthPx) maxWidthPx else WindowManager.LayoutParams.MATCH_PARENT,
+                if (dm.heightPixels > maxHeightPx) maxHeightPx else WindowManager.LayoutParams.MATCH_PARENT)
 
-        createRoomViewPager.adapter = CreateRoomPagerAdapter(this, createRoomMethods)
+        val name = intent.getStringExtra("name")
+
+        createRoomViewPager.adapter = CreateRoomPagerAdapter(this, createRoomMethods,name)
         createRoomViewPager.offscreenPageLimit = (createRoomViewPager.adapter as CreateRoomPagerAdapter).count
         createRoomViewPager.currentItem = PAGE_MAIN
 
@@ -84,7 +87,7 @@ class CreateRoomActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        when(createRoomViewPager.currentItem) {
+        when (createRoomViewPager.currentItem) {
             PAGE_CALENDAR -> createRoomViewPager.currentItem = PAGE_MAIN
             PAGE_EXISTED_CHK -> createRoomViewPager.currentItem = PAGE_MAIN
             PAGE_EXISTED_LOLING_LIST -> createRoomViewPager.currentItem = PAGE_EXISTED_CHK

@@ -14,7 +14,7 @@
         android:layout_marginStart="6dp"
         android:layout_marginTop="6dp"
         android:background="@null"
-        android:src="@drawable/ic_close"
+        android:src="@drawable/ic_icon_clear"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,7 +25,7 @@
         android:layout_marginTop="6dp"
         android:layout_marginEnd="6dp"
         android:background="@null"
-        android:src="@drawable/ic_close"
+        android:src="@drawable/ic_icon_clear"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

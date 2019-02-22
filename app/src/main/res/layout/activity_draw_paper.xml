@@ -5,13 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white0"
+    android:clipChildren="false"
+    android:clipToPadding="false"
     tools:context=".drawpaper.view.DrawPaperActivity">
 
     <!-- Drawing area -->
-    <FrameLayout
+    <RelativeLayout
         android:id="@+id/drawArea"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="1dp" />
 
     <!-- Drawing area control panel -->
     <LinearLayout
@@ -21,29 +28,32 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/btnDrawPagerClose"
+            android:id="@+id/btnDrawPaperClose"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginStart="@dimen/DrawPagerActivityMargin"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/DrawPaperActivityMargin"
+            android:layout_marginTop="@dimen/DrawPaperActivityMargin"
             android:background="@null"
-            android:src="@drawable/ic_close"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:src="@drawable/ic_icon_clear" />
+
+        <!-- space -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
 
         <TextView
-            android:id="@+id/btnDrawPagerSave"
+            android:id="@+id/btnDrawPaperSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/DrawPagerActivityMargin"
+            android:layout_gravity="center"
+            android:layout_marginEnd="20dp"
             android:clickable="true"
             android:text="@string/write_completion"
             android:lineSpacingExtra="2sp"
+            android:textStyle="bold"
             android:textColor="@color/gray2"
-            android:textSize="@dimen/TEXT_SIZE16"
-            app:layout_constraintBottom_toBottomOf="@id/btnDrawPagerClose"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/btnDrawPagerClose" />
+            android:textSize="@dimen/TEXT_SIZE16" />
 
     </LinearLayout>
 
@@ -65,39 +75,83 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
         <ImageView
-            android:id="@+id/btnDrawPagerCamera"
+            android:id="@+id/btnDrawPaperCamera"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="@dimen/DrawPagerActivityMargin"
-            android:src="@drawable/ic_person"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btnDrawPagerText"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_marginBottom="@dimen/DrawPaperActivityMargin"
+            android:src="@drawable/ic_icon_camera" />
+        <!-- space -->
 
         <ImageView
-            android:id="@+id/btnDrawPagerText"
+            android:id="@+id/btnDrawPaperText"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="10dp"
-            android:layout_marginBottom="@dimen/DrawPagerActivityMargin"
-            android:src="@drawable/ic_more_vert"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/btnDrawPagerCamera" />
+            android:layout_marginBottom="@dimen/DrawPaperActivityMargin"
+            android:src="@drawable/ic_icon_text" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
 
     </LinearLayout>
 
-    <!-- Color selector panel -->
+    <!-- TextView Edit Panel -->
     <LinearLayout
-        android:id="@+id/pnColorSelector"
+        android:id="@+id/pnTvEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="#33000000"
         app:layout_constraintBottom_toBottomOf="parent">
+        <!-- EditText -->
+        <EditText
+            android:id="@+id/txtTvEdit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/draw_paper_panel_height" />
 
+        <!-- Color selector panel -->
+        <LinearLayout
+            android:id="@+id/pnTvColorSelector"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/draw_paper_panel_height"
+            android:orientation="horizontal" />
+            <!-- Color selecting buttons will be generated from code -->
+
+        <!-- BG color selector panel -->
+        <LinearLayout
+            android:id="@+id/pnTvBgSelector"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/draw_paper_panel_height"
+            android:orientation="horizontal" />
+            <!-- Color selecting buttons will be generated from code -->
+
+        <!-- Text size control & close button panel -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/draw_paper_panel_height"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/ivTextSizeDown"
+                android:layout_width="@dimen/draw_paper_panel_height"
+                android:layout_height="@dimen/draw_paper_panel_height" />
+            <ImageView
+                android:id="@+id/ivTextSizeUp"
+                android:layout_width="@dimen/draw_paper_panel_height"
+                android:layout_height="@dimen/draw_paper_panel_height" />
+            <ImageView
+                android:id="@+id/ivCloseEditTextPanel"
+                android:layout_width="@dimen/draw_paper_panel_height"
+                android:layout_height="@dimen/draw_paper_panel_height" />
+        </LinearLayout>
     </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>

@@ -38,6 +38,10 @@ class SelectFriendActivity : BaseActivity() {
             }
         })
 
+        btnSelectFriendBack.setOnClickListener {
+            finish()
+        }
+
 
 
     }

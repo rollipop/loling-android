@@ -13,7 +13,8 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".main.MainActivity">
+            tools:context=".main.MainActivity"
+            android:focusableInTouchMode="true">
 
             <ImageView
                 android:id="@+id/btnMainSettingFriend"
@@ -21,7 +22,7 @@
                 android:layout_height="@dimen/MainSettingFriendSize"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="13dp"
-                android:src="@drawable/ic_person"
+                android:src="@drawable/ic_icon_mypage"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

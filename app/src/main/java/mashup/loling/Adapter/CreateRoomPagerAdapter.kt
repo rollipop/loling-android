@@ -13,7 +13,8 @@ import mashup.loling.room.view.CreateRoomActivity
 import java.util.*
 
 class CreateRoomPagerAdapter(val context: Context,
-                             val createRoomMethods : CreateRoomActivity.Companion.ICreateRoomMethods)
+                             val createRoomMethods : CreateRoomActivity.Companion
+                             .ICreateRoomMethods, val name : String)
     : PagerAdapter() {
 
     companion object {
@@ -57,6 +58,9 @@ class CreateRoomPagerAdapter(val context: Context,
                 view = inflater.inflate(R.layout.layout_create_room_main, container, false) as ViewGroup
                 view.tvRoomDate.setOnClickListener { createRoomMethods.onSelectRoomTextClicked() }
                 view.btnCreateLoling.setOnClickListener { createRoomMethods.onCreateLolingButtonClicked() }
+                view.tvNameAndText.text = String.format(
+                        context.getString(R.string.create_room_ps_type_the_anniversary_date), name)
+
             }
         }
 
