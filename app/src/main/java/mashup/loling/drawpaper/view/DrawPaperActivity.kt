@@ -154,10 +154,33 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
         selectedComponent?.let {
             when (isUp) {
                 true -> {
-                    it.zIndex = getMostTopZIndex() + 1
+                    // 자기보다 바로 에 있위는 애의 zIndex를 가져온다
+                    var aboveMin = Int.MAX_VALUE
+                    for(comp: Component in componentList) {
+                        if(comp != it && comp.zIndex > it.zIndex && comp.zIndex < aboveMin)
+                            aboveMin = comp.zIndex
+                    }
+                    // aboveMin 갱신이 없으면 이미 얘가 왕임
+                    if(aboveMin == Int.MAX_VALUE) return
+                    // 걔보다 1 더 높게
+                    val targetZIndex = aboveMin + 1
+                    // zindex가 겹치면 안되기 때문에, 리스트 중 targetIndex와 같거나 높은 모든 컴포넌트의 zIndex를 +1 해준다
+                    for(comp: Component in componentList) {
+                        if(!comp.equals(it) && comp.zIndex >= targetZIndex)
+                            comp.zIndex += 1
+                    }
+                    it.zIndex = targetZIndex
                 }
                 false -> {
-                    val targetZIndex = it.zIndex - 1
+                    // 자기보다 바로 아래에 있는 애의 zIndex를 가져온다
+                    var underMax = -1
+                    for(comp: Component in componentList) {
+                        if(comp != it && comp.zIndex < it.zIndex && comp.zIndex > underMax)
+                            underMax = comp.zIndex
+                    }
+                    // underMax 갱신이 없으면 이미 얘가 바닥임
+                    if(underMax == -1) return
+                    val targetZIndex = underMax
                     // zindex가 겹치면 안되기 때문에, 리스트 중 targetIndex와 같거나 높은 모든 컴포넌트의 zIndex를 +1 해준다
                     for(comp: Component in componentList) {
                         if(!comp.equals(it) && comp.zIndex >= targetZIndex)
