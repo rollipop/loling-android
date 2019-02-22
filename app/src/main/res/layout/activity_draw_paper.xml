@@ -147,12 +147,12 @@
                 android:id="@+id/btnTextSizeDown"
                 android:layout_width="@dimen/draw_paper_panel_height"
                 android:layout_height="@dimen/draw_paper_panel_height"
-                android:src="@drawable/ic_chevron_left" />
+                android:src="@drawable/ic_icon_text_size_down" />
             <ImageView
                 android:id="@+id/btnTextSizeUp"
                 android:layout_width="@dimen/draw_paper_panel_height"
                 android:layout_height="@dimen/draw_paper_panel_height"
-                android:src="@drawable/ic_chevron_right" />
+                android:src="@drawable/ic_icon_text_size_up" />
             <ImageView
                 android:id="@+id/btnTextZindexDown"
                 android:layout_width="@dimen/draw_paper_panel_height"
@@ -174,7 +174,7 @@
                 android:layout_weight="1"/>
             <ImageView
                 android:id="@+id/btnCloseEditTextPanel"
-                android:src="@drawable/ic_close"
+                android:src="@drawable/ic_icon_clear"
                 android:layout_width="@dimen/draw_paper_panel_height"
                 android:layout_height="@dimen/draw_paper_panel_height" />
         </LinearLayout>
@@ -216,7 +216,7 @@
                 android:layout_weight="1"/>
             <ImageView
                 android:id="@+id/btnCloseIvPanel"
-                android:src="@drawable/ic_close"
+                android:src="@drawable/ic_icon_clear"
                 android:layout_width="@dimen/draw_paper_panel_height"
                 android:layout_height="@dimen/draw_paper_panel_height" />
         </LinearLayout>
