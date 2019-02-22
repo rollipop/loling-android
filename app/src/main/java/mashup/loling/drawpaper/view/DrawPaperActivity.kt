@@ -270,34 +270,44 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
     }
 
     private fun saveDrawPaper() {
-        // 크기가져와
-        val displayMetrics = DisplayMetrics()
-        windowManager.defaultDisplay.getMetrics(displayMetrics)
-        val w = displayMetrics.widthPixels
-        val h = displayMetrics.heightPixels
+        // 물어본다
+        val dialog = AlertDialog.Builder(this, R.style.AlertDialogStyle)
+        dialog.setMessage(R.string.draw_activity_msg_do_you_want_to_submit_your_paper)
+                .setCancelable(false)
+                .setPositiveButton(R.string.btn_yes) { _, _ ->
+                    // 크기가져와
+                    val displayMetrics = DisplayMetrics()
+                    windowManager.defaultDisplay.getMetrics(displayMetrics)
+                    val w = displayMetrics.widthPixels
+                    val h = displayMetrics.heightPixels
 
-        // View를 Bitmap으로 변환
-        drawArea.layout(0, 0, w,h)
-        val bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
-        bmp.eraseColor(Color.TRANSPARENT)
-        val canvas = Canvas(bmp)
-        drawArea.draw(canvas)
+                    // View를 Bitmap으로 변환
+                    drawArea.layout(0, 0, w,h)
+                    val bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
+                    bmp.eraseColor(Color.TRANSPARENT)
+                    val canvas = Canvas(bmp)
+                    drawArea.draw(canvas)
 
-        // 저장
-        val fileName = "loling/loling_" + SimpleDateFormat("yyMMdd-hhmmss", Locale.getDefault()).format(Date()) + ".png"
-        val path = Environment.getExternalStorageDirectory()
-        val dir = File(path, "loling")
-        if(!dir.exists()) dir.mkdir()
-        val file = File(path, fileName)
-        file.createNewFile()
+                    // 저장
+                    val fileName = "loling/loling_" + SimpleDateFormat("yyMMdd-hhmmss", Locale.getDefault()).format(Date()) + ".png"
+                    val path = Environment.getExternalStorageDirectory()
+                    val dir = File(path, "loling")
+                    if(!dir.exists()) dir.mkdir()
+                    val file = File(path, fileName)
+                    file.createNewFile()
 
-        val fileOutputStream = FileOutputStream(file, false)
-        try {
-            bmp.compress(Bitmap.CompressFormat.JPEG, 50, fileOutputStream)
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Log.v("JUJIN", "Cannot save img")
-        }
+                    val fileOutputStream = FileOutputStream(file, false)
+                    try {
+                        bmp.compress(Bitmap.CompressFormat.JPEG, 50, fileOutputStream)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        Log.v("JUJIN", "Cannot save img")
+                    }
+
+                    return@setPositiveButton
+                }.setNegativeButton(R.string.btn_cancel) { _, _ ->
+                    return@setNegativeButton
+                }.create().show()
     }
 
     /** Text 컴포넌트에서 문자열 수정시 즉시 적용될 수 있도록 하는 watcher */
@@ -313,7 +323,7 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
         }
     }
 
-    fun closeEditPanel() {
+    private fun closeEditPanel() {
         if (selectedComponent != null) {
             selectedComponent?.onComponentUnselected()
             selectedComponent = null
