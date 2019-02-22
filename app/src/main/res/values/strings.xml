@@ -12,6 +12,7 @@
     <string name="password">Password</string>
     <string name="password_check">Confirm password</string>
     <string name="pw">PW</string>
+
     <string name="signup_personal_msg">Please enter\nname and birthday</string>
     <string name="signup_entry_msg">Please enter\nID and password</string>
     <string name="signup_photo_msg">Please register \nprofile picture.</string>

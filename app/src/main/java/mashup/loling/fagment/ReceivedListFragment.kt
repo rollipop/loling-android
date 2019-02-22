@@ -29,9 +29,14 @@ class ReceivedListFragment : Fragment {
     }
 
     fun makeFriendList(){//친구목록 가져와 처리
-        for (i in 0..9){
+        for (i in 0..10){
             friends.add(FriendItem("유채원" + i, "D-10" + i, "1996.03.22"))
         }
+    }
+
+    fun friendsSzie(): Int{
+        makeFriendList()
+        return friends.size
     }
 
 }

@@ -12,6 +12,7 @@ import mashup.loling.R
 import mashup.loling.fagment.FriendListFragment
 import mashup.loling.fagment.ReceivedListFragment
 import mashup.loling.fagment.WrittenListFragment
+
 import mashup.loling.model.ERoom
 
 class MyPageActivity : BaseActivity() {
@@ -39,11 +40,14 @@ class MyPageActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_page)
+        var friendListStr = friendFrag.friendsSzie().toString() + "\n" + getText(R.string.friendList)
+        var writtenLolingStr = writtenFrag.friendsSzie().toString() + "\n" + getText(R.string.writtenLoling)
+        var receiveLolingStr = receivedFrag.friendsSzie().toString() + "\n" + getText(R.string.receiveLoling)
 
         val tabs = tabsMypage
-        tabs.addTab(tabs.newTab().setText(R.string.friendList))
-        tabs.addTab(tabs.newTab().setText(R.string.writtenLoling))
-        tabs.addTab(tabs.newTab().setText(R.string.receiveLiling))
+        tabs.addTab(tabs.newTab().setText(friendListStr))
+        tabs.addTab(tabs.newTab().setText(writtenLolingStr))
+        tabs.addTab(tabs.newTab().setText(receiveLolingStr))
 
         val pager = vpMyPage
         val adapter = PagerAdapter(supportFragmentManager, tabs.tabCount)
