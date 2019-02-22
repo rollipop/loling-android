@@ -1,9 +1,8 @@
 package mashup.loling.drawpaper
 
-import android.graphics.Point
-import android.graphics.PointF
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewOutlineProvider
 import mashup.loling.drawpaper.view.IComponentTouchListener
 
 class Component(val view: View, private val componentTouchedListener: IComponentTouchListener) {
@@ -17,6 +16,8 @@ class Component(val view: View, private val componentTouchedListener: IComponent
             return@setOnTouchListener v.onTouchEvent(event)
         }
 
+        // set outlineProvider to BOUNDS for elevation
+        view.outlineProvider = ViewOutlineProvider.BOUNDS
 
     }
 
@@ -37,13 +38,13 @@ class Component(val view: View, private val componentTouchedListener: IComponent
      * 이 꾸미기 컴포넌트가 선택됐을 때 불리는 메소드
      */
     fun onComponentSelected() {
-
+        view.elevation = 20f
     }
 
     /**
      * 이 꾸미기 컴포넌트가 선택해제됐을 때 불리는 메소드
      */
     fun onComponentUnselected() {
-
+        view.elevation = 0f
     }
 }
