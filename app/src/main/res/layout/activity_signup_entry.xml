@@ -8,7 +8,6 @@
     android:padding="@dimen/SignupPersonalActivityPadding"
     tools:context=".user.view.SignupPersonalActivity">
 
-
     <TextView
         android:id="@+id/tvSignupEntryMsg"
         android:layout_width="wrap_content"
@@ -25,17 +24,17 @@
 
     <android.support.design.widget.TextInputLayout
         android:theme="@style/TextLabel"
-        android:id="@+id/etSignupEntryId"
+        android:id="@+id/etSignupEntryIdSurface"
         android:layout_width="match_parent"
         android:layout_height="@dimen/LoginTextBoxHight"
         android:layout_marginTop="56dp"
         android:ems="10"
-        android:inputType="date"
         android:lineSpacingExtra="1sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSignupEntryMsg"        >
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/etSignupEntryId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black1"
@@ -46,18 +45,18 @@
 
     <android.support.design.widget.TextInputLayout
         android:theme="@style/TextLabel"
-        android:id="@+id/etSignupEntryPw"
+        android:id="@+id/etSignupEntryPwSurface"
         android:layout_width="match_parent"
         android:layout_height="@dimen/LoginTextBoxHight"
         android:layout_marginTop="12dp"
         android:ems="10"
-        android:inputType="date"
         android:lineSpacingExtra="1sp"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSignupEntryId"        >
+        app:layout_constraintTop_toBottomOf="@+id/etSignupEntryIdSurface"        >
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/etSignupEntryPw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black1"
@@ -68,18 +67,18 @@
 
     <android.support.design.widget.TextInputLayout
         android:theme="@style/TextLabel"
-        android:id="@+id/etSignupEntryPwCheck"
+        android:id="@+id/etSignupEntryPwCheckSurface"
         android:layout_width="match_parent"
         android:layout_height="@dimen/LoginTextBoxHight"
         android:layout_marginTop="12dp"
         android:ems="10"
-        android:inputType="phone"
         android:lineSpacingExtra="1sp"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSignupEntryPw" >
+        app:layout_constraintTop_toBottomOf="@+id/etSignupEntryPwSurface" >
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/etSignupEntryPwCheck"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black1"
@@ -96,6 +95,7 @@
         android:background="@drawable/circle_round10"
         android:backgroundTint="@color/gray0"
         android:gravity="center"
+        android:clickable="true"
         android:lineSpacingExtra="1sp"
         android:text="@string/next"
         android:textColor="@color/white0"
