@@ -5,13 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white0"
+    android:clipChildren="false"
+    android:clipToPadding="false"
     tools:context=".drawpaper.view.DrawPaperActivity">
 
     <!-- Drawing area -->
     <RelativeLayout
         android:id="@+id/drawArea"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"/>
 
     <!-- Drawing area control panel -->
     <LinearLayout
@@ -90,14 +94,56 @@
 
     </LinearLayout>
 
-    <!-- Color selector panel -->
+    <!-- TextView Edit Panel -->
     <LinearLayout
-        android:id="@+id/pnColorSelector"
+        android:id="@+id/pnTvEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="#33000000"
         app:layout_constraintBottom_toBottomOf="parent">
+        <!-- EditText -->
+        <EditText
+            android:id="@+id/txtTvEdit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/draw_paper_panel_height" />
 
+        <!-- Color selector panel -->
+        <LinearLayout
+            android:id="@+id/pnTvColorSelector"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/draw_paper_panel_height"
+            android:orientation="horizontal" />
+            <!-- Color selecting buttons will be generated from code -->
+
+        <!-- BG color selector panel -->
+        <LinearLayout
+            android:id="@+id/pnTvBgSelector"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/draw_paper_panel_height"
+            android:orientation="horizontal" />
+            <!-- Color selecting buttons will be generated from code -->
+
+        <!-- Text size control & close button panel -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/draw_paper_panel_height"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/ivTextSizeDown"
+                android:layout_width="@dimen/draw_paper_panel_height"
+                android:layout_height="@dimen/draw_paper_panel_height" />
+            <ImageView
+                android:id="@+id/ivTextSizeUp"
+                android:layout_width="@dimen/draw_paper_panel_height"
+                android:layout_height="@dimen/draw_paper_panel_height" />
+            <ImageView
+                android:id="@+id/ivCloseEditTextPanel"
+                android:layout_width="@dimen/draw_paper_panel_height"
+                android:layout_height="@dimen/draw_paper_panel_height" />
+        </LinearLayout>
     </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>

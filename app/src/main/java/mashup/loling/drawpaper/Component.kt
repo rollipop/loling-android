@@ -1,18 +1,22 @@
 package mashup.loling.drawpaper
 
+import android.graphics.Point
+import android.graphics.PointF
 import android.view.MotionEvent
 import android.view.View
 import mashup.loling.drawpaper.view.IComponentTouchListener
 
-class Component(val view: View, val componentType: ComponentType, componentSelectedListener: IComponentTouchListener) {
+class Component(val view: View, private val componentTouchedListener: IComponentTouchListener) {
 
     init{
         view.setOnTouchListener { v, event ->
             if(event.action == MotionEvent.ACTION_DOWN) {
-                componentSelectedListener.onComponentSelected(this)
+                componentTouchedListener.onComponentTouchedDown(this)
             }
+
             return@setOnTouchListener v.onTouchEvent(event)
         }
+
 
     }
 
@@ -27,12 +31,19 @@ class Component(val view: View, val componentType: ComponentType, componentSelec
     fun scale(scale: Float) {
         view.scaleX = scale
         view.scaleY = scale
+    }
+
+    /**
+     * 이 꾸미기 컴포넌트가 선택됐을 때 불리는 메소드
+     */
+    fun onComponentSelected() {
 
     }
 
-    companion object {
-        enum class ComponentType {
-            TEXT, IMAGE
-        }
+    /**
+     * 이 꾸미기 컴포넌트가 선택해제됐을 때 불리는 메소드
+     */
+    fun onComponentUnselected() {
+
     }
 }
