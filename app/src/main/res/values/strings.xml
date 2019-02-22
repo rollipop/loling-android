@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Loling</string>
     <string name="birth_date">생년월일</string>
-    <string name="btn_login">Log-In</string>
-    <string name="btn_go_singup">회원가입하기</string>
+    <string name="btn_login">로그인</string>
+    <string name="btn_go_singup">회원가입</string>
     <string name="btn_singup">회원가입</string>
     <string name="id">ID</string>
     <string name="loling_room_count_participant">참여인원</string>
