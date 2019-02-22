@@ -24,6 +24,7 @@ import mashup.loling.BaseActivity
 import mashup.loling.R
 import mashup.loling.fagment.FriendListFragment
 import mashup.loling.mypage.MyPageActivity
+import mashup.loling.room.view.CreateRoomActivity
 import mashup.loling.room.view.SelectFriendActivity
 
 
@@ -60,7 +61,7 @@ class MainActivity : BaseActivity() {
             startActivity(intent)
         }
         btnMainSettingFriend.setOnClickListener {
-            val intent = Intent(context, MyPageActivity()::class.java)
+            val intent = Intent(context, CreateRoomActivity()::class.java)
             startActivity(intent)
         }
 
