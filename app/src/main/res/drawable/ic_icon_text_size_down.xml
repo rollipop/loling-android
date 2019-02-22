@@ -33,9 +33,6 @@
     </path>
     <path
         android:fillColor="#FF000000"
-        android:pathData="M29,10.47a4.91,4.91 0,1 1,-4.94 4.88h0A4.91,4.91 0,0 1,29 10.47m0,-0.09a5,5 0,1 0,5 5A5,5 0,0 0,29 10.38Z" />
-    <path
-        android:fillColor="#FF000000"
         android:pathData="M26.34,15.3h4.89" />
     <path
         android:fillColor="#FF000000"
