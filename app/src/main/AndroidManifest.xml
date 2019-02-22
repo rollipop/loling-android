@@ -59,6 +59,7 @@
         <activity
             android:name=".room.view.CreateRoomActivity"
             android:theme="@style/Theme.CustomDialogActivity"
+
             android:screenOrientation="portrait"/>
         <activity android:name=".drawpaper.view.DrawPaperActivity"
             android:screenOrientation="portrait"/>
@@ -70,6 +71,7 @@
         <activity android:name=".main.MainActivity"
             android:screenOrientation="portrait">
         </activity>
+
 
 
     </application>
