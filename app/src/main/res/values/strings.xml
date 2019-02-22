@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Loling</string>
     <string name="birth_date">생년월일</string>
-    <string name="btn_login">Log-In</string>
-    <string name="btn_go_singup">회원가입하기</string>
+    <string name="btn_login">로그인</string>
+    <string name="btn_go_singup">회원가입</string>
     <string name="btn_singup">회원가입</string>
     <string name="id">ID</string>
     <string name="loling_room_count_participant">참여인원</string>
@@ -15,14 +15,14 @@
     <string name="mypage_setting_noti">알림</string>
     <string name="password">비밀번호</string>
     <string name="password_check">비밀번호 확인</string>
-    <string name="phone_number">휴대폰 번호</string>
     <string name="pw">PW</string>
-    <string name="signup_personal_msg">이름과 \n생년월일을 적어주세요</string>
+    <string name="signup_personal_msg">이름과 생년월일을 \n적어주세요</string>
     <string name="signup_entry_msg">아이디와 비밀번호를\n입력해주세요</string>
     <string name="signup_photo_msg">프로필 사진을 \n등록해주세요.</string>
     <string name="friend">친구</string>
     <string name="friendList">친구목록</string>
     <string name="phone_num">연락처</string>
+    <string name="phone_number">휴대폰 번호</string>
     <string name="writtenLoling">작성한 롤링</string>
     <string name="receiveLiling">받은 롤링</string>
 

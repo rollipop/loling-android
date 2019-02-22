@@ -27,7 +27,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".main.MainActivity" />
         </activity>
-        <activity android:name=".main.MainActivity">
+        <activity android:name=".main.MainActivity"/>
+        <activity android:name=".mypage.MyPageActivity" />
+        <activity android:name=".user.view.LoginActivityDataBinding"/>
+        <activity android:name=".user.view.SignupPersonalActivity" />
+
+
+        <activity android:name=".user.view.SignupEntryActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -35,15 +41,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mypage.MyPageActivity" />
-        <activity android:name=".user.view.LoginActivityDataBinding" />
-        <activity android:name=".user.view.SignupPersonalActivity" />
-        <activity android:name=".user.view.SignupEntryActivity" />
         <activity android:name=".user.view.SignupPhotoActivity" />
         <activity android:name=".mypage.MyPageSettingActivity" />
         <activity android:name=".room.view.ReceivedPaperRoomActivity" />
         <activity android:name=".main.PaperNotiActivity"
             android:theme="@style/Theme.AppCompat.Translucent"/>
+        <activity android:name=".IntroActivity"/>
+
     </application>
 
 </manifest>
