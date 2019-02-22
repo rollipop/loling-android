@@ -1,17 +1,26 @@
 package mashup.loling.user.api
 
 import io.reactivex.Single
-import retrofit2.http.GET
-import retrofit2.http.Query
+import mashup.loling.user.pojo.request.RegisterRequest
+import mashup.loling.user.pojo.response.RegisterResponse
+import mashup.loling.user.pojo.request.SignInRequest
+import mashup.loling.user.pojo.response.SignInResponse
+import retrofit2.http.*
 
 interface UserApi {
-    @GET("login")
-    fun login(
-            @Query("id") id: String,
-            @Query("pw") pw: String) : Single<Response>
 
-    @GET("register")
-    fun register(
-            @Query("id") id: String,
-            @Query("pw") pw: String) : Single<Response>
+    /**
+     * 로그인
+     */
+    @Headers("Content-Type: application/json")
+    @POST("auth/sign-in")
+    fun login(@Body body: SignInRequest) : Single<SignInResponse>
+
+
+    /**
+     * 회원가입
+     */
+    @Headers("Content-Type: application/json")
+    @POST("users")
+    fun register(@Body body: RegisterRequest) : Single<RegisterResponse>
 }

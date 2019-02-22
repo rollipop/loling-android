@@ -37,6 +37,10 @@
         <item name="android:textColor">@color/colorAccent</item>
     </style>
 
+    <style name="PickerTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/mainPeachyPink</item>
+    </style>
+
     <style name="TextLabel" parent="TextAppearance.AppCompat">
         <!-- Hint color and label color in FALSE state -->
         <item name="android:textColorHint">@color/gray1</item>
