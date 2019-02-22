@@ -3,16 +3,15 @@ package mashup.loling.drawpaper.view
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Color
-import android.graphics.PointF
+import android.graphics.*
 import android.graphics.drawable.GradientDrawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.DisplayMetrics
 import android.util.Log
 import android.util.TypedValue
 import android.view.MotionEvent
@@ -24,6 +23,11 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_draw_paper.*
 import mashup.loling.R
 import mashup.loling.drawpaper.Component
+import java.io.File
+import java.io.FileOutputStream
+import java.lang.Exception
+import java.text.SimpleDateFormat
+import java.util.*
 import kotlin.math.roundToInt
 
 class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
@@ -266,7 +270,34 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
     }
 
     private fun saveDrawPaper() {
+        // 크기가져와
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val w = displayMetrics.widthPixels
+        val h = displayMetrics.heightPixels
 
+        // View를 Bitmap으로 변환
+        drawArea.layout(0, 0, w,h)
+        val bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
+        bmp.eraseColor(Color.TRANSPARENT)
+        val canvas = Canvas(bmp)
+        drawArea.draw(canvas)
+
+        // 저장
+        val fileName = "loling/loling_" + SimpleDateFormat("yyMMdd-hhmmss", Locale.getDefault()).format(Date()) + ".png"
+        val path = Environment.getExternalStorageDirectory()
+        val dir = File(path, "loling")
+        if(!dir.exists()) dir.mkdir()
+        val file = File(path, fileName)
+        file.createNewFile()
+
+        val fileOutputStream = FileOutputStream(file, false)
+        try {
+            bmp.compress(Bitmap.CompressFormat.JPEG, 50, fileOutputStream)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Log.v("JUJIN", "Cannot save img")
+        }
     }
 
     /** Text 컴포넌트에서 문자열 수정시 즉시 적용될 수 있도록 하는 watcher */
