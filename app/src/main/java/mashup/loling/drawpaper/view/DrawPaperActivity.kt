@@ -23,6 +23,7 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_draw_paper.*
 import mashup.loling.R
 import mashup.loling.drawpaper.Component
+import mashup.loling.room.view.ReceivedPaperListActivity
 import java.io.File
 import java.io.FileOutputStream
 import java.lang.Exception
@@ -39,6 +40,10 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
 
     private val componentList: ArrayList<Component> = ArrayList()
     private var selectedComponent: Component? = null
+
+    private var selectedName = ""
+    private var selectedPhoneNum = ""
+    private var selectedDate = 0L
 
     enum class State { LOLING_EDIT, TEXT_EDIT, IV_EDIT }
     private var currentState = State.LOLING_EDIT
@@ -82,6 +87,11 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
         btnDrawPaperSave.setOnClickListener { saveDrawPaper() }
 
         generateTvColorChangeBtn()
+
+        // receive passed parameters
+        selectedName = intent.getStringExtra("name")
+        selectedPhoneNum = intent.getStringExtra("phoneNum")
+        selectedDate = intent.getLongExtra("date", 0)
     }
 
     private fun generateTvColorChangeBtn() {
@@ -303,6 +313,13 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
                         e.printStackTrace()
                         Log.v("JUJIN", "Cannot save img")
                     }
+
+                    // 다음 액티비티로 가즈아
+                    val intent = Intent(this, ReceivedPaperListActivity::class.java)
+                    intent.putExtra("name", selectedName)
+                    intent.putExtra("phoneNum", selectedPhoneNum)
+                    intent.putExtra("date", selectedDate)
+                    startActivity(intent)
 
                     return@setPositiveButton
                 }.setNegativeButton(R.string.btn_cancel) { _, _ ->

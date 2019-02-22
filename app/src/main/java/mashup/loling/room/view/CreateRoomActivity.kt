@@ -1,5 +1,6 @@
 package mashup.loling.room.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.View
@@ -14,12 +15,15 @@ import mashup.loling.Adapter.CreateRoomPagerAdapter.Companion.PAGE_EXISTED_LOLIN
 import mashup.loling.Adapter.CreateRoomPagerAdapter.Companion.PAGE_MAIN
 import mashup.loling.BaseActivity
 import mashup.loling.R
+import mashup.loling.drawpaper.view.DrawPaperActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
 class CreateRoomActivity : BaseActivity() {
 
     var selectedDate: Date = Date()
+    var selectedName = ""
+    var selectedPhoneNum = ""
 
     val createRoomMethods = object : ICreateRoomMethods {
         override fun onSelectRoomTextClicked() {
@@ -49,11 +53,15 @@ class CreateRoomActivity : BaseActivity() {
         }
 
         override fun onCreateNewLolingClicked() {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
         }
 
         override fun onJoinExitedLolingClicked() {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            val intent = Intent(baseContext, DrawPaperActivity::class.java)
+            intent.putExtra("name", selectedName)
+            intent.putExtra("phoneNum", selectedPhoneNum)
+            intent.putExtra("date", selectedDate.time)
+            startActivity(intent)
         }
 
         override fun onExistedLolingItemClicked(lolingId: Int) {
@@ -75,9 +83,10 @@ class CreateRoomActivity : BaseActivity() {
                 if (dm.widthPixels > maxWidthPx) maxWidthPx else WindowManager.LayoutParams.MATCH_PARENT,
                 if (dm.heightPixels > maxHeightPx) maxHeightPx else WindowManager.LayoutParams.MATCH_PARENT)
 
-        val name = intent.getStringExtra("name")
+        selectedName = intent.getStringExtra("name")
+        selectedPhoneNum = intent.getStringExtra("phoneNum")
 
-        createRoomViewPager.adapter = CreateRoomPagerAdapter(this, createRoomMethods,name)
+        createRoomViewPager.adapter = CreateRoomPagerAdapter(this, createRoomMethods,selectedName)
         createRoomViewPager.offscreenPageLimit = (createRoomViewPager.adapter as CreateRoomPagerAdapter).count
         createRoomViewPager.currentItem = PAGE_MAIN
 
