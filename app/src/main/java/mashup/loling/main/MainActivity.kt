@@ -61,7 +61,7 @@ class MainActivity : BaseActivity() {
             startActivity(intent)
         }
         btnMainSettingFriend.setOnClickListener {
-            val intent = Intent(context, CreateRoomActivity()::class.java)
+            val intent = Intent(context, MyPageActivity()::class.java)
             startActivity(intent)
         }
 

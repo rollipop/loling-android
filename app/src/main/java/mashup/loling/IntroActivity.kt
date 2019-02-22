@@ -19,6 +19,6 @@ class IntroActivity : AppCompatActivity(){
         setContentView(R.layout.activity_intro)
 
         var handler: Handler = Handler()
-        handler.postDelayed(r, 200000)
+        handler.postDelayed(r, 2000)
     }
 }
