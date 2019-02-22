@@ -50,4 +50,18 @@
         <item name="colorControlNormal">@color/gray1</item>
         <item name="colorControlActivated">@color/peachy_pink</item>
     </style>
+
+    <style name="TabLayoutStyle" parent="Base.Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/peachy_pink</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabTextAppearance">@style/TabLayoutHeaderTextAppearance</item>
+        <item name="tabSelectedTextColor">@color/peachy_pink</item>
+    </style>
+
+    <style name="TabLayoutHeaderTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/black2</item>
+    </style>
+
 </resources>

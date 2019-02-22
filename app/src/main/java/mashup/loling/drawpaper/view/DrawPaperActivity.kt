@@ -3,19 +3,15 @@ package mashup.loling.drawpaper.view
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Color
-import android.graphics.PointF
+import android.graphics.*
 import android.graphics.drawable.GradientDrawable
-import android.graphics.drawable.ShapeDrawable
-import android.graphics.drawable.shapes.OvalShape
-import android.graphics.drawable.shapes.Shape
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.DisplayMetrics
 import android.util.Log
 import android.util.TypedValue
 import android.view.MotionEvent
@@ -27,6 +23,11 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_draw_paper.*
 import mashup.loling.R
 import mashup.loling.drawpaper.Component
+import java.io.File
+import java.io.FileOutputStream
+import java.lang.Exception
+import java.text.SimpleDateFormat
+import java.util.*
 import kotlin.math.roundToInt
 
 class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
@@ -73,6 +74,12 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
         // Close component edit
         btnCloseEditTextPanel.setOnClickListener { closeEditPanel() }
         btnCloseIvPanel.setOnClickListener { closeEditPanel() }
+
+        // Exit DrawPaper
+        btnDrawPaperClose.setOnClickListener { exitDrawPaper() }
+
+        // Save DrawPaper
+        btnDrawPaperSave.setOnClickListener { saveDrawPaper() }
 
         generateTvColorChangeBtn()
     }
@@ -151,10 +158,33 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
         selectedComponent?.let {
             when (isUp) {
                 true -> {
-                    it.zIndex = getMostTopZIndex() + 1
+                    // 자기보다 바로 에 있위는 애의 zIndex를 가져온다
+                    var aboveMin = Int.MAX_VALUE
+                    for(comp: Component in componentList) {
+                        if(comp != it && comp.zIndex > it.zIndex && comp.zIndex < aboveMin)
+                            aboveMin = comp.zIndex
+                    }
+                    // aboveMin 갱신이 없으면 이미 얘가 왕임
+                    if(aboveMin == Int.MAX_VALUE) return
+                    // 걔보다 1 더 높게
+                    val targetZIndex = aboveMin + 1
+                    // zindex가 겹치면 안되기 때문에, 리스트 중 targetIndex와 같거나 높은 모든 컴포넌트의 zIndex를 +1 해준다
+                    for(comp: Component in componentList) {
+                        if(!comp.equals(it) && comp.zIndex >= targetZIndex)
+                            comp.zIndex += 1
+                    }
+                    it.zIndex = targetZIndex
                 }
                 false -> {
-                    val targetZIndex = it.zIndex - 1
+                    // 자기보다 바로 아래에 있는 애의 zIndex를 가져온다
+                    var underMax = -1
+                    for(comp: Component in componentList) {
+                        if(comp != it && comp.zIndex < it.zIndex && comp.zIndex > underMax)
+                            underMax = comp.zIndex
+                    }
+                    // underMax 갱신이 없으면 이미 얘가 바닥임
+                    if(underMax == -1) return
+                    val targetZIndex = underMax
                     // zindex가 겹치면 안되기 때문에, 리스트 중 targetIndex와 같거나 높은 모든 컴포넌트의 zIndex를 +1 해준다
                     for(comp: Component in componentList) {
                         if(!comp.equals(it) && comp.zIndex >= targetZIndex)
@@ -218,21 +248,66 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
         // 컴포넌트 편집상태라면 편집 전으로, 롤링 편집상태라면 만들기 취소하고 버리시겠습니까? 메시지박스
         when (currentState) {
             State.LOLING_EDIT -> {
-                val dialog = AlertDialog.Builder(this, R.style.AlertDialogStyle)
-                dialog.setMessage(R.string.draw_activity_msg_do_you_really_wanna_go_back_and_discard)
-                        .setCancelable(false)
-                        .setPositiveButton(R.string.btn_yes) { _, _ ->
-                            super.onBackPressed()
-                            return@setPositiveButton
-                        }.setNegativeButton(R.string.btn_cancel) { _, _ ->
-                            return@setNegativeButton
-                        }.create().show()
+                exitDrawPaper()
             }
 
             State.TEXT_EDIT, State.IV_EDIT -> {
                 closeEditPanel()
             }
         }
+    }
+
+    private fun exitDrawPaper() {
+        val dialog = AlertDialog.Builder(this, R.style.AlertDialogStyle)
+        dialog.setMessage(R.string.draw_activity_msg_do_you_really_wanna_go_back_and_discard)
+                .setCancelable(false)
+                .setPositiveButton(R.string.btn_yes) { _, _ ->
+                    super.onBackPressed()
+                    return@setPositiveButton
+                }.setNegativeButton(R.string.btn_cancel) { _, _ ->
+                    return@setNegativeButton
+                }.create().show()
+    }
+
+    private fun saveDrawPaper() {
+        // 물어본다
+        val dialog = AlertDialog.Builder(this, R.style.AlertDialogStyle)
+        dialog.setMessage(R.string.draw_activity_msg_do_you_want_to_submit_your_paper)
+                .setCancelable(false)
+                .setPositiveButton(R.string.btn_yes) { _, _ ->
+                    // 크기가져와
+                    val displayMetrics = DisplayMetrics()
+                    windowManager.defaultDisplay.getMetrics(displayMetrics)
+                    val w = displayMetrics.widthPixels
+                    val h = displayMetrics.heightPixels
+
+                    // View를 Bitmap으로 변환
+                    drawArea.layout(0, 0, w,h)
+                    val bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
+                    bmp.eraseColor(Color.TRANSPARENT)
+                    val canvas = Canvas(bmp)
+                    drawArea.draw(canvas)
+
+                    // 저장
+                    val fileName = "loling/loling_" + SimpleDateFormat("yyMMdd-hhmmss", Locale.getDefault()).format(Date()) + ".png"
+                    val path = Environment.getExternalStorageDirectory()
+                    val dir = File(path, "loling")
+                    if(!dir.exists()) dir.mkdir()
+                    val file = File(path, fileName)
+                    file.createNewFile()
+
+                    val fileOutputStream = FileOutputStream(file, false)
+                    try {
+                        bmp.compress(Bitmap.CompressFormat.JPEG, 50, fileOutputStream)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        Log.v("JUJIN", "Cannot save img")
+                    }
+
+                    return@setPositiveButton
+                }.setNegativeButton(R.string.btn_cancel) { _, _ ->
+                    return@setNegativeButton
+                }.create().show()
     }
 
     /** Text 컴포넌트에서 문자열 수정시 즉시 적용될 수 있도록 하는 watcher */
@@ -248,7 +323,7 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
         }
     }
 
-    fun closeEditPanel() {
+    private fun closeEditPanel() {
         if (selectedComponent != null) {
             selectedComponent?.onComponentUnselected()
             selectedComponent = null
@@ -354,7 +429,7 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
                     val lParam: RelativeLayout.LayoutParams = it.view.layoutParams as RelativeLayout.LayoutParams
                     originLeft = it.view.translationX
                     originTop = it.view.translationY
-                    
+
                 }
 
                 // 터치된 시간 저장
@@ -365,7 +440,6 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
                 longClickHandler.removeCallbacks(longClickRunnable)
                 longClickHandler.postDelayed(longClickRunnable, LONG_CLICK_TIME)
 
-                //closeEditPanel()
             }
             MotionEvent.ACTION_POINTER_DOWN -> {    // 터치 다운
                 if(pointerCnt == 2) {   // 두 손가락만 지원

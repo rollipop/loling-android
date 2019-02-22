@@ -16,6 +16,7 @@ import android.support.v4.app.NotificationCompat
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -172,18 +173,18 @@ class MainActivity : BaseActivity() {
 
     private fun contactPermissionCheck() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
+                != PackageManager.PERMISSION_GRANTED||
+                ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED||
+                ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "권한 없음", Toast.LENGTH_LONG).show()
-
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                             Manifest.permission.READ_CONTACTS)) {
 
             }
-
             ActivityCompat.requestPermissions(this,
-                    arrayOf(Manifest.permission.READ_CONTACTS),
-                    READ_CONTACTS_PERMISSIONS_REQUEST)
-
+                    arrayOf(Manifest.permission.READ_CONTACTS, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                    3)
         }
     }
 

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Loling</string>
+    <string name="birth_date">생년월일</string>
+    <string name="btn_login">로그인</string>
+    <string name="btn_go_singup">회원가입</string>
+    <string name="btn_singup">회원가입</string>
+    <string name="id">ID</string>
+    <string name="loling_room_count_participant">참여인원</string>
+    <string name="name">이름</string>
+    <string name="next">다음</string>
+    <string name="main_birth_friends_msg">곧 생일인 친구들입니다. 축하해주세요!</string>
+    <string name="main_loling_msg">친구에게\n롤링페이퍼를 써볼까요?</string>
+    <string name="mypage_setting_close">계정 관리</string>
+    <string name="mypage_setting_ctrl">계정관리</string>
+    <string name="password">비밀번호</string>
+    <string name="mypage_setting_noti">알림</string>
+    <string name="password_check">비밀번호 확인</string>
+    <string name="pw">PW</string>
+    <string name="signup_personal_msg">이름과 생년원일을 \n적어주세요.</string>
+    <string name="signup_entry_msg">아이디와 비밀번호를\n입력해주세요.</string>
+    <string name="signup_photo_msg">프로필 사진을\n등록해주세요.</string>
+    <string name="friend">친구</string>
+    <string name="friendList">친구목록</string>
+    <string name="phone_num">연락처</string>
+    <string name="phone_number">휴대폰 번호</string>
+    <string name="writtenLoling">작성한 롤링</string>
+    <string name="receiveLoling">받은 롤링</string>
+    <string name="btn_okay">네</string>
+    <string name="btn_yes">예</string>
+    <string name="btn_cancel">취소</string>
+    <string name="create_room_ps_type_the_anniversary_date">%s님을 위한 날짜를 지정해주세요.</string>
+    <string name="create_room_paper_will_be_sent_at_the_midnight">자정에 롤링페이퍼가 발송됩니다.</string>
+    <string name="create_room_btn_create_loling">롤링 생성</string>
+    <string name="create_room_click_here_to_select_date">여기를 눌러서 날짜를 지정하세요</string>
+    <string name="create_room_room_already_existed_for_psname_at_psdate">%2$s에 이미 %1$s를 위한 롤링이 있습니다. \n새 롤링을 만들까요 아니면 기존의 롤링에 들어갈까요?</string>
+    <string name="create_room_create_new">새로 만들기</string>
+    <string name="create_room_join_existed">참여하기</string>
+    <string name="any_day">기념일 날짜</string>
+    <string name="author_loling_room_count_participant">명 참여</string>
+    <string name="chong">총</string>
+    <string name="author_List_Loling">님의 롤링페이퍼</string>
+    <string name="write_completion">작성 완료</string>
+    <string name="draw_activity_msg_do_you_really_wanna_go_back_and_discard">작성한 롤링을 버리고 뒤로 돌아갈까요?</string>
+    <string name="draw_activity_msg_do_you_want_to_delete_selected_component">이 아이템을 지울까요?</string>
+    <string name="draw_activity_msg_do_you_want_to_submit_your_paper">작성을 완료하시겠습니까?\n작성 후에는 수정할 수 없습니다.</string>
+</resources>
