@@ -1,30 +1,27 @@
 <resources>
     <string name="app_name">Loling</string>
-    <string name="birth_date">생년월일</string>
-    <string name="btn_login">로그인</string>
-    <string name="btn_go_singup">회원가입</string>
-    <string name="btn_singup">회원가입</string>
+    <string name="birth_date">Birthday</string>
+    <string name="btn_login">Sign in</string>
+    <string name="btn_go_singup">Sign up</string>
+    <string name="btn_singup">Sign up</string>
     <string name="id">ID</string>
-    <string name="loling_room_count_participant">참여인원</string>
-    <string name="name">이름</string>
-    <string name="next">다음</string>
-    <string name="main_birth_friends_msg">곧 생일인 친구들입니다. \n축하해 주세요!</string>
-    <string name="main_loling_msg">친구에게 \n롤링페이퍼를 써볼까요?</string>
-    <string name="mypage_setting_close">계정 관리</string>
-    <string name="mypage_setting_ctrl">계정관리</string>
-    <string name="mypage_setting_noti">알림</string>
-    <string name="password">비밀번호</string>
-    <string name="password_check">비밀번호 확인</string>
+    <string name="main_loling_msg">Let\'s draw\nloling paper to friend!</string>
+    <string name="mypage_setting_close">Manage account</string>
+    <string name="mypage_setting_ctrl">Manage account</string>
+    <string name="mypage_setting_noti">Notification</string>
+    <string name="password">Password</string>
+    <string name="password_check">Confirm password</string>
     <string name="pw">PW</string>
-    <string name="signup_personal_msg">이름과 생년월일을 \n적어주세요</string>
-    <string name="signup_entry_msg">아이디와 비밀번호를\n입력해주세요</string>
-    <string name="signup_photo_msg">프로필 사진을 \n등록해주세요.</string>
-    <string name="friend">친구</string>
-    <string name="friendList">친구목록</string>
-    <string name="phone_num">연락처</string>
-    <string name="phone_number">휴대폰 번호</string>
-    <string name="writtenLoling">작성한 롤링</string>
-    <string name="receiveLoling">받은 롤링</string>
+
+    <string name="signup_personal_msg">Please enter\nname and birthday</string>
+    <string name="signup_entry_msg">Please enter\nID and password</string>
+    <string name="signup_photo_msg">Please register \nprofile picture.</string>
+    <string name="friend">Friend</string>
+    <string name="friendList">Friends list</string>
+    <string name="phone_num">Contacts</string>
+    <string name="phone_number">Mobile number</string>
+    <string name="writtenLoling">Written loling</string>
+    <string name="receiveLiling">Received loling</string>
 
     <string name="btn_okay">Okay</string>
     <string name="btn_yes">Yes</string>
@@ -34,18 +31,24 @@
     <string name="create_room_paper_will_be_sent_at_the_midnight">Paper will be sent at the midnight.</string>
     <string name="create_room_btn_create_loling">Create Loling</string>
     <string name="create_room_click_here_to_select_date">Click here to select date</string>
-    <string name="create_room_room_already_existed_for_psname_at_psdate">Loling is already existed for %s at %s.\nWould you create new Loling or join to existed Loling?</string>
+    <string name="create_room_room_already_existed_for_psname_at_psdate">Loling is already existed for %1$s at %2$s.\nWould you create new Loling or join to existed Loling?</string>
     <string name="create_room_create_new">Create new</string>
     <string name="create_room_join_existed">Join</string>
-    <string name="any_day">기념일 날짜</string>
-    <string name="author_loling_room_count_participant">명 참여</string>
-    <string name="chong">총</string>
-    <string name="author_List_Loling">님의 롤링페이퍼</string>
-    <string name="write_completion">작성 완료</string>
+    <string name="any_day">Date of anniversary</string>
+    <string name="author_loling_room_count_participant">" entered"</string>
+    <string name="chong">Total</string>
+    <string name="author_List_Loling">\'s loling paper</string>
+    <string name="write_completion">Done</string>
     <string name="channel_name">yu</string>
     <string name="channel_description">channel_description</string>
 
     <string name="draw_activity_msg_do_you_really_wanna_go_back_and_discard">Do you really want to go back and discard changes?</string>
     <string name="draw_activity_msg_do_you_want_to_delete_selected_component">Do you want to delete this item?</string>
+    <string name="draw_activity_msg_do_you_want_to_submit_your_paper">Do you want to submit your loling paper?\nYou cannot edit this paper after submit.</string>
+    <string name="loling_room_count_participant">Participants</string>
+    <string name="name">Name</string>
+    <string name="next">Next</string>
+    <string name="main_birth_friends_msg">These friends\' birthday is comming!</string>
+
 
 </resources>
