@@ -8,9 +8,6 @@ import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.PointF
 import android.graphics.drawable.GradientDrawable
-import android.graphics.drawable.ShapeDrawable
-import android.graphics.drawable.shapes.OvalShape
-import android.graphics.drawable.shapes.Shape
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -73,6 +70,12 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
         // Close component edit
         btnCloseEditTextPanel.setOnClickListener { closeEditPanel() }
         btnCloseIvPanel.setOnClickListener { closeEditPanel() }
+
+        // Exit DrawPaper
+        btnDrawPaperClose.setOnClickListener { exitDrawPaper() }
+
+        // Save DrawPaper
+        btnDrawPaperSave.setOnClickListener { saveDrawPaper() }
 
         generateTvColorChangeBtn()
     }
@@ -218,21 +221,29 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
         // 컴포넌트 편집상태라면 편집 전으로, 롤링 편집상태라면 만들기 취소하고 버리시겠습니까? 메시지박스
         when (currentState) {
             State.LOLING_EDIT -> {
-                val dialog = AlertDialog.Builder(this, R.style.AlertDialogStyle)
-                dialog.setMessage(R.string.draw_activity_msg_do_you_really_wanna_go_back_and_discard)
-                        .setCancelable(false)
-                        .setPositiveButton(R.string.btn_yes) { _, _ ->
-                            super.onBackPressed()
-                            return@setPositiveButton
-                        }.setNegativeButton(R.string.btn_cancel) { _, _ ->
-                            return@setNegativeButton
-                        }.create().show()
+                exitDrawPaper()
             }
 
             State.TEXT_EDIT, State.IV_EDIT -> {
                 closeEditPanel()
             }
         }
+    }
+
+    private fun exitDrawPaper() {
+        val dialog = AlertDialog.Builder(this, R.style.AlertDialogStyle)
+        dialog.setMessage(R.string.draw_activity_msg_do_you_really_wanna_go_back_and_discard)
+                .setCancelable(false)
+                .setPositiveButton(R.string.btn_yes) { _, _ ->
+                    super.onBackPressed()
+                    return@setPositiveButton
+                }.setNegativeButton(R.string.btn_cancel) { _, _ ->
+                    return@setNegativeButton
+                }.create().show()
+    }
+
+    private fun saveDrawPaper() {
+
     }
 
     /** Text 컴포넌트에서 문자열 수정시 즉시 적용될 수 있도록 하는 watcher */
@@ -354,7 +365,7 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
                     val lParam: RelativeLayout.LayoutParams = it.view.layoutParams as RelativeLayout.LayoutParams
                     originLeft = it.view.translationX
                     originTop = it.view.translationY
-                    
+
                 }
 
                 // 터치된 시간 저장
@@ -365,7 +376,6 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
                 longClickHandler.removeCallbacks(longClickRunnable)
                 longClickHandler.postDelayed(longClickRunnable, LONG_CLICK_TIME)
 
-                //closeEditPanel()
             }
             MotionEvent.ACTION_POINTER_DOWN -> {    // 터치 다운
                 if(pointerCnt == 2) {   // 두 손가락만 지원
