@@ -20,8 +20,7 @@
             android:layout_height="@dimen/MyPageImageButtonSize"
             android:background="@null"
             android:padding="@dimen/MyPageImageButtonPadding"
-            android:tint="@color/gray3"
-            app:srcCompat="@drawable/ic_settings" />
+            app:srcCompat="@drawable/ic_icon_setting" />
 
         <ImageButton
             android:id="@+id/btnMypageClose"
@@ -30,8 +29,7 @@
             android:layout_alignParentEnd="true"
             android:background="@null"
             android:gravity="end"
-            android:tint="@color/gray3"
-            app:srcCompat="@drawable/ic_close" />
+            app:srcCompat="@drawable/ic_icon_clear" />
     </RelativeLayout>
 
     <LinearLayout
@@ -45,7 +43,7 @@
             android:id="@+id/ivMypageLogo"
             android:layout_width="@dimen/MyPageLinearLayoutHeight"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/circle" />
+            app:srcCompat="@drawable/circle_fill" />
 
         <RelativeLayout
             android:layout_width="match_parent"

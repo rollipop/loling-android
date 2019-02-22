@@ -15,7 +15,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipChildren="false"
-        android:clipToPadding="false"/>
+        android:clipToPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="1dp" />
 
     <!-- Drawing area control panel -->
     <LinearLayout
@@ -32,7 +35,7 @@
             android:layout_height="@dimen/draw_paper_panel_height"
             android:layout_marginStart="@dimen/DrawPaperActivityMargin"
             android:background="@null"
-            android:src="@drawable/ic_close" />
+            android:src="@drawable/ic_icon_clear" />
 
         <!-- space -->
         <View
@@ -49,6 +52,7 @@
             android:text="@string/write_completion"
             android:gravity="center"
             android:lineSpacingExtra="2sp"
+            android:textStyle="bold"
             android:textColor="@color/gray2"
             android:textSize="@dimen/TEXT_SIZE16" />
 
@@ -74,20 +78,26 @@
         android:layout_marginBottom="@dimen/DrawPaperActivityMargin"
         app:layout_constraintBottom_toBottomOf="parent">
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
         <ImageView
             android:id="@+id/btnDrawPaperCamera"
             android:layout_width="40dp"
             android:layout_height="@dimen/draw_paper_panel_height"
             android:layout_marginEnd="10dp"
-            android:src="@drawable/ic_person" />
-
-
+            android:src="@drawable/ic_icon_camera" />
         <ImageView
             android:id="@+id/btnDrawPaperText"
             android:layout_width="40dp"
             android:layout_height="@dimen/draw_paper_panel_height"
             android:layout_marginStart="10dp"
-            android:src="@drawable/ic_more_vert" />
+            android:src="@drawable/ic_icon_text" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
 
     </LinearLayout>
 

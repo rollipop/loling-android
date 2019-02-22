@@ -49,18 +49,13 @@ class SelectFriendAddressListFragment : Fragment {
         }
         c.close()
 
-
-        //Log.d("머얀머얀", ""+ dataList)
-        //Log.d("머얀머얀", ""+ dataList.get(0).get("name"))
-
-
         val root = inflater.inflate(R.layout.recyclerview, container, false)
 
         val recyclerView = root.findViewById<RecyclerView>(R.id.recyclerView)
         if (recyclerView != null) {
-            recyclerView.layoutManager = LinearLayoutManager(context)//this.context/getContext()
+            recyclerView.layoutManager = LinearLayoutManager(context)
             makeFriendList(dataList)
-            recyclerView.adapter = SelectFriendAddressItemAdapter(friends)
+            recyclerView.adapter = SelectFriendAddressItemAdapter(context!!,friends)
         }
 
         return root

@@ -19,27 +19,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:lineSpacingExtra="3sp"
-            app:layout_constraintVertical_chainStyle="packed"
-            android:text="29"
+            android:text="글쓰기"
+            android:textStyle="bold"
             android:textColor="@color/white0"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/tvRolingRoomFullView"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvRolingRoomFullView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:lineSpacingExtra="3sp"
-            android:text="전체보기"
-            android:textColor="@color/white0"
-            android:textSize="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRolingRoomCountPapers"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
 
 
     </android.support.constraint.ConstraintLayout>

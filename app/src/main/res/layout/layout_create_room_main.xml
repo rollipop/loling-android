@@ -6,6 +6,10 @@
     android:orientation="vertical">
 
     <ImageView
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/img_popup_02"
+        android:layout_marginEnd="10dp"
         android:layout_width="wrap_content"
         android:layout_height="200dp" />
 
@@ -52,7 +56,8 @@
         android:gravity="center"
         android:textColor="@color/white0"
         android:text="@string/create_room_btn_create_loling"
-        android:background="@drawable/button_background_color"
+        android:backgroundTint="@color/teal"
+        android:background="@drawable/bottom_round20"
         android:enabled="false"/>
 
 </LinearLayout>
