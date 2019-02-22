@@ -1,12 +1,22 @@
 package mashup.loling.drawpaper
 
-import android.graphics.Point
-import android.graphics.PointF
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.LayerDrawable
+import android.graphics.drawable.ShapeDrawable
+import android.support.v4.content.ContextCompat
+import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewOutlineProvider
+import android.widget.TextView
+import mashup.loling.R
 import mashup.loling.drawpaper.view.IComponentTouchListener
 
-class Component(val view: View, private val componentTouchedListener: IComponentTouchListener) {
+class Component(val view: View,
+                var zIndex: Int,
+                val componentTouchedListener: IComponentTouchListener) {
+
+    var textSize = 20f
 
     init{
         view.setOnTouchListener { v, event ->
@@ -17,6 +27,8 @@ class Component(val view: View, private val componentTouchedListener: IComponent
             return@setOnTouchListener v.onTouchEvent(event)
         }
 
+        // set outlineProvider to BOUNDS for elevation
+        view.outlineProvider = ViewOutlineProvider.BOUNDS
 
     }
 
@@ -45,5 +57,30 @@ class Component(val view: View, private val componentTouchedListener: IComponent
      */
     fun onComponentUnselected() {
 
+    }
+
+    fun increaseTextSizeRequest() {
+        if(textSize >= 150) return
+        if(view !is TextView) return
+        textSize += 5
+        view.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
+
+    }
+
+    fun decreaseTextSizeRequest() {
+        if(textSize <= 20) return
+        if(view !is TextView) return
+        textSize -= 5
+        view.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
+    }
+
+    fun onTextColorChangeRequest(colorInt: Int) {
+        if(view is TextView) {
+            view.setTextColor(colorInt)
+        }
+    }
+
+    fun onTextBackgroundChangeRequest(colorInt: Int) {
+        view.setBackgroundColor(colorInt)
     }
 }

@@ -74,4 +74,7 @@
     <dimen name="AuthorListDetailRoomXs">290dp</dimen>
 
     <dimen name="draw_paper_panel_height">48dp</dimen>
+    <dimen name="draw_paper_panel_btn_padding">6dp</dimen>
+    <dimen name="draw_paper_panel_color_btn_size">30dp</dimen>
+    <dimen name="draw_paper_panel_color_side_padding">20dp</dimen>
 </resources>
