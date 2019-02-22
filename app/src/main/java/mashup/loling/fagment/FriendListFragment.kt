@@ -39,7 +39,7 @@ class FriendListFragment(dataList: ArrayList<ERoom>) : Fragment() {
 //    }
 
     fun friendsSzie(): Int{
-        makeFriendList()
+        //makeFriendList()
         return friends.size
     }
 
