@@ -5,8 +5,9 @@ import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import mashup.loling.BaseActivity
 
-abstract class BaseActivity<T: ViewDataBinding>:  AppCompatActivity(){
+abstract class DataBindingBaseActivity<T: ViewDataBinding>:  BaseActivity(){
     lateinit var viewDataBinding: T
     abstract val layoutResourceId: Int
 

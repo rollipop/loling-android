@@ -3,5 +3,7 @@ package mashup.loling.drawpaper.view
 import mashup.loling.drawpaper.Component
 
 interface IComponentTouchListener {
-    fun onComponentSelected(component: Component)
+    fun onComponentTouchedDown(component: Component)
+    fun onComponentClicked(component: Component)
+    fun onComponentLongClicked(component: Component)
 }
