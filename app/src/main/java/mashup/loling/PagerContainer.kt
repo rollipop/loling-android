@@ -72,6 +72,8 @@ class PagerContainer : FrameLayout, ViewPager.OnPageChangeListener {
 
         val parentView = parent as View
         parentView.tvAuthorListDetailPage?.text = (p0+1).toString()
+
+
     }
     override fun onPageScrolled(position: Int, p1: Float, @Px p2: Int) {}
     override fun onPageScrollStateChanged(state: Int) {}

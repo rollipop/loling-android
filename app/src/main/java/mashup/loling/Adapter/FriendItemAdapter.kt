@@ -8,11 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import kotlinx.android.synthetic.main.item_friend_day_list.view.*
-import mashup.loling.model.FriendItem
 import mashup.loling.R
+import mashup.loling.model.ERoom
 import mashup.loling.room.view.CreateRoomActivity
 
-class FriendItemAdapter(val context : Context ,var items : ArrayList<FriendItem>) : RecyclerView
+class FriendItemAdapter(val context : Context ,var items : ArrayList<ERoom>) : RecyclerView
 .Adapter<FriendItemAdapter.ViewHolder>(){
 
     public class ViewHolder : RecyclerView.ViewHolder{
@@ -21,7 +21,7 @@ class FriendItemAdapter(val context : Context ,var items : ArrayList<FriendItem>
         var friendItemName : TextView = itemView.tvFriendItemName
         var friendItemBday : TextView = itemView.tvFriendItemBday
         var friendItemDday : TextView = itemView.tvFriendItemDday
-        var friendItemLayout  = itemView.itemFriendDayList
+        var friendItemBtn  = itemView.btnFriendItem
 
     }
 
@@ -37,13 +37,14 @@ class FriendItemAdapter(val context : Context ,var items : ArrayList<FriendItem>
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val item = items[position]
-        viewHolder.friendItemName.text = item.friendItemName
-        viewHolder.friendItemBday.text = item.friendItemBday
-        viewHolder.friendItemDday.text = item.friendItemDday
+        viewHolder.friendItemName.text = item.name
+        viewHolder.friendItemBday.text = item.date
+        viewHolder.friendItemDday.text = "D-" + item.Dday
 
-        viewHolder.friendItemLayout.setOnClickListener {
+        viewHolder.friendItemBtn.setOnClickListener {
             val intent = Intent(context, CreateRoomActivity::class.java)
-            intent.putExtra("name",item.friendItemName)
+            intent.putExtra("name",item.name)
+            intent.putExtra("phoneNum",item.phone)
             context.startActivity(intent)
         }
 
