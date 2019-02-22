@@ -5,18 +5,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white0"
+    android:background="@drawable/circle_round20"
+    android:backgroundTint="@color/white0"
     tools:context=".room.view.CreateRoomActivity">
 
     <ImageView
         android:id="@+id/ivClose"
+        android:background="@color/white0"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_margin="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_close" />
+        app:srcCompat="@drawable/ic_icon_clear" />
 
     <mashup.loling.room.BlockSwipeViewPager
         android:id="@+id/createRoomViewPager"

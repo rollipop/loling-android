@@ -33,8 +33,7 @@
                 android:layout_height="@dimen/MyPageSettingCloseBtn"
                 android:layout_marginEnd="@dimen/MyPageSettingMarginX"
                 android:background="@null"
-                android:src="@drawable/ic_close"
-                android:tint="@color/gray0"
+                android:src="@drawable/ic_icon_clear"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -67,12 +66,11 @@
 
         <ImageButton
             android:id="@+id/btnMypageSettingCtrl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginEnd="@dimen/MyPageSettingMarginX"
-            android:background="@drawable/circle"
-            android:src="@drawable/ic_chevron_right"
-            android:tint="@color/gray0"
+            android:background="@color/white0"
+            android:src="@drawable/ic_icon_move"
             app:layout_constraintBottom_toBottomOf="@id/tvMypageSettingCtrl"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvMypageSettingCtrl" />
@@ -98,12 +96,11 @@
 
         <ImageButton
             android:id="@+id/btnMypageSettingNoti"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@color/white0"
             android:layout_marginEnd="@dimen/MyPageSettingMarginX"
-            android:background="@drawable/circle"
-            android:src="@drawable/ic_chevron_right"
-            android:tint="@color/gray0"
+            android:src="@drawable/ic_icon_move"
             app:layout_constraintBottom_toBottomOf="@id/tvMypageSettingNoti"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvMypageSettingNoti" />

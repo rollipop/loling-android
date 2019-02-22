@@ -10,7 +10,7 @@
     <string name="next">다음</string>
     <string name="main_birth_friends_msg">곧 생일인 친구들입니다. \n축하해 주세요!</string>
     <string name="main_loling_msg">친구에게 \n롤링페이퍼를 써볼까요?</string>
-    <string name="mypage_setting_close">설정</string>
+    <string name="mypage_setting_close">계정 관리</string>
     <string name="mypage_setting_ctrl">계정관리</string>
     <string name="mypage_setting_noti">알림</string>
     <string name="password">비밀번호</string>
@@ -41,7 +41,7 @@
     <string name="author_loling_room_count_participant">명 참여</string>
     <string name="chong">총</string>
     <string name="author_List_Loling">님의 롤링페이퍼</string>
-    <string name="write_completion">작성완료</string>
+    <string name="write_completion">작성 완료</string>
     <string name="channel_name">yu</string>
     <string name="channel_description">channel_description</string>
 

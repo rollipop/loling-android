@@ -30,7 +30,7 @@
                 android:layout_height="40dp"
                 android:layout_marginStart="6dp"
                 android:background="@null"
-                android:src="@drawable/ic_chevron_left"
+                android:src="@drawable/ic_icon_back"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -79,7 +79,7 @@
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:drawableLeft="@drawable/ic_search"
+            android:drawableLeft="@drawable/ic_icon_search"
             android:drawablePadding="12sp"
             android:drawableTint="@color/black0"
             android:backgroundTint="@color/black0"

@@ -89,7 +89,7 @@ class MainActivity : BaseActivity() {
                 .setSmallIcon(R.drawable.indicator_dot_on)
                 .setContentTitle("축하합니다! 롤링페이퍼가 도착했습니다.")
                 .setContentText("롤링페이퍼 보러가기!")
-                .setLargeIcon(BitmapFactory.decodeResource(resources,R.drawable.test))
+                .setLargeIcon(BitmapFactory.decodeResource(resources,R.drawable.img_main))
                 .setOngoing(true)
                 .setDefaults(Notification.DEFAULT_VIBRATE)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)

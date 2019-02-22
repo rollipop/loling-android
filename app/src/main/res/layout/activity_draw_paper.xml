@@ -15,7 +15,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipChildren="false"
-        android:clipToPadding="false"/>
+        android:clipToPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="1dp" />
 
     <!-- Drawing area control panel -->
     <LinearLayout
@@ -29,9 +32,9 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="@dimen/DrawPaperActivityMargin"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/DrawPaperActivityMargin"
             android:background="@null"
-            android:src="@drawable/ic_close" />
+            android:src="@drawable/ic_icon_clear" />
 
         <!-- space -->
         <View
@@ -43,10 +46,12 @@
             android:id="@+id/btnDrawPaperSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/DrawPaperActivityMargin"
+            android:layout_gravity="center"
+            android:layout_marginEnd="20dp"
             android:clickable="true"
             android:text="@string/write_completion"
             android:lineSpacingExtra="2sp"
+            android:textStyle="bold"
             android:textColor="@color/gray2"
             android:textSize="@dimen/TEXT_SIZE16" />
 
@@ -70,19 +75,18 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
         <ImageView
             android:id="@+id/btnDrawPaperCamera"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="@dimen/DrawPaperActivityMargin"
-            android:src="@drawable/ic_person" />
-
+            android:src="@drawable/ic_icon_camera" />
         <!-- space -->
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
 
         <ImageView
             android:id="@+id/btnDrawPaperText"
@@ -90,7 +94,11 @@
             android:layout_height="40dp"
             android:layout_marginStart="10dp"
             android:layout_marginBottom="@dimen/DrawPaperActivityMargin"
-            android:src="@drawable/ic_more_vert" />
+            android:src="@drawable/ic_icon_text" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
 
     </LinearLayout>
 
