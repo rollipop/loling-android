@@ -30,6 +30,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivLoginLogo">
+
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/etLoginID"
                 android:layout_width="match_parent"
@@ -48,6 +49,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etLoginIDSurface">
+
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/etLoginPW"
                 android:layout_width="match_parent"
@@ -93,5 +95,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+        <CheckBox
+            android:id="@+id/checkAutoLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:text="로그인 정보 기억"
+            android:buttonTint="@color/gray0"
+            android:textColor="@color/gray0"
+            app:layout_constraintStart_toStartOf="@+id/etLoginPWSurface"
+            app:layout_constraintTop_toBottomOf="@+id/etLoginPWSurface" />
     </android.support.constraint.ConstraintLayout>
 </layout>
