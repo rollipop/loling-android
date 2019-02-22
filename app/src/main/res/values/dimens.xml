@@ -72,4 +72,6 @@
     <dimen name="AuthorListDetailRoomX">300dp</dimen>
     <dimen name="AuthorListDetailRoomYs">490dp</dimen>
     <dimen name="AuthorListDetailRoomXs">290dp</dimen>
+
+    <dimen name="draw_paper_panel_height">48dp</dimen>
 </resources>

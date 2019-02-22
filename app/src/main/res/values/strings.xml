@@ -27,6 +27,7 @@
     <string name="receiveLiling">받은 롤링</string>
 
     <string name="btn_okay">Okay</string>
+    <string name="btn_yes">Yes</string>
     <string name="btn_cancel">Cancel</string>
 
     <string name="create_room_ps_type_the_anniversary_date">Please set the date for %s.</string>
@@ -43,5 +44,8 @@
     <string name="write_completion">작성완료</string>
     <string name="channel_name">yu</string>
     <string name="channel_description">channel_description</string>
+
+    <string name="draw_activity_msg_do_you_really_wanna_go_back_and_discard">Do you really want to go back and discard changes?</string>
+    <string name="draw_activity_msg_do_you_want_to_delete_selected_component">Do you want to delete this item?</string>
 
 </resources>

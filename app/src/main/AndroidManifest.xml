@@ -15,7 +15,6 @@
         <activity
             android:name=".room.view.CreateRoomActivity"
             android:theme="@style/Theme.CustomDialogActivity" />
-        <activity android:name=".drawpaper.view.LoadImageActivity" />
         <activity android:name=".drawpaper.view.DrawPaperActivity" />
         <activity android:name=".room.view.AuthorListDetailActivity" />
         <activity android:name=".room.view.AuthorListActivity" />
