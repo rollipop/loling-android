@@ -24,5 +24,13 @@
 
     <color name="teal">#89c6c1</color>
 
+    <color name="draw_paper_txt_red">#fd9389</color>
+    <color name="draw_paper_txt_yellow">#ffc35e</color>
+    <color name="draw_paper_txt_blue">#4281c3</color>
+    <color name="draw_paper_txt_green">#6bc6bf</color>
+    <color name="draw_paper_txt_violet">#a179dc</color>
+    <color name="draw_paper_txt_white">#ffffff</color>
+    <color name="draw_paper_txt_black">#000000</color>
+
 </resources>
 

@@ -111,6 +111,9 @@
             android:id="@+id/pnTvColorSelector"
             android:layout_width="match_parent"
             android:layout_height="@dimen/draw_paper_panel_height"
+            android:paddingStart="@dimen/draw_paper_panel_color_side_padding"
+            android:paddingEnd="@dimen/draw_paper_panel_color_side_padding"
+            android:gravity="center"
             android:orientation="horizontal" />
             <!-- Color selecting buttons will be generated from code -->
 
@@ -119,6 +122,9 @@
             android:id="@+id/pnTvBgSelector"
             android:layout_width="match_parent"
             android:layout_height="@dimen/draw_paper_panel_height"
+            android:paddingStart="@dimen/draw_paper_panel_color_side_padding"
+            android:paddingEnd="@dimen/draw_paper_panel_color_side_padding"
+            android:gravity="center"
             android:orientation="horizontal" />
             <!-- Color selecting buttons will be generated from code -->
 
@@ -141,12 +147,16 @@
                 android:id="@+id/btnTextZindexDown"
                 android:layout_width="@dimen/draw_paper_panel_height"
                 android:layout_height="@dimen/draw_paper_panel_height"
-                android:src="@drawable/ic_chevron_left" />
+                android:padding="@dimen/draw_paper_panel_btn_padding"
+                android:tint="@android:color/black"
+                android:src="@android:drawable/stat_sys_download" />
             <ImageView
                 android:id="@+id/btnTextZindexUp"
                 android:layout_width="@dimen/draw_paper_panel_height"
                 android:layout_height="@dimen/draw_paper_panel_height"
-                android:src="@drawable/ic_chevron_right" />
+                android:padding="@dimen/draw_paper_panel_btn_padding"
+                android:tint="@android:color/black"
+                android:src="@android:drawable/stat_sys_upload" />
             <!-- space -->
             <View
                 android:layout_width="0dp"
@@ -179,12 +189,16 @@
                 android:id="@+id/btnIvZindexDown"
                 android:layout_width="@dimen/draw_paper_panel_height"
                 android:layout_height="@dimen/draw_paper_panel_height"
-                android:src="@drawable/ic_chevron_left" />
+                android:padding="@dimen/draw_paper_panel_btn_padding"
+                android:tint="@android:color/black"
+                android:src="@android:drawable/stat_sys_download" />
             <ImageView
                 android:id="@+id/btnIvZindexUp"
                 android:layout_width="@dimen/draw_paper_panel_height"
                 android:layout_height="@dimen/draw_paper_panel_height"
-                android:src="@drawable/ic_chevron_right" />
+                android:padding="@dimen/draw_paper_panel_btn_padding"
+                android:tint="@android:color/black"
+                android:src="@android:drawable/stat_sys_upload" />
             <!-- space -->
             <View
                 android:layout_width="0dp"

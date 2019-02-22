@@ -5,15 +5,23 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.graphics.PointF
+import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.ShapeDrawable
+import android.graphics.drawable.shapes.OvalShape
+import android.graphics.drawable.shapes.Shape
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_draw_paper.*
@@ -33,6 +41,16 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
 
     enum class State { LOLING_EDIT, TEXT_EDIT, IV_EDIT }
     private var currentState = State.LOLING_EDIT
+
+    private val colorList = arrayOf(
+        R.color.draw_paper_txt_black,
+        R.color.draw_paper_txt_red,
+        R.color.draw_paper_txt_yellow,
+        R.color.draw_paper_txt_green,
+        R.color.draw_paper_txt_blue,
+        R.color.draw_paper_txt_violet,
+        R.color.draw_paper_txt_white
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +74,63 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
         btnCloseEditTextPanel.setOnClickListener { closeEditPanel() }
         btnCloseIvPanel.setOnClickListener { closeEditPanel() }
 
+        generateTvColorChangeBtn()
+    }
+
+    private fun generateTvColorChangeBtn() {
+        for (colorId: Int in colorList) {
+            val colorInt = Color.parseColor(getString(colorId))
+            val btnSize = resources.getDimensionPixelSize(R.dimen.draw_paper_panel_color_btn_size)
+            val newIvChangeTxtColor = ImageView(this)
+            val newIvChangeBgColor = ImageView(this)
+
+            newIvChangeTxtColor.scaleType = ImageView.ScaleType.CENTER
+            newIvChangeBgColor.scaleType = ImageView.ScaleType.CENTER
+
+            val shapeTxt = GradientDrawable()
+            shapeTxt.shape = GradientDrawable.OVAL
+            shapeTxt.setColor(colorInt)
+            shapeTxt.setStroke(2, Color.WHITE)
+            shapeTxt.setSize(btnSize, btnSize)
+            newIvChangeTxtColor.setImageDrawable(shapeTxt)
+
+            val shapeBg = GradientDrawable()
+            shapeBg.shape = GradientDrawable.RECTANGLE
+            shapeBg.setColor(colorInt)
+            shapeBg.setStroke(2, Color.WHITE)
+            shapeBg.setSize(btnSize, btnSize)
+            newIvChangeBgColor.setImageDrawable(shapeBg)
+
+            pnTvColorSelector.addView(newIvChangeTxtColor)
+            pnTvBgSelector.addView(newIvChangeBgColor)
+
+            val paramTxt = newIvChangeTxtColor.layoutParams as LinearLayout.LayoutParams
+            val paramBg = newIvChangeBgColor.layoutParams as LinearLayout.LayoutParams
+
+            paramTxt.width = btnSize
+            paramTxt.weight = 1f
+            paramTxt.height = btnSize
+            newIvChangeTxtColor.layoutParams = paramTxt
+
+            paramBg.width = btnSize
+            paramBg.weight = 1f
+            paramBg.height = btnSize
+            newIvChangeBgColor.layoutParams = paramBg
+
+            // listener
+            newIvChangeTxtColor.setOnClickListener {
+                selectedComponent?.let {
+                    if(it.view is TextView)
+                        it.view.setTextColor(colorInt)
+                }
+            }
+            newIvChangeBgColor.setOnClickListener {
+                selectedComponent?.let {
+                    it.view.setBackgroundColor(colorInt)
+                }
+            }
+
+        }
     }
 
     private fun btnTextSizeChangeClicked(sizeUp: Boolean) {
@@ -103,7 +178,8 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
         val newComponent = Component(TextView(this), getMostTopZIndex()+1, this)
         // test data
         (newComponent.view as TextView).text = "Hello"
-        newComponent.view.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
+        newComponent.view.setTextColor(Color.BLACK)
+        newComponent.view.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30f)
         addComponent(newComponent)
 
         Log.v(DrawPaperActivity::class.java.simpleName, "New Text Component Added!!")
@@ -159,6 +235,19 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
         }
     }
 
+    /** Text 컴포넌트에서 문자열 수정시 즉시 적용될 수 있도록 하는 watcher */
+    private val textChangeWatcher: TextWatcher = object : TextWatcher {
+        override fun afterTextChanged(s: Editable?) {}
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            selectedComponent?.let {
+                if(it.view is TextView && s != null) {
+                    it.view.text = s.toString()
+                }
+            }
+        }
+    }
+
     fun closeEditPanel() {
         if (selectedComponent != null) {
             selectedComponent?.onComponentUnselected()
@@ -167,6 +256,7 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
         pnTvEdit.visibility = View.GONE
         pnIvEdit.visibility = View.GONE
         pnAddComponent.visibility = View.VISIBLE
+        txtTvEdit.removeTextChangedListener(textChangeWatcher)
 
         currentState = State.LOLING_EDIT
     }
@@ -186,6 +276,8 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
             pnTvEdit.visibility = View.VISIBLE
             txtTvEdit.setText(component.view.text)
             currentState = State.TEXT_EDIT
+
+            txtTvEdit.addTextChangedListener(textChangeWatcher)
 
         } else  // 컴포넌트가 이미지뷰면 zindex조절만
         if (component.view is ImageView) {
