@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
@@ -30,16 +31,66 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
     private val componentList: ArrayList<Component> = ArrayList()
     private var selectedComponent: Component? = null
 
-    enum class State { LOLING_EDIT, TEXT_EDIT }
+    enum class State { LOLING_EDIT, TEXT_EDIT, IV_EDIT }
     private var currentState = State.LOLING_EDIT
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_draw_paper)
 
+        // Add image or text
         btnDrawPaperCamera.setOnClickListener { btnDrawPaperCameraClicked() }
         btnDrawPaperText.setOnClickListener { btnDrawPaperTextClicked() }
 
+        // Text size change
+        btnTextSizeUp.setOnClickListener { btnTextSizeChangeClicked(sizeUp = true) }
+        btnTextSizeDown.setOnClickListener { btnTextSizeChangeClicked(sizeUp = false) }
+
+        // Component zIndex change
+        btnTextZindexUp.setOnClickListener { btnZindexAdjustClicked(isUp = true) }
+        btnTextZindexDown.setOnClickListener { btnZindexAdjustClicked(isUp = false) }
+        btnIvZindexUp.setOnClickListener { btnZindexAdjustClicked(isUp = true) }
+        btnIvZindexDown.setOnClickListener { btnZindexAdjustClicked(isUp = false) }
+
+        // Close component edit
+        btnCloseEditTextPanel.setOnClickListener { closeEditPanel() }
+        btnCloseIvPanel.setOnClickListener { closeEditPanel() }
+
+    }
+
+    private fun btnTextSizeChangeClicked(sizeUp: Boolean) {
+        selectedComponent?.let {
+            if(it.view !is TextView) return@let
+            when (sizeUp) {
+                true -> {
+                    it.increaseTextSizeRequest()
+                }
+                false -> {
+                    it.decreaseTextSizeRequest()
+                }
+            }
+        }
+    }
+
+    private fun btnZindexAdjustClicked(isUp: Boolean) {
+        selectedComponent?.let {
+            when (isUp) {
+                true -> {
+                    it.zIndex = getMostTopZIndex() + 1
+                }
+                false -> {
+                    val targetZIndex = it.zIndex - 1
+                    // zindex가 겹치면 안되기 때문에, 리스트 중 targetIndex와 같거나 높은 모든 컴포넌트의 zIndex를 +1 해준다
+                    for(comp: Component in componentList) {
+                        if(!comp.equals(it) && comp.zIndex >= targetZIndex)
+                            comp.zIndex += 1
+                    }
+                    it.zIndex = targetZIndex
+                }
+            }
+
+            orderViews()
+        }
     }
 
     private fun btnDrawPaperCameraClicked() {
@@ -49,10 +100,10 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
     }
 
     private fun btnDrawPaperTextClicked() {
-        val newComponent = Component(TextView(this), this)
+        val newComponent = Component(TextView(this), getMostTopZIndex()+1, this)
         // test data
         (newComponent.view as TextView).text = "Hello"
-        (newComponent.view as TextView).textSize = 50f
+        newComponent.view.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
         addComponent(newComponent)
 
         Log.v(DrawPaperActivity::class.java.simpleName, "New Text Component Added!!")
@@ -76,7 +127,7 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
 
                     val resizedBmp = Bitmap.createScaledBitmap(bitmap, toWidth, toHeight,  true)
 
-                    val newComponent = Component(ImageView(this), this)
+                    val newComponent = Component(ImageView(this), getMostTopZIndex()+1, this)
                     (newComponent.view as ImageView).setImageBitmap(resizedBmp)
                     newComponent.view.scaleType = ImageView.ScaleType.FIT_XY
                     addComponent(newComponent)
@@ -102,21 +153,22 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
                         }.create().show()
             }
 
-            State.TEXT_EDIT -> {
-                if (selectedComponent != null && selectedComponent?.view is TextView) {
-                    val view = selectedComponent?.view as TextView
-                    view.text = txtTvEdit.text.toString()
-                    //view.setTextColor()
-                    //view.setBackgroundColor()
-                    selectedComponent?.onComponentUnselected()
-                    selectedComponent = null
-                }
-                pnTvEdit.visibility = View.GONE
-                pnAddComponent.visibility = View.VISIBLE
-
-                currentState = State.LOLING_EDIT
+            State.TEXT_EDIT, State.IV_EDIT -> {
+                closeEditPanel()
             }
         }
+    }
+
+    fun closeEditPanel() {
+        if (selectedComponent != null) {
+            selectedComponent?.onComponentUnselected()
+            selectedComponent = null
+        }
+        pnTvEdit.visibility = View.GONE
+        pnIvEdit.visibility = View.GONE
+        pnAddComponent.visibility = View.VISIBLE
+
+        currentState = State.LOLING_EDIT
     }
 
     override fun onComponentTouchedDown(component: Component) {
@@ -129,12 +181,17 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
 
     override fun onComponentClicked(component: Component) {
         // 컴포넌트가 텍스트뷰면 텍스트 수정모드로 들어간다
-        if(component.view is TextView) {
+        if (component.view is TextView) {
             pnAddComponent.visibility = View.GONE
             pnTvEdit.visibility = View.VISIBLE
             txtTvEdit.setText(component.view.text)
-
             currentState = State.TEXT_EDIT
+
+        } else  // 컴포넌트가 이미지뷰면 zindex조절만
+        if (component.view is ImageView) {
+            pnAddComponent.visibility = View.GONE
+            pnIvEdit.visibility = View.VISIBLE
+            currentState = State.IV_EDIT
         }
     }
 
@@ -206,8 +263,6 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
                     originLeft = it.view.translationX
                     originTop = it.view.translationY
                     
-                    // 선택된 뷰 맨 앞으로
-                    it.view.bringToFront()
                 }
 
                 // 터치된 시간 저장
@@ -217,6 +272,8 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
                 isStillHolding = true
                 longClickHandler.removeCallbacks(longClickRunnable)
                 longClickHandler.postDelayed(longClickRunnable, LONG_CLICK_TIME)
+
+                //closeEditPanel()
             }
             MotionEvent.ACTION_POINTER_DOWN -> {    // 터치 다운
                 if(pointerCnt == 2) {   // 두 손가락만 지원
@@ -249,8 +306,6 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
                     val lParam: RelativeLayout.LayoutParams = it.view.layoutParams as RelativeLayout.LayoutParams
                     it.view.translationX = originLeft + dMove.x
                     it.view.translationY = originTop + dMove.y
-                    //lParam.leftMargin = originLeft + dMove.x.toInt()
-                    //lParam.topMargin = originTop + dMove.y.toInt()
                     it.view.layoutParams = lParam
 
                     // 뷰 확대축소/회전(2개 손가락일 경우에만)
@@ -276,7 +331,7 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
                                     originTouchPoint,
                                     PointF(ev.getX(0), ev.getY(0)))) {
                             onComponentClicked(it)
-                        } else {
+                        } else if (currentState == State.LOLING_EDIT) {
                             it.onComponentUnselected()
                             selectedComponent = null
                         }
@@ -292,8 +347,8 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
                                     originTouchPoint,
                                     PointF(ev.getX(0), ev.getY(0)))) {
                         onComponentClicked(it)
-                    } else {
-                        // 모든 손가락을 때면 선택된 컴포넌트 없음으로 한다
+                    } else if (currentState == State.LOLING_EDIT) {
+                        // 모든 손가락을 때면 선택된 컴포넌트 없음으로 한다 (선택중이 아니면)
                         it.onComponentUnselected()
                         selectedComponent = null
                     }
@@ -334,6 +389,27 @@ class DrawPaperActivity : AppCompatActivity(), IComponentTouchListener {
             Math.abs(touchDownPoint.y - touchUpPoint.y) > CLICK_DIST_THRESHOLD)
             return false
         return true
+    }
+
+    /**
+     * 현재 컴포넌트들중 가장 높은 zIndex값을 가져온다
+     */
+    private fun getMostTopZIndex(): Int{
+        var top = 0
+        for(comp: Component in componentList) {
+            if(comp.zIndex > top) top = comp.zIndex
+        }
+        return top
+    }
+
+    /**
+     * 뷰들 보이는 순서를 다시 정리한다.
+     * 각 꾸미기 컴포넌트들의 zIndex값이 낮을수록 밑에 보여지고(가려지고), 높을수록 위에 보여진다.
+     */
+    private fun orderViews() {
+        val sortedList = componentList.sortedWith(compareBy{it.zIndex})
+        for(comp: Component in sortedList)
+            comp.view.bringToFront()
     }
 
 }
