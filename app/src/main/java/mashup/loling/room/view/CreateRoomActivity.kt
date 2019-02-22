@@ -39,7 +39,6 @@ class CreateRoomActivity : BaseActivity() {
 
         override fun onCreateLolingButtonClicked() {
             // Check whether loling for selected user/date is already existed or not\
-            TODO("not implemented check loling existed + create new loling or join existed")
             if (false) { //this should be executed as async
                 // open new loling activity
                 onCreateNewLolingClicked()

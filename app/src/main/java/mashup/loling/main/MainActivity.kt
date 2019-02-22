@@ -21,9 +21,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.item_main_loling_room.view.*
 import mashup.loling.BaseActivity
 import mashup.loling.R
 import mashup.loling.fagment.FriendListFragment
+import mashup.loling.model.ERoom
 import mashup.loling.mypage.MyPageActivity
 import mashup.loling.room.view.CreateRoomActivity
 import mashup.loling.room.view.SelectFriendActivity
@@ -31,19 +33,39 @@ import mashup.loling.room.view.SelectFriendActivity
 
 class MainActivity : BaseActivity() {
 
+    private var dataList = arrayListOf(
+            ERoom("생일축하", 1, "소현", "2019.02.23", 30, "01025017444"),
+            ERoom("100일 기념", 1, "유정", "2019.02.23", 10, "01025017444"),
+            ERoom("생일축하", 4, "주진", "2019.02.26", 3, "01025017444"),
+            ERoom("생일축하", 4, "상희", "2019.02.26", 22, "01025017444"),
+            ERoom("생일축하", 5, "민수", "2019.02.28", 22, "01025017444"),
+            ERoom("생일축하", 8, "김희철", "2019.03.3", 22, "01025017444"),
+            ERoom("졸업", 11, "강민석", "2019.03.5", 1, "01025017444"),
+            ERoom("생일축하", 12, "김유정", "2019.03.6", 4, "01025017444"),
+            ERoom("생일축하", 18, "이민희", "2019.03.11", 110, "01025017444"),
+            ERoom("생일축하", 30, "elden", "2019.03.23", 2, "01025017444"),
+            ERoom("생일축하", 50, "happy", "2019.04.10", 4, "01025017444"),
+            ERoom("생일축하", 51, "이민상", "2019.04.11", 22, "01025017444"),
+            ERoom("생일축하", 52, "최상희", "2019.04.12", 4, "01025017444"),
+            ERoom("생일축하", 60, "소연", "2019.04.20", 2, "01025017444")
+    )
+
     private var context: Context = this
-    var pageNum = 10
+
     private val READ_CONTACTS_PERMISSIONS_REQUEST = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        var pageNum = dataList.size
+        if (pageNum>9) {
+            pageNum = 9
+        }
         faBtnMain.setImageResource(R.drawable.ic_add)
         contactPermissionCheck()
 
-        val fragment = FriendListFragment()
+        val fragment = FriendListFragment(dataList)
         supportFragmentManager.beginTransaction().add(R.id.frMainFriendList, fragment).commit()
 
         val pager = pagerContainer.viewPager as ViewPager
@@ -54,6 +76,7 @@ class MainActivity : BaseActivity() {
         pager.offscreenPageLimit = adapter.count
         pager.pageMargin = 20
         pager.clipChildren = false
+
         pagerIndicator?.createDotPanel(pageNum, R.drawable.indicator_dot_off, R.drawable.indicator_dot_on, pager.currentItem)
         pagerContainer.setIndicator(pagerIndicator)
 
@@ -91,7 +114,7 @@ class MainActivity : BaseActivity() {
                 .setSmallIcon(R.drawable.indicator_dot_on)
                 .setContentTitle("축하합니다! 롤링페이퍼가 도착했습니다.")
                 .setContentText("롤링페이퍼 보러가기!")
-                .setLargeIcon(BitmapFactory.decodeResource(resources,R.drawable.img_main))
+                .setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.img_main))
                 .setOngoing(true)
                 .setDefaults(Notification.DEFAULT_VIBRATE)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
@@ -108,11 +131,26 @@ class MainActivity : BaseActivity() {
                 val view2 = layoutInflater.inflate(R.layout.item_main_loling_room_max
                         , container, false)
                 container.addView(view2)
+                view2.setOnClickListener {
+                    intent = Intent(context, SelectFriendActivity::class.java)
+                    startActivity(intent)
+                }
                 return view2
             }
             val view = layoutInflater.inflate(R.layout.item_main_loling_room, container
                     , false)
             container.addView(view)
+            view.tvLolingRoomTitle.text = dataList[position].title
+            view.tvLolingRoomDday.text = "D - " + dataList[position].Dday
+            view.tvLolingRoomTarget.text = dataList[position].name + "님에게"
+            view.tvLolingRoomDate.text = dataList[position].date
+            view.tvLolingRoomCountParticipant.text = dataList[position].participant.toString()
+            view.setOnClickListener {
+                intent = Intent(context, CreateRoomActivity::class.java)
+                intent.putExtra("name", dataList[position].name)
+                intent.putExtra("phoneNum", dataList[position].phone)
+                startActivity(intent)
+            }
             return view
         }
 
@@ -125,12 +163,15 @@ class MainActivity : BaseActivity() {
         }
 
         override fun getCount(): Int {
-            return pageNum
+            if (dataList.size > 9) {
+                return 10
+            }
+            return dataList.size
         }
 
     }
 
-    private fun contactPermissionCheck(){
+    private fun contactPermissionCheck() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
                 != PackageManager.PERMISSION_GRANTED||
                 ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
