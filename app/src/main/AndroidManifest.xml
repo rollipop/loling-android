@@ -42,8 +42,10 @@
         <activity android:name=".room.view.SelectFriendActivity" />
         <activity
             android:name=".room.view.CreateRoomActivity"
-            android:theme="@style/Theme.CustomDialogActivity" />
-        <activity android:name=".drawpaper.view.DrawPaperActivity" />
+            android:theme="@style/Theme.CustomDialogActivity"
+            android:noHistory="true"/>
+        <activity android:name=".drawpaper.view.DrawPaperActivity"
+            android:noHistory="true"/>
 
         <activity android:name=".main.PaperNotiActivity"
             android:theme="@style/Theme.AppCompat.Translucent"/>
