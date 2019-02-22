@@ -5,10 +5,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import mashup.loling.main.MainActivity
+import mashup.loling.user.view.LoginActivityDataBinding
 
 class IntroActivity : AppCompatActivity(){
     var r: Runnable = Runnable {
-        val intent = Intent(applicationContext, MainActivity::class.java)
+        val intent = Intent(applicationContext, LoginActivityDataBinding::class.java)
         startActivity(intent)
 
         finish()

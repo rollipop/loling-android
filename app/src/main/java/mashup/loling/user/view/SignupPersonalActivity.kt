@@ -66,9 +66,9 @@ class SignupPersonalActivity : BaseActivity(), View.OnClickListener, DatePickerD
     }
 
     private fun updateDisplay() {
-        /*
-        etSignupPersonalBirthDay.set.setText(StringBuilder()
-                .append(dayOfMonth).append("/").append(month + 1).append("/").append(year).append(" "))*/
+
+        etSignupPersonalBirthDay.setText(StringBuilder()
+                .append(dayOfMonth).append("/").append(month + 1).append("/").append(year).append(" "))
     }
 
     override fun onDestroy() {
