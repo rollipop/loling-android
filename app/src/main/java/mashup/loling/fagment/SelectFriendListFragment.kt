@@ -23,7 +23,7 @@ class SelectFriendListFragment : Fragment {
         root.recyclerView.layoutManager = LinearLayoutManager(context)
         root.recyclerView.isNestedScrollingEnabled = false
         makeFriendList()
-        root.recyclerView.adapter = FriendItemAdapter(friends)
+        root.recyclerView.adapter = FriendItemAdapter(context!!,friends)
 
 
         return root
