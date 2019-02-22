@@ -13,8 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".IntroActivity" />
-        <activity android:name=".user.view.LoginActivityDataBinding">
+        <activity android:name=".user.view.LoginActivityDataBinding"/>
+        <activity android:name=".IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

@@ -1,6 +1,7 @@
 package mashup.loling.user.view
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
@@ -8,6 +9,7 @@ import android.widget.Toast
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_login.*
 import mashup.loling.R
 import mashup.loling.databinding.ActivityLoginBinding
 import mashup.loling.main.MainActivity
@@ -20,6 +22,14 @@ class LoginActivityDataBinding : DataBindingBaseActivity<ActivityLoginBinding>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val pref: SharedPreferences = getSharedPreferences("autoLogin", MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = pref.edit()
+        if (pref.getBoolean("checkAutoLogin", false)) {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
 
         /*
@@ -42,12 +52,15 @@ class LoginActivityDataBinding : DataBindingBaseActivity<ActivityLoginBinding>()
 
 
         viewDataBinding.btnLogin.setOnClickListener {
-            Log.v("csh","id:"+viewDataBinding.etLoginID.text)
-            Log.v("csh","pw:"+viewDataBinding.etLoginPW.text)
+            Log.v("csh", "id:" + viewDataBinding.etLoginID.text)
+            Log.v("csh", "pw:" + viewDataBinding.etLoginPW.text)
 
-            if(viewDataBinding.etLoginID.text.toString() == "admin" && viewDataBinding.etLoginPW.text.toString() == "admin") {
+            if (viewDataBinding.etLoginID.text.toString() == "admin" && viewDataBinding.etLoginPW.text.toString() == "admin") {
                 val intent = Intent(this, MainActivity::class.java)
+                editor.putBoolean("checkAutoLogin", checkAutoLogin.isChecked)
+                editor.apply()
                 startActivity(intent)
+                finish()
             }
 
             mDisposable.add(ApiManager.login(viewDataBinding.etLoginID.text.toString(), viewDataBinding.etLoginPW.text.toString())
@@ -57,8 +70,13 @@ class LoginActivityDataBinding : DataBindingBaseActivity<ActivityLoginBinding>()
                     .doAfterTerminate { unFreezeUI() }
                     .subscribe({ result ->
                         Toast.makeText(applicationContext, result, Toast.LENGTH_SHORT).show()
+
+                        editor.putBoolean("checkAutoLogin", checkAutoLogin.isChecked)
+                        editor.apply()
+
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
+                        finish()
                     }, { exception ->
                         Toast.makeText(applicationContext, exception.message, Toast.LENGTH_SHORT).show()
                     }))
@@ -79,4 +97,5 @@ class LoginActivityDataBinding : DataBindingBaseActivity<ActivityLoginBinding>()
         viewDataBinding.getRoot().setAlpha(1.0f)
         window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
     }
+
 }
